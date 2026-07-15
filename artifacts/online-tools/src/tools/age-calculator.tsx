@@ -5,6 +5,8 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Calendar, CalendarDays, Hash, Clock, AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { ToolEmptyState } from '@/components/tool-empty-state';
+import { ToolResultBadge } from '@/components/tool-result-badge';
 
 type AgeResult =
   | { ok: true; years: number; months: number; days: number; totalDaysLived: number }
@@ -87,10 +89,11 @@ export default function AgeCalculator() {
 
       <div className="pt-4">
         {!result ? (
-          <div className="h-48 border-2 border-dashed rounded-xl flex items-center justify-center text-muted-foreground text-sm flex-col gap-2">
-            <Calendar className="w-8 h-8 opacity-20" />
-            <span>Enter a birth date to calculate age</span>
-          </div>
+          <ToolEmptyState
+            icon={Calendar}
+            message="Enter a birth date to calculate age"
+            className="h-48"
+          />
         ) : !result.ok ? (
           <Alert variant="destructive">
             <AlertCircle className="h-4 w-4" />
@@ -98,7 +101,8 @@ export default function AgeCalculator() {
           </Alert>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Card className="p-6 col-span-1 md:col-span-3 bg-primary/5 border-primary/20 text-center flex flex-col items-center justify-center py-10">
+            <Card className="relative p-6 col-span-1 md:col-span-3 bg-primary/5 border-primary/20 text-center flex flex-col items-center justify-center py-10">
+              <ToolResultBadge />
               <span className="text-sm font-medium text-muted-foreground mb-2 flex items-center gap-1.5"><Clock className="w-4 h-4" /> Exact Age</span>
               <div className="text-4xl md:text-5xl font-bold font-display tracking-tight text-foreground">
                 {result.years} <span className="text-2xl text-muted-foreground font-sans">years</span>, {result.months} <span className="text-2xl text-muted-foreground font-sans">months</span>, {result.days} <span className="text-2xl text-muted-foreground font-sans">days</span>

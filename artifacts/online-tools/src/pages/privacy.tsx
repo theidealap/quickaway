@@ -1,4 +1,5 @@
 import { SEO } from '@/components/seo';
+import { Link } from 'wouter';
 
 export default function Privacy() {
   return (
@@ -50,7 +51,8 @@ export default function Privacy() {
 
           <h2>Contact Us</h2>
           <p>
-            If you have any questions about this Privacy Policy, please contact us through our <a href="/contact">Contact page</a>.
+            If you have any questions about this Privacy Policy, please contact us through our{' '}
+            <Link href="/contact" className="text-primary hover:underline">Contact page</Link>.
           </p>
         </div>
       </div>

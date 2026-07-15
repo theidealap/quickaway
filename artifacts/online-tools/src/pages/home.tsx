@@ -46,18 +46,20 @@ export default function Home() {
             A reliable suite of utilities for students, professionals, and anyone who needs a quick answer without the clutter.
           </p>
           
-          <div className="pt-8 max-w-2xl mx-auto relative group">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-muted-foreground group-focus-within:text-primary transition-colors">
-              <Search className="h-6 w-6" />
+          <div className="pt-8 max-w-2xl mx-auto">
+            <div className="relative group">
+              <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center pointer-events-none text-muted-foreground group-focus-within:text-primary transition-colors">
+                <Search className="h-5 w-5" />
+              </div>
+              <Input
+                type="search"
+                placeholder="Search for tools... (e.g. 'Age', 'Word count', 'Percentage')"
+                className="pl-12 py-7 text-lg rounded-2xl shadow-sm border-muted-foreground/20 focus-visible:ring-primary/30 transition-all bg-card"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                data-testid="input-search-tools"
+              />
             </div>
-            <Input 
-              type="search"
-              placeholder="Search for tools... (e.g. 'Age', 'Word count', 'Percentage')"
-              className="pl-12 py-7 text-lg rounded-2xl shadow-sm border-muted-foreground/20 focus-visible:ring-primary/30 transition-all bg-card"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              data-testid="input-search-tools"
-            />
           </div>
         </div>
       </section>

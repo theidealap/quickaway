@@ -3,6 +3,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Percent, ArrowRight, ArrowUpRight, ArrowDownRight } from 'lucide-react';
+import { ToolEmptyState } from '@/components/tool-empty-state';
+import { ToolResultBadge } from '@/components/tool-result-badge';
 
 export default function PercentageCalculator() {
   const [val1, setVal1] = useState('');
@@ -69,7 +71,8 @@ export default function PercentageCalculator() {
           const y = parseNum(val2)!;
           const result = (x / 100) * y;
           return (
-            <Card className="p-6 bg-primary/5 border-primary/20 mt-8 flex flex-col items-center">
+            <Card className="relative p-6 bg-primary/5 border-primary/20 mt-8 flex flex-col items-center">
+              <ToolResultBadge />
               <span className="text-muted-foreground mb-2 font-medium">Result</span>
               <div className="text-4xl md:text-5xl font-bold font-display text-foreground mb-4">
                 {formatResult(result)}
@@ -78,9 +81,7 @@ export default function PercentageCalculator() {
             </Card>
           );
         })() : (
-          <div className="h-32 border-2 border-dashed rounded-xl flex items-center justify-center text-muted-foreground mt-8">
-            Enter both numbers to see the result
-          </div>
+          <ToolEmptyState icon={Percent} message="Enter both numbers to see the result" className="mt-8" />
         )}
       </TabsContent>
 
@@ -116,7 +117,8 @@ export default function PercentageCalculator() {
           
           const result = (x / y) * 100;
           return (
-            <Card className="p-6 bg-primary/5 border-primary/20 mt-8 flex flex-col items-center">
+            <Card className="relative p-6 bg-primary/5 border-primary/20 mt-8 flex flex-col items-center">
+              <ToolResultBadge />
               <span className="text-muted-foreground mb-2 font-medium">Result</span>
               <div className="text-4xl md:text-5xl font-bold font-display text-foreground mb-4 flex items-center gap-1">
                 {formatResult(result)}<Percent className="w-8 h-8 text-muted-foreground"/>
@@ -125,9 +127,7 @@ export default function PercentageCalculator() {
             </Card>
           );
         })() : (
-          <div className="h-32 border-2 border-dashed rounded-xl flex items-center justify-center text-muted-foreground mt-8">
-            Enter both numbers to see the result
-          </div>
+          <ToolEmptyState icon={Percent} message="Enter both numbers to see the result" className="mt-8" />
         )}
       </TabsContent>
 
@@ -167,7 +167,8 @@ export default function PercentageCalculator() {
           const isDecrease = result < 0;
           
           return (
-            <Card className={`p-6 border mt-8 flex flex-col items-center ${isIncrease ? 'bg-emerald-500/10 border-emerald-500/30' : isDecrease ? 'bg-rose-500/10 border-rose-500/30' : 'bg-primary/5 border-primary/20'}`}>
+            <Card className={`relative p-6 border mt-8 flex flex-col items-center ${isIncrease ? 'bg-emerald-500/10 border-emerald-500/30' : isDecrease ? 'bg-rose-500/10 border-rose-500/30' : 'bg-primary/5 border-primary/20'}`}>
+              <ToolResultBadge />
               <span className="text-muted-foreground mb-2 font-medium">
                 {isIncrease ? 'Percentage Increase' : isDecrease ? 'Percentage Decrease' : 'No Change'}
               </span>
@@ -181,9 +182,7 @@ export default function PercentageCalculator() {
             </Card>
           );
         })() : (
-          <div className="h-32 border-2 border-dashed rounded-xl flex items-center justify-center text-muted-foreground mt-8">
-            Enter both numbers to see the change
-          </div>
+          <ToolEmptyState icon={Percent} message="Enter both numbers to see the change" className="mt-8" />
         )}
       </TabsContent>
     </Tabs>

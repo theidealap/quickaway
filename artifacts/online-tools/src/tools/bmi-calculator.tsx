@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Activity, AlertCircle, Ruler, Weight } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { ToolEmptyState } from '@/components/tool-empty-state';
+import { ToolResultBadge } from '@/components/tool-result-badge';
 
 type Unit = 'metric' | 'imperial';
 
@@ -199,7 +201,8 @@ export default function BmiCalculator() {
           (() => {
             const category = getCategory(result.bmi);
             return (
-              <Card className={`p-6 border text-center flex flex-col items-center py-10 ${getCategoryCardClass(result.bmi)}`}>
+              <Card className={`relative p-6 border text-center flex flex-col items-center py-10 ${getCategoryCardClass(result.bmi)}`}>
+                <ToolResultBadge />
                 <span className="text-sm font-medium text-muted-foreground mb-2 flex items-center gap-1.5">
                   <Activity className="w-4 h-4" /> Your BMI
                 </span>
@@ -211,10 +214,11 @@ export default function BmiCalculator() {
             );
           })()
         ) : (
-          <div className="h-48 border-2 border-dashed rounded-xl flex items-center justify-center text-muted-foreground text-sm flex-col gap-2">
-            <Activity className="w-8 h-8 opacity-20" />
-            <span>Enter your height and weight to calculate BMI</span>
-          </div>
+          <ToolEmptyState
+            icon={Activity}
+            message="Enter your height and weight to calculate BMI"
+            className="h-48"
+          />
         )}
       </div>
 

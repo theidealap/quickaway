@@ -6,19 +6,19 @@ import { Button } from '@/components/ui/button';
 export default function About() {
   return (
     <>
-      <SEO 
-        title="About ToolBox - Free, Fast Online Utilities" 
-        description="Learn why we built ToolBox: a no-nonsense, ad-free collection of essential browser tools that just work."
+      <SEO
+        title="About ToolBox - Free, Fast Online Utilities"
+        description="ToolBox is a growing collection of free, ad-free, browser-based tools built to help you solve everyday problems in seconds."
       />
-      
+
       <div className="container mx-auto px-4 py-16 max-w-4xl">
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center p-3 bg-primary/10 rounded-2xl mb-6">
             <Hammer className="w-10 h-10 text-primary" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Built for speed. Designed for clarity.</h1>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Everyday problems deserve instant answers.</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            We were tired of ad-stuffed, cluttered, and slow utility websites. So we built our own.
+            ToolBox is a growing hub of free online tools built to solve small, everyday tasks quickly — without the clutter that usually comes with them.
           </p>
         </div>
 
@@ -26,38 +26,40 @@ export default function About() {
           <div className="bg-card border rounded-2xl p-8 shadow-sm">
             <Zap className="w-8 h-8 text-amber-500 mb-4" />
             <h3 className="text-xl font-semibold mb-3">Lightning Fast</h3>
-            <p className="text-muted-foreground">Every tool runs completely in your browser. No server calls, no loading spinners, no waiting. Just instant results as you type.</p>
+            <p className="text-muted-foreground">Every tool runs entirely in your browser. No server round-trips, no loading spinners — just instant results as you type.</p>
           </div>
           <div className="bg-card border rounded-2xl p-8 shadow-sm">
             <Shield className="w-8 h-8 text-emerald-500 mb-4" />
             <h3 className="text-xl font-semibold mb-3">Privacy First</h3>
-            <p className="text-muted-foreground">Your data never leaves your device. We don't track what you calculate, count, or convert. It's just you and the math.</p>
+            <p className="text-muted-foreground">Your data never leaves your device. We don't track what you calculate, count, or convert — it stays between you and your browser.</p>
           </div>
           <div className="bg-card border rounded-2xl p-8 shadow-sm">
             <Sparkles className="w-8 h-8 text-primary mb-4" />
-            <h3 className="text-xl font-semibold mb-3">Zero Clutter</h3>
-            <p className="text-muted-foreground">No popups, no intrusive ads, no confusing interfaces. We focus on clean typography, clear inputs, and precise outputs.</p>
+            <h3 className="text-xl font-semibold mb-3">Always Growing</h3>
+            <p className="text-muted-foreground">We're steadily adding new tools across categories, from quick calculators to everyday text utilities — all built with the same standard of quality.</p>
           </div>
         </div>
 
         <div className="prose prose-lg dark:prose-invert mx-auto">
-          <h2>The Story</h2>
+          <h2>Why ToolBox Exists</h2>
           <p>
-            How many times have you needed to quickly check a word count, calculate a percentage difference, or find out exactly how many days are between two dates? 
+            Small tasks shouldn't take five minutes. Checking a word count, calculating a percentage, figuring out an exact age, or converting a unit are the kinds of things people need to do dozens of times a year — yet most tools built for these jobs are buried under ads, pop-ups, and pages that take longer to load than the task itself takes to do by hand.
           </p>
           <p>
-            If you're like us, you google it, click the first result, and are immediately bombarded by cookie banners, video ads, and a tool that requires three page loads to give you a simple number.
+            <strong>ToolBox</strong> takes a different approach. We're building a reliable, no-nonsense library of utilities that just work: clean interfaces, instant results, and nothing standing between you and the answer you came for.
           </p>
+
+          <h2>A Toolkit That Keeps Expanding</h2>
           <p>
-            <strong>ToolBox</strong> is our answer to that. We're building a registry of essential tools that you can rely on. It's a progressive web app, meaning it works beautifully on mobile, scales to any screen size, and feels like a native application rather than a webpage from 2005.
+            ToolBox isn't a fixed set of calculators — it's a foundation we're actively building on. Every tool we add follows the same principles: fast, private, and genuinely useful for real everyday situations, whether that's for students, professionals, or anyone who just needs a quick, trustworthy answer.
           </p>
-          
+
           <h2>What's Next?</h2>
           <p>
-            We are constantly expanding our registry of tools. Have an idea for a tool that you use every day? Head over to our contact page and let us know.
+            We're continuously expanding our catalog of tools based on what people actually need. Have an idea for a tool you use often but can never find a good version of? Head over to our contact page and let us know — your suggestions directly shape what we build next.
           </p>
         </div>
-        
+
         <div className="mt-16 text-center border-t pt-16">
           <h2 className="text-2xl font-bold mb-6">Ready to get things done?</h2>
           <Link href="/">
