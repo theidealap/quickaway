@@ -1,0 +1,112 @@
+We are preparing Release 1.5 of Online Tool Hub.
+
+Please add the following 6 new tools and integrate them fully into the existing application.
+
+Requirements for ALL tools:
+
+- Follow the same design language as existing tools.
+- Fully responsive on desktop and mobile.
+- Support dark mode.
+- Add each tool to the search functionality.
+- Add each tool to the homepage tool listing.
+- Add tool detail pages consistent with existing tools.
+- Add related tools suggestions where appropriate.
+- Keep implementation clean, production-ready, and consistent with the current architecture.
+- Do not add extra features beyond the scope below unless required for usability.
+
+----------------------------------------
+1. QR Code Generator
+----------------------------------------
+
+Generate a QR code from text, URL, email, phone number, or any custom content.
+
+Features:
+- Live QR preview
+- Download as PNG
+- Adjustable size
+- Clear input
+
+----------------------------------------
+2. GPA Calculator
+----------------------------------------
+
+Calculate GPA based on course grades and credit hours.
+
+Features:
+- Support GPA scales of 4.0 and 5.0
+- Add/remove courses
+- Enter grade and credit hours
+- Show final GPA instantly
+
+----------------------------------------
+3. WhatsApp Link Generator
+----------------------------------------
+
+Generate a WhatsApp chat link with an optional pre-filled message.
+
+Features:
+- Country code selector
+- Phone number input
+- Optional welcome message
+- Generate direct WhatsApp link
+- Generate QR code for the link
+- Copy link button
+
+----------------------------------------
+4. Email Signature Generator
+----------------------------------------
+
+Generate a professional HTML email signature.
+
+Features:
+- Name
+- Job title
+- Company
+- Email
+- Phone
+- Website
+- Optional logo URL
+- Live preview
+- Copy HTML signature
+
+----------------------------------------
+5. Unit Converter
+----------------------------------------
+
+Convert values between common measurement units.
+
+Categories:
+- Length
+- Weight
+- Temperature
+- Area
+- Volume
+
+Features:
+- Real-time conversion
+- Unit swap button
+
+----------------------------------------
+6. Countdown to Date
+----------------------------------------
+
+Create a countdown to a specific future date and time.
+
+Features:
+- Select target date
+- Live countdown
+- Days
+- Hours
+- Minutes
+- Seconds
+- Shareable countdown URL
+
+----------------------------------------
+
+After implementation:
+
+- Run typecheck.
+- Run production build.
+- Verify all new tools render correctly.
+- Verify search functionality includes all new tools.
+- Commit all changes and provide the commit ID.
