@@ -1,0 +1,111 @@
+You are acting as a Senior Product Designer and Frontend Engineer.
+
+Review the entire Online Tool Hub project and implement the following Sprint 1 improvements.
+
+IMPORTANT:
+- Maintain the current visual identity and responsiveness.
+- Do not break existing tools or functionality.
+- Test all changes before committing.
+- Commit all completed changes to Git when finished.
+- Provide a summary of what was changed.
+
+====================================
+SPRINT 1 - HIGH PRIORITY FIXES
+====================================
+
+1. Search Bar UX Fix
+- Review the search bar on the homepage.
+- Fix the search icon alignment.
+- Ensure the icon is visually centered and properly spaced.
+- Improve overall search bar appearance if needed.
+
+2. Privacy Policy → Contact Us Link
+- The Contact Us link inside the Privacy Policy page currently leads to a Page Not Found error.
+- Fix the routing/navigation.
+- Ensure all internal links work correctly.
+
+3. Terms of Service Page
+- The Terms of Service page currently shows Page Not Found.
+- Create and implement a complete Terms of Service page.
+- Match the design style of the existing Privacy Policy page.
+- Ensure navigation links work correctly.
+
+4. Contact Us Page Review
+
+Review and improve the entire Contact Us experience.
+
+Current issues:
+- The page displays a demo message:
+  "This is a demo form. In the real app this would send an email."
+- This should not be shown to end users.
+- Remove all demo/development placeholder messaging.
+- Review any displayed email addresses and ensure they are appropriate for production.
+
+IMPORTANT:
+- Do NOT implement actual email sending functionality yet.
+- Do NOT connect the form to Gmail or any email provider.
+- Do NOT expose any email address publicly.
+
+Future Requirement:
+- The website owner plans to connect this form in the future to a hidden Gmail inbox or a business email address.
+- The email address must never be publicly visible on the website.
+- Design and structure the page so future email integration can be added easily without major redesign.
+
+Instead:
+- Keep a professional contact form design.
+- Prepare the form structure for future backend/email integration.
+- Add proper validation and user-friendly form fields.
+- Remove all fake/demo messaging.
+- Do not show fake success messages or fake email behavior.
+- If needed, provide a professional informational message that the contact system is currently being finalized.
+
+5. Results Area Design Improvement
+Across all tools:
+- Review the result display section.
+- The current design looks similar to a file upload/drop area.
+- Redesign the result container to clearly communicate:
+  - Calculation completed
+  - Result displayed
+  - Easy readability
+- Improve visual hierarchy and spacing.
+- Keep consistency across all tools.
+
+6. About Us Enhancement
+Rewrite and improve the About Us page.
+
+Current content is too generic.
+
+The new About Us page should:
+- Explain the purpose of Online Tool Hub.
+- Focus on helping users solve everyday problems quickly.
+- Reflect a growing collection of useful online tools.
+- Be professional, trustworthy, and user-focused.
+- Be suitable for future SEO efforts.
+- Not mention only the current tools.
+
+====================================
+QUALITY REVIEW
+====================================
+
+After implementing all changes:
+
+1. Review the entire site for:
+- Broken links
+- Missing routes
+- Obvious UI inconsistencies
+
+2. Verify:
+- Privacy Policy links work correctly.
+- Terms of Service page works correctly.
+- Contact Us page works correctly.
+- Search bar alignment is fixed.
+- Result areas look visually distinct from upload areas.
+
+3. Run a full production build and verify there are no build errors.
+
+4. Commit all changes to Git.
+
+5. Provide:
+- Summary of completed work.
+- Any remaining recommendations.
+- Commit ID.
