@@ -1,24 +1,22 @@
-import { useRoute, Link, useLocation } from 'wouter';
+import { useRoute, Link } from 'wouter';
 import { toolsRegistry } from '@/lib/tools-registry';
 import { Suspense } from 'react';
 import { ArrowLeft, Hammer } from 'lucide-react';
 import { SEO } from '@/components/seo';
 import { Skeleton } from '@/components/ui/skeleton';
+import NotFound from '@/pages/not-found';
 
 export default function ToolDetail() {
   const [match, params] = useRoute('/tools/:slug');
-  const [, setLocation] = useLocation();
 
   if (!match || !params?.slug) {
-    setLocation('/not-found');
-    return null;
+    return <NotFound />;
   }
 
   const tool = toolsRegistry.find(t => t.slug === params.slug);
 
   if (!tool) {
-    setLocation('/not-found');
-    return null;
+    return <NotFound />;
   }
 
   const ToolComponent = tool.component;
