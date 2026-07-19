@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'wouter';
 
-export const SITE_URL = 'https://online-tool-hub.vercel.app';
+export const SITE_URL = 'https://online-tool-hub-drab.vercel.app';
 export const SITE_NAME = 'ToolBox';
 
 interface SEOProps {

@@ -3,31 +3,31 @@
 
   <!-- Core pages -->
   <url>
-    <loc>https://online-tool-hub.vercel.app/</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://online-tool-hub.vercel.app/about</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/about</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://online-tool-hub.vercel.app/contact</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/contact</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://online-tool-hub.vercel.app/privacy</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/privacy</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://online-tool-hub.vercel.app/terms</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/terms</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -35,61 +35,61 @@
 
   <!-- Tool pages -->
   <url>
-    <loc>https://online-tool-hub.vercel.app/tools/age-calculator</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/tools/age-calculator</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://online-tool-hub.vercel.app/tools/percentage-calculator</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/tools/percentage-calculator</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://online-tool-hub.vercel.app/tools/word-counter</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/tools/word-counter</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://online-tool-hub.vercel.app/tools/bmi-calculator</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/tools/bmi-calculator</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://online-tool-hub.vercel.app/tools/gpa-calculator</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/tools/gpa-calculator</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://online-tool-hub.vercel.app/tools/unit-converter</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/tools/unit-converter</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://online-tool-hub.vercel.app/tools/qr-code-generator</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/tools/qr-code-generator</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://online-tool-hub.vercel.app/tools/whatsapp-link-generator</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/tools/whatsapp-link-generator</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://online-tool-hub.vercel.app/tools/email-signature-generator</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/tools/email-signature-generator</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://online-tool-hub.vercel.app/tools/countdown-to-date</loc>
+    <loc>https://online-tool-hub-drab.vercel.app/tools/countdown-to-date</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
