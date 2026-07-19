@@ -3,6 +3,7 @@ import { toolsRegistry } from '@/lib/tools-registry';
 import { Suspense } from 'react';
 import { ArrowLeft, Hammer } from 'lucide-react';
 import { SEO } from '@/components/seo';
+import { JsonLd, buildSoftwareAppSchema } from '@/components/json-ld';
 import { Skeleton } from '@/components/ui/skeleton';
 import NotFound from '@/pages/not-found';
 
@@ -26,6 +27,14 @@ export default function ToolDetail() {
       <SEO 
         title={`${tool.name} - Free Online Tool | ToolBox`} 
         description={tool.longDescription ?? tool.shortDescription}
+      />
+      <JsonLd
+        id={`tool-${tool.slug}`}
+        schema={buildSoftwareAppSchema({
+          name: tool.name,
+          description: tool.longDescription ?? tool.shortDescription,
+          slug: tool.slug,
+        })}
       />
       
       <div className="container mx-auto px-4 py-8 max-w-5xl">

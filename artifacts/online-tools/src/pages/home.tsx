@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { SEO } from '@/components/seo';
+import { JsonLd, buildWebsiteSchema, buildOrganizationSchema } from '@/components/json-ld';
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -32,6 +33,8 @@ export default function Home() {
         title="ToolBox - Free Online Utilities for Everyday Tasks" 
         description="A fast, no-nonsense hub of free browser-based utilities for everyday calculations and text tasks. No installation required."
       />
+      <JsonLd id="website" schema={buildWebsiteSchema()} />
+      <JsonLd id="organization" schema={buildOrganizationSchema()} />
       
       <section className="bg-primary/5 py-16 md:py-24 px-4 border-b border-primary/10">
         <div className="container mx-auto max-w-4xl text-center space-y-6">
