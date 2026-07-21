@@ -276,4 +276,76 @@ export const toolsRegistry: ToolEntry[] = [
     category: 'Text Tools',
     component: lazy(() => import('@/tools/text-case-converter')),
   },
+  {
+    slug: 'roman-numeral-converter',
+    name: 'Roman Numeral Converter',
+    shortDescription: 'Convert numbers to Roman numerals and Roman numerals back to numbers.',
+    longDescription:
+      'Enter any number from 1 to 3,999 to see its Roman numeral equivalent — or type a Roman numeral to convert it back to a standard number. Includes a one-click swap and a quick-reference table.',
+    seoTitle: 'Free Roman Numeral Converter – Numbers to Roman Numerals | ToolBox',
+    seoDescription:
+      'Convert any number (1–3999) to Roman numerals, or convert Roman numerals back to numbers. Instant, bidirectional converter with quick-reference table. Free.',
+    category: 'Converters',
+    component: lazy(() => import('@/tools/roman-numeral-converter')),
+  },
+  {
+    slug: 'lorem-ipsum-generator',
+    name: 'Lorem Ipsum Generator',
+    shortDescription: 'Generate placeholder Lorem Ipsum text by paragraphs, sentences, or words.',
+    longDescription:
+      'Create Lorem Ipsum placeholder text in any amount — choose paragraphs, sentences, or words, set the quantity with a slider, and toggle the classic opening phrase. Copy the result with one click.',
+    seoTitle: 'Free Lorem Ipsum Generator – Placeholder Text by Paragraph | ToolBox',
+    seoDescription:
+      'Generate Lorem Ipsum placeholder text by paragraphs, sentences, or words. Choose quantity, toggle the classic opening, and copy instantly. Free online Lorem Ipsum tool.',
+    category: 'Generators',
+    component: lazy(() => import('@/tools/lorem-ipsum-generator')),
+  },
+  {
+    slug: 'base-converter',
+    name: 'Binary / Hex / Octal Converter',
+    shortDescription: 'Convert numbers between binary, octal, decimal, and hexadecimal in real time.',
+    longDescription:
+      'Type a number in any base — binary (base 2), octal (base 8), decimal (base 10), or hexadecimal (base 16) — and all four representations update instantly. Includes a common values reference table.',
+    seoTitle: 'Free Binary / Hex / Octal Converter – Base 2, 8, 10, 16 | ToolBox',
+    seoDescription:
+      'Convert numbers between binary, octal, decimal, and hexadecimal instantly. Type in any base and all others update in real time. Free online number base converter.',
+    category: 'Converters',
+    component: lazy(() => import('@/tools/base-converter')),
+  },
+  {
+    slug: 'number-to-words',
+    name: 'Number to Words Converter',
+    shortDescription: 'Convert any number into English words — cardinal and ordinal forms.',
+    longDescription:
+      'Type any integer (positive or negative, up to 999 quadrillion) and instantly see it written out in English — in lowercase, capitalised, cardinal, and ordinal forms. Copy any variant with one click.',
+    seoTitle: 'Free Number to Words Converter – Write Numbers in English | ToolBox',
+    seoDescription:
+      'Convert any number to English words: cardinal (one thousand) and ordinal (one thousandth) forms, in lowercase and capitalised. Free, instant, no sign-up.',
+    category: 'Converters',
+    component: lazy(() => import('@/tools/number-to-words')),
+  },
+  {
+    slug: 'uuid-generator',
+    name: 'UUID Generator',
+    shortDescription: 'Generate up to 20 cryptographically random UUID v4 identifiers at once.',
+    longDescription:
+      'Generate 1–20 UUID v4 identifiers in a single click using your browser\'s native crypto API. Toggle uppercase, copy individual UUIDs or all at once, and regenerate any time — nothing is sent to a server.',
+    seoTitle: 'Free UUID Generator – Random UUID v4 Online | ToolBox',
+    seoDescription:
+      'Generate 1–20 cryptographically random UUID v4 identifiers instantly. Copy individual or all at once. Runs entirely in your browser — no server, no tracking. Free.',
+    category: 'Developer Tools',
+    component: lazy(() => import('@/tools/uuid-generator')),
+  },
+  {
+    slug: 'base64-encoder-decoder',
+    name: 'Base64 Encoder / Decoder',
+    shortDescription: 'Encode plain text to Base64 or decode a Base64 string back to text.',
+    longDescription:
+      'Switch between Encode and Decode modes. Encoding converts any Unicode text to a Base64 string; decoding converts a Base64 string back to readable text, with clear error messages for invalid input. Everything runs in your browser.',
+    seoTitle: 'Free Base64 Encoder / Decoder – Online Base64 Tool | ToolBox',
+    seoDescription:
+      'Encode plain text to Base64 or decode Base64 strings back to text. Handles Unicode correctly. Runs entirely in your browser — no uploads, no tracking. Free.',
+    category: 'Developer Tools',
+    component: lazy(() => import('@/tools/base64-encoder-decoder')),
+  },
 ];
