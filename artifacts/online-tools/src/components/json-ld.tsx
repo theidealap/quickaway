@@ -89,24 +89,85 @@ export function buildSoftwareAppSchema(opts: {
   };
 }
 
-/** Schema.org BreadcrumbList for tool pages: Home > Tool Name. */
-export function buildBreadcrumbSchema(opts: { name: string; slug: string }) {
+/**
+ * Schema.org BreadcrumbList.
+ *
+ * - Without `category`: Home > Tool Name  (2 items)
+ * - With    `category`: Home > Category > Tool Name  (3 items)
+ */
+export function buildBreadcrumbSchema(opts: {
+  name: string;
+  slug: string;
+  category?: { name: string; slug: string };
+}) {
+  const items: Record<string, unknown>[] = [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+  ];
+
+  if (opts.category) {
+    items.push({
+      '@type': 'ListItem',
+      position: 2,
+      name: opts.category.name,
+      item: `${SITE_URL}/${opts.category.slug}`,
+    });
+    items.push({
+      '@type': 'ListItem',
+      position: 3,
+      name: opts.name,
+      item: `${SITE_URL}/tools/${opts.slug}`,
+    });
+  } else {
+    items.push({
+      '@type': 'ListItem',
+      position: 2,
+      name: opts.name,
+      item: `${SITE_URL}/tools/${opts.slug}`,
+    });
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items,
+  };
+}
+
+/**
+ * Schema.org BreadcrumbList for category pages: Home > Category Name  (2 items).
+ */
+export function buildCategoryBreadcrumbSchema(opts: { name: string; slug: string }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: SITE_URL,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: opts.name,
-        item: `${SITE_URL}/tools/${opts.slug}`,
-      },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: opts.name, item: `${SITE_URL}/${opts.slug}` },
     ],
+  };
+}
+
+/**
+ * Schema.org CollectionPage for a category page listing multiple tools.
+ */
+export function buildCategorySchema(opts: {
+  name: string;
+  slug: string;
+  description: string;
+  tools: Array<{ name: string; slug: string }>;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: opts.name,
+    description: opts.description,
+    url: `${SITE_URL}/${opts.slug}`,
+    hasPart: opts.tools.map((tool) => ({
+      '@type': 'SoftwareApplication',
+      name: tool.name,
+      url: `${SITE_URL}/tools/${tool.slug}`,
+      applicationCategory: 'UtilityApplication',
+      isAccessibleForFree: true,
+    })),
   };
 }

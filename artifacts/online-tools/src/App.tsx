@@ -1,20 +1,16 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Route, Switch, Router as WouterRouter } from 'wouter';
 import { Toaster } from '@/components/ui/toaster';
-import { TooltipProvider } from '@/components/ui/tooltip';
+import { AppLayout } from '@/components/layout/app-layout';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
-import NotFound from '@/pages/not-found';
-import { Route, Switch, Router as WouterRouter } from 'wouter';
-import { AppLayout } from '@/components/layout/app-layout';
-
 import Home from '@/pages/home';
 import ToolDetail from '@/pages/tool-detail';
 import About from '@/pages/about';
 import Contact from '@/pages/contact';
 import Privacy from '@/pages/privacy';
 import Terms from '@/pages/terms';
-
-const queryClient = new QueryClient();
+import CategoryPage from '@/pages/category';
+import NotFound from '@/pages/not-found';
 
 function Router() {
   return (
@@ -26,25 +22,25 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />
+        {/* Category routes — must be before the NotFound catch-all.
+            CategoryPage validates the slug internally and renders NotFound
+            if it doesn't match a known category. */}
+        <Route path="/:categorySlug" component={CategoryPage} />
         <Route component={NotFound} />
       </Switch>
     </AppLayout>
   );
 }
 
-function App() {
+export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL?.replace(/\/$/, '') || ''}>
-          <Router />
-        </WouterRouter>
-        <Toaster />
-        <Analytics />
-        <SpeedInsights />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <>
+      <Analytics />
+      <SpeedInsights />
+      <WouterRouter base={import.meta.env.BASE_URL?.replace(/\/$/, '') || ''}>
+        <Router />
+      </WouterRouter>
+      <Toaster />
+    </>
   );
 }
-
-export default App;
