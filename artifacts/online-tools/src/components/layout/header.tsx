@@ -29,7 +29,7 @@ export function Header() {
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-1.5 shrink-0">
             <span className="font-display font-bold text-lg tracking-tight text-foreground">
-              Tool<span className="text-primary">Box</span>
+              Quick<span className="text-primary">Away</span>
             </span>
           </Link>
 

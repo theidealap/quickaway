@@ -81,7 +81,7 @@ export const guidesRegistry: GuideEntry[] = [
     title: 'How to Calculate Age',
     description:
       'A complete guide to calculating exact age in years, months, and days — including how to handle leap years and age on a specific date.',
-    seoTitle: 'How to Calculate Age – Exact Years, Months & Days | ToolBox',
+    seoTitle: 'How to Calculate Age – Exact Years, Months & Days | QuickAway',
     seoDescription:
       'Learn how to calculate exact age from a date of birth, step by step. Covers year/month/day breakdown, leap years, and age on a specific past or future date.',
     category: 'Calculators',
@@ -178,7 +178,7 @@ export const guidesRegistry: GuideEntry[] = [
     title: 'Percentage Calculation Guide',
     description:
       'A practical guide covering the three types of percentage problems: finding a percentage of a number, finding what percentage X is of Y, and calculating percentage change.',
-    seoTitle: 'Percentage Calculation Guide – Formulas, Examples & FAQs | ToolBox',
+    seoTitle: 'Percentage Calculation Guide – Formulas, Examples & FAQs | QuickAway',
     seoDescription:
       'Master percentage calculations with clear formulas and worked examples. Covers finding X% of Y, what % one number is of another, and percentage increase/decrease.',
     category: 'Calculators',
@@ -276,7 +276,7 @@ export const guidesRegistry: GuideEntry[] = [
     title: 'BMI Calculator Guide',
     description:
       'Everything you need to know about Body Mass Index: the formula, BMI categories, metric vs. imperial conversion, and the limitations of BMI as a health indicator.',
-    seoTitle: 'BMI Calculator Guide – Formula, Categories & Limitations | ToolBox',
+    seoTitle: 'BMI Calculator Guide – Formula, Categories & Limitations | QuickAway',
     seoDescription:
       'Understand how BMI is calculated, what your BMI score means, how to use metric and imperial measurements, and why BMI alone does not tell the full health picture.',
     category: 'Calculators',
@@ -374,7 +374,7 @@ export const guidesRegistry: GuideEntry[] = [
     title: 'Roman Numerals Chart',
     description:
       'A complete reference chart for Roman numerals 1–3,999 with the 7 core symbols, subtractive notation rules, and a quick-reference table of common values.',
-    seoTitle: 'Roman Numerals Chart – Complete Reference 1 to 3999 | ToolBox',
+    seoTitle: 'Roman Numerals Chart – Complete Reference 1 to 3999 | QuickAway',
     seoDescription:
       'Learn the 7 Roman numeral symbols, understand subtractive notation (IV, IX, XL, XC, CD, CM), and use our quick-reference table to read and write Roman numerals.',
     category: 'Converters',
@@ -492,7 +492,7 @@ export const guidesRegistry: GuideEntry[] = [
     title: 'Date Difference Calculator Guide',
     description:
       'Learn how to calculate the exact number of days, weeks, months, and years between two dates — including how leap years affect the count.',
-    seoTitle: 'Date Difference Calculator Guide – Days Between Dates Explained | ToolBox',
+    seoTitle: 'Date Difference Calculator Guide – Days Between Dates Explained | QuickAway',
     seoDescription:
       'Learn how to calculate the exact difference between two dates in days, weeks, months and years. Covers leap years, calendar edge cases, and real-world use cases.',
     category: 'Date & Time',

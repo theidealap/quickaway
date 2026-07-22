@@ -31,7 +31,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <Link href="/" className="inline-block mb-3">
               <span className="font-display font-bold text-base tracking-tight text-foreground">
-                Tool<span className="text-primary">Box</span>
+                Quick<span className="text-primary">Away</span>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
@@ -123,7 +123,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} ToolBox. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} QuickAway. All rights reserved.</p>
           <p>Free tools. No sign-up. No tracking.</p>
         </div>
       </div>

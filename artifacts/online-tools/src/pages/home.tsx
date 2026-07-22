@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="ToolBox — Free Online Calculator & Tool Hub"
+        title="QuickAway — Free Online Calculator & Tool Hub"
         description="Free browser-based utilities for everyday calculations, conversions, and text tasks. Age calculator, BMI, percentage, unit converter, and 17 more tools. No sign-up."
       />
       <JsonLd id="website"      schema={buildWebsiteSchema()}      />

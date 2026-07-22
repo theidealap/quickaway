@@ -42,8 +42,8 @@ export default function Author() {
   return (
     <>
       <SEO
-        title={`${AUTHOR_NAME} — Author & Web Tools Developer | ToolBox`}
-        description={`${AUTHOR_NAME} is the creator of ToolBox — free browser-based calculators and utility tools. Learn about the author's background, expertise, and the mission behind the site.`}
+        title={`${AUTHOR_NAME} — Author & Web Tools Developer | QuickAway`}
+        description={`${AUTHOR_NAME} is the creator of QuickAway — free browser-based calculators and utility tools. Learn about the author's background, expertise, and the mission behind the site.`}
       />
       <JsonLd id="person-schema"           schema={buildPersonSchema()}          />
       <JsonLd id="author-breadcrumb-schema" schema={buildAuthorBreadcrumbSchema()} />
@@ -100,10 +100,10 @@ export default function Author() {
         <section className="mb-10 pt-8 border-t border-border">
           <h2 className="text-base font-semibold text-foreground mb-3">Website Mission</h2>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            ToolBox exists to give everyone access to fast, accurate, free tools for the small calculations and lookups that come up in everyday life — without sign-ups, ads, or friction. Every tool runs entirely in your browser, so nothing you type is ever sent to a server.
+            QuickAway exists to give everyone access to fast, accurate, free tools for the small calculations and lookups that come up in everyday life — without sign-ups, ads, or friction. Every tool runs entirely in your browser, so nothing you type is ever sent to a server.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed mt-3">
-            The guides on ToolBox are written to the same standard: no filler, no jargon, just clear explanations with worked examples and the formulas behind every result.
+            The guides on QuickAway are written to the same standard: no filler, no jargon, just clear explanations with worked examples and the formulas behind every result.
           </p>
           <div className="flex flex-wrap gap-4 mt-4">
             <Link href="/editorial-policy" className="text-sm text-primary hover:underline underline-offset-4 flex items-center gap-1.5">
@@ -112,7 +112,7 @@ export default function Author() {
             </Link>
             <Link href="/about" className="text-sm text-primary hover:underline underline-offset-4 flex items-center gap-1.5">
               <Wrench className="w-3.5 h-3.5" />
-              About ToolBox
+              About QuickAway
             </Link>
           </div>
         </section>

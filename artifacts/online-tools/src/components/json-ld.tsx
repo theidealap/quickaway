@@ -234,7 +234,7 @@ export function buildGuidesCollectionSchema(guides: Array<{ title: string; slug:
   return {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'Free Guides & How-To Articles | ToolBox',
+    name: 'Free Guides & How-To Articles | QuickAway',
     description:
       'Step-by-step guides explaining the maths and concepts behind free online tools — worked examples, formulas, and FAQs.',
     url: `${SITE_URL}/guides`,

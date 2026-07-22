@@ -52,8 +52,8 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact Us - ToolBox"
-        description="Get in touch with the ToolBox team. Request new tools, report bugs, or just say hello."
+        title="Contact Us - QuickAway"
+        description="Get in touch with the QuickAway team. Request new tools, report bugs, or just say hello."
       />
 
       <div className="container mx-auto px-4 py-16 max-w-5xl">

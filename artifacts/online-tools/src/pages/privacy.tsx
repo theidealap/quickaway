@@ -5,8 +5,8 @@ export default function Privacy() {
   return (
     <>
       <SEO
-        title="Privacy Policy - ToolBox"
-        description="ToolBox does not collect or store any data you enter into its tools. All calculations run locally in your browser. Read our full privacy policy."
+        title="Privacy Policy - QuickAway"
+        description="QuickAway does not collect or store any data you enter into its tools. All calculations run locally in your browser. Read our full privacy policy."
       />
       
       <div className="container mx-auto px-4 py-16 max-w-3xl">
@@ -22,7 +22,7 @@ export default function Privacy() {
             <strong>We don't collect, store, or share the data you enter into our tools.</strong>
           </p>
           <p>
-            ToolBox's tools run entirely in your browser. When you calculate an age, count words, or work out a percentage, that processing happens on your device — the numbers, text, and dates you enter never reach our servers.
+            QuickAway's tools run entirely in your browser. When you calculate an age, count words, or work out a percentage, that processing happens on your device — the numbers, text, and dates you enter never reach our servers.
           </p>
 
           <h2>Data We Do Collect</h2>

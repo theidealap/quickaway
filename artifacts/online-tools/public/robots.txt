@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://online-tool-hub-drab.vercel.app/sitemap.xml
+Sitemap: https://quickaway.app/sitemap.xml

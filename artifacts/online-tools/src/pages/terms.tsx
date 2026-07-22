@@ -5,8 +5,8 @@ export default function Terms() {
   return (
     <>
       <SEO
-        title="Terms of Service - ToolBox"
-        description="Terms and conditions for using ToolBox's free online calculators and utilities. Tools are provided as-is for informational purposes."
+        title="Terms of Service - QuickAway"
+        description="Terms and conditions for using QuickAway's free online calculators and utilities. Tools are provided as-is for informational purposes."
       />
 
       <div className="container mx-auto px-4 py-16 max-w-3xl">
@@ -19,17 +19,17 @@ export default function Terms() {
 
           <h2>Acceptance of Terms</h2>
           <p>
-            By using ToolBox (the "Service"), you agree to these Terms of Service. If you don't agree with them, please don't use the Service.
+            By using QuickAway (the "Service"), you agree to these Terms of Service. If you don't agree with them, please don't use the Service.
           </p>
 
           <h2>Description of Service</h2>
           <p>
-            ToolBox is a collection of free, browser-based tools for everyday calculations and text tasks. Everything runs on your device — nothing you type into a tool is sent to or stored on our servers. See our{' '}
+            QuickAway is a collection of free, browser-based tools for everyday calculations and text tasks. Everything runs on your device — nothing you type into a tool is sent to or stored on our servers. See our{' '}
             <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link> for details.
           </p>
 
           <h2>Use of the Service</h2>
-          <p>When using ToolBox, please don't:</p>
+          <p>When using QuickAway, please don't:</p>
           <ul>
             <li>Try to disrupt or overload the Service.</li>
             <li>Attempt to gain unauthorized access to the Service or its underlying systems.</li>
@@ -43,7 +43,7 @@ export default function Terms() {
 
           <h2>Service Availability</h2>
           <p>
-            We aim to keep ToolBox available and reliable, but we can't guarantee uninterrupted access. We may modify, suspend, or discontinue any part of the Service at any time.
+            We aim to keep QuickAway available and reliable, but we can't guarantee uninterrupted access. We may modify, suspend, or discontinue any part of the Service at any time.
           </p>
 
           <h2>Disclaimer of Warranties</h2>
@@ -53,7 +53,7 @@ export default function Terms() {
 
           <h2>Limitation of Liability</h2>
           <p>
-            To the extent permitted by law, ToolBox and its operators aren't liable for damages arising from your use of, or inability to use, the Service.
+            To the extent permitted by law, QuickAway and its operators aren't liable for damages arising from your use of, or inability to use, the Service.
           </p>
 
           <h2>Changes to These Terms</h2>

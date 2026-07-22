@@ -12,7 +12,7 @@ export default function GuidesIndex() {
   return (
     <>
       <SEO
-        title="Free Guides & How-To Articles | ToolBox"
+        title="Free Guides & How-To Articles | QuickAway"
         description="Step-by-step guides explaining the maths and concepts behind our free online tools. Learn how to calculate age, percentages, BMI, Roman numerals, and more."
       />
       <JsonLd id="guides-breadcrumb"  schema={buildGuidesIndexBreadcrumbSchema()} />

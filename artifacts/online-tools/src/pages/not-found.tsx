@@ -7,7 +7,7 @@ import { SEO } from '@/components/seo';
 export default function NotFound() {
   return (
     <>
-      <SEO title="Page Not Found - ToolBox" description="The page you are looking for does not exist." />
+      <SEO title="Page Not Found - QuickAway" description="The page you are looking for does not exist." />
       <div className="flex-1 w-full flex items-center justify-center p-4">
         <div className="max-w-md w-full text-center space-y-6">
           <div className="bg-primary/10 text-primary w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">

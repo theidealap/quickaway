@@ -7,8 +7,8 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About ToolBox — Free Browser-Based Utilities, No Sign-Up Required"
-        description="ToolBox is a free collection of browser-based calculators and utilities that run entirely on your device. No account needed, no data collected, instant results."
+        title="About QuickAway — Free Browser-Based Utilities, No Sign-Up Required"
+        description="QuickAway is a free collection of browser-based calculators and utilities that run entirely on your device. No account needed, no data collected, instant results."
       />
 
       {/* ── Page header ── */}
@@ -21,7 +21,7 @@ export default function About() {
               <li className="text-foreground font-medium">About</li>
             </ol>
           </nav>
-          <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">About ToolBox</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">About QuickAway</h1>
           <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-xl">
             A free collection of browser-based calculators and utilities for the small tasks you run into every day.
           </p>
@@ -33,9 +33,9 @@ export default function About() {
 
         {/* What it is */}
         <section className="mb-10">
-          <h2 className="text-base font-semibold text-foreground mb-3">What ToolBox Is</h2>
+          <h2 className="text-base font-semibold text-foreground mb-3">What QuickAway Is</h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-            ToolBox is a small set of free calculators and utilities — things like checking an age, a percentage, or a word count — built to be quick and easy to use, without ads or unnecessary steps in the way.
+            QuickAway is a small set of free calculators and utilities — things like checking an age, a percentage, or a word count — built to be quick and easy to use, without ads or unnecessary steps in the way.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed">
             We're adding more tools over time, based on what people find useful. Have a suggestion? Use the{' '}
@@ -90,7 +90,7 @@ export default function About() {
         <section className="pt-8 border-t border-border mb-10">
           <h2 className="text-base font-semibold text-foreground mb-3">Editorial Standards</h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-            Every guide on ToolBox is researched and written from primary sources. Formulas are verified, health metrics follow published guidelines (WHO, CDC), and all content is reviewed on a rolling basis.
+            Every guide on QuickAway is researched and written from primary sources. Formulas are verified, health metrics follow published guidelines (WHO, CDC), and all content is reviewed on a rolling basis.
           </p>
           <Link
             href="/editorial-policy"
