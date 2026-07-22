@@ -6,7 +6,6 @@ import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
 import { Copy, RefreshCw, ShieldCheck, ShieldAlert, ShieldOff, Lock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { ToolResultBadge } from '@/components/tool-result-badge';
 
 const CHARS = {
   upper: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -82,10 +81,10 @@ const STRENGTH_WIDTH: Record<Strength, string> = {
 
 export default function PasswordGenerator() {
   const { toast } = useToast();
-  const [length, setLength] = useState(16);
+  const [length, setLength] = useState(8);
   const [opts, setOpts] = useState({ upper: true, lower: true, numbers: true, symbols: true });
   const [password, setPassword] = useState(() =>
-    generatePassword(16, { upper: true, lower: true, numbers: true, symbols: true })
+    generatePassword(8, { upper: true, lower: true, numbers: true, symbols: true })
   );
 
   const regen = useCallback(() => {
@@ -108,7 +107,8 @@ export default function PasswordGenerator() {
 
   const copy = () => {
     if (!password) return;
-    navigator.clipboard.writeText(password);
+    // Trim defensively to guarantee no leading/trailing whitespace is copied
+    navigator.clipboard.writeText(password.trim());
     toast({ title: 'Password copied', description: 'Saved to your clipboard.', duration: 2000 });
   };
 
@@ -120,8 +120,7 @@ export default function PasswordGenerator() {
   return (
     <div className="space-y-6">
       {/* Output */}
-      <Card className="relative p-6 bg-primary/5 border-primary/20">
-        <ToolResultBadge />
+      <Card className="p-6 bg-primary/5 border-primary/20">
         <div className="flex items-center gap-3">
           <Lock className="w-5 h-5 text-muted-foreground shrink-0" />
           <span

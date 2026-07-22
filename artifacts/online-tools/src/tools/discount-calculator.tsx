@@ -8,7 +8,6 @@ import { Tag, TrendingDown, AlertCircle } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { ToolEmptyState } from '@/components/tool-empty-state';
-import { ToolResultBadge } from '@/components/tool-result-badge';
 
 function fmt(n: number) {
   return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -179,19 +178,18 @@ function Results({
   }
   return (
     <div className="space-y-4">
-      <Card className="relative p-6 bg-primary/5 border-primary/20 text-center py-10">
-        <ToolResultBadge />
+      <Card className="p-6 bg-primary/5 border-primary/20 text-center py-10">
         <p className="text-sm text-muted-foreground mb-2">Sale Price</p>
-        <p className="text-5xl font-bold font-display text-foreground">${fmt(result.salePrice)}</p>
+        <p className="text-4xl md:text-5xl font-bold font-display text-foreground break-all">${fmt(result.salePrice)}</p>
       </Card>
       <div className="grid grid-cols-2 gap-4">
-        <Card className="p-4 text-center">
+        <Card className="p-4 text-center min-w-0 overflow-hidden">
           <p className="text-xs text-muted-foreground mb-1">You Save</p>
-          <p className="text-2xl font-bold text-emerald-500">${fmt(result.savings)}</p>
+          <p className="text-lg md:text-2xl font-bold text-emerald-500 break-all leading-tight">${fmt(result.savings)}</p>
         </Card>
-        <Card className="p-4 text-center">
+        <Card className="p-4 text-center min-w-0 overflow-hidden">
           <p className="text-xs text-muted-foreground mb-1">Discount</p>
-          <p className="text-2xl font-bold text-emerald-500">{result.pct.toFixed(1)}%</p>
+          <p className="text-lg md:text-2xl font-bold text-emerald-500 break-all leading-tight">{result.pct.toFixed(1)}%</p>
         </Card>
       </div>
     </div>

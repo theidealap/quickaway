@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Users, Receipt, AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { ToolEmptyState } from '@/components/tool-empty-state';
-import { ToolResultBadge } from '@/components/tool-result-badge';
 
 function fmt(n: number) {
   return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -129,26 +128,25 @@ export default function TipCalculator() {
       ) : (
         <div className="space-y-4">
           {/* Primary: per-person total */}
-          <Card className="relative p-6 bg-primary/5 border-primary/20 text-center py-10">
-            <ToolResultBadge />
+          <Card className="p-6 bg-primary/5 border-primary/20 text-center py-10">
             <p className="text-sm text-muted-foreground mb-2">
               {result.p > 1 ? `Total per person (÷ ${result.p})` : 'Total (with tip)'}
             </p>
-            <p className="text-5xl font-bold font-display text-foreground">${fmt(result.totalPerPerson)}</p>
+            <p className="text-4xl md:text-5xl font-bold font-display text-foreground break-all">${fmt(result.totalPerPerson)}</p>
           </Card>
 
-          <div className="grid grid-cols-3 gap-4">
-            <Card className="p-4 text-center">
+          <div className="grid grid-cols-3 gap-3 md:gap-4">
+            <Card className="p-3 md:p-4 text-center min-w-0 overflow-hidden">
               <p className="text-xs text-muted-foreground mb-1">Tip Total</p>
-              <p className="text-2xl font-bold font-display">${fmt(result.tipTotal)}</p>
+              <p className="text-base md:text-2xl font-bold font-display break-all leading-tight">${fmt(result.tipTotal)}</p>
             </Card>
-            <Card className="p-4 text-center">
+            <Card className="p-3 md:p-4 text-center min-w-0 overflow-hidden">
               <p className="text-xs text-muted-foreground mb-1">Tip / Person</p>
-              <p className="text-2xl font-bold font-display">${fmt(result.tipPerPerson)}</p>
+              <p className="text-base md:text-2xl font-bold font-display break-all leading-tight">${fmt(result.tipPerPerson)}</p>
             </Card>
-            <Card className="p-4 text-center">
+            <Card className="p-3 md:p-4 text-center min-w-0 overflow-hidden">
               <p className="text-xs text-muted-foreground mb-1">Grand Total</p>
-              <p className="text-2xl font-bold font-display">${fmt(result.grandTotal)}</p>
+              <p className="text-base md:text-2xl font-bold font-display break-all leading-tight">${fmt(result.grandTotal)}</p>
             </Card>
           </div>
         </div>

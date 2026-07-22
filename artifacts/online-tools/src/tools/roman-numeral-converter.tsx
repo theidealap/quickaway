@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Copy, ArrowLeftRight, AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
-import { ToolResultBadge } from '@/components/tool-result-badge';
 
 // ── Roman numeral logic ───────────────────────────────────────────────────────
 
@@ -52,9 +51,12 @@ export default function RomanNumeralConverter() {
 
   const numResult = useMemo(() => {
     if (!numInput) return null;
-    const n = parseInt(numInput, 10);
-    if (isNaN(n)) return { ok: false as const, error: 'Enter a whole number.' };
-    if (n < 1 || n > 3999) return { ok: false as const, error: 'Number must be between 1 and 3999.' };
+    const n = parseFloat(numInput);
+    if (isNaN(n)) return { ok: false as const, error: 'Enter a whole number between 1 and 3999.' };
+    if (!Number.isInteger(n)) return { ok: false as const, error: 'Roman numerals only support whole numbers — decimals are not supported.' };
+    if (n === 0) return { ok: false as const, error: 'Zero has no Roman numeral representation. The supported range is 1–3999.' };
+    if (n < 0) return { ok: false as const, error: 'Roman numerals only support positive numbers. Negative numbers are not supported (range: 1–3999).' };
+    if (n > 3999) return { ok: false as const, error: `${n.toLocaleString()} is above the maximum. Roman numerals only go up to MMMCMXCIX (3,999).` };
     return { ok: true as const, output: toRoman(n) };
   }, [numInput]);
 
@@ -132,8 +134,7 @@ export default function RomanNumeralConverter() {
       {/* Results */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Number → Roman result */}
-        <Card className="relative p-6 min-h-[120px] flex flex-col justify-center bg-primary/5 border-primary/20">
-          {numResult?.ok && <ToolResultBadge />}
+        <Card className="p-6 min-h-[120px] flex flex-col justify-center bg-primary/5 border-primary/20">
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Roman numeral</p>
           {!numInput ? (
             <p className="text-muted-foreground text-sm italic">Enter a number on the left</p>
@@ -155,8 +156,7 @@ export default function RomanNumeralConverter() {
         </Card>
 
         {/* Roman → Number result */}
-        <Card className="relative p-6 min-h-[120px] flex flex-col justify-center bg-primary/5 border-primary/20">
-          {romResult?.ok && <ToolResultBadge />}
+        <Card className="p-6 min-h-[120px] flex flex-col justify-center bg-primary/5 border-primary/20">
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Number</p>
           {!romInput ? (
             <p className="text-muted-foreground text-sm italic">Enter a Roman numeral on the right</p>

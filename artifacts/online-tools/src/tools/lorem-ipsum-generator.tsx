@@ -5,7 +5,6 @@ import { Slider } from '@/components/ui/slider';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Copy, RefreshCw, AlignLeft } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { ToolResultBadge } from '@/components/tool-result-badge';
 import { Card } from '@/components/ui/card';
 
 // ── Word bank ─────────────────────────────────────────────────────────────────
@@ -195,8 +194,7 @@ export default function LoremIpsumGenerator() {
       </div>
 
       {/* Output */}
-      <Card className="relative p-6 bg-primary/5 border-primary/20">
-        <ToolResultBadge />
+      <Card className="p-6 bg-primary/5 border-primary/20">
         <div className="flex items-start justify-between gap-4 mb-4">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <AlignLeft className="w-4 h-4" />

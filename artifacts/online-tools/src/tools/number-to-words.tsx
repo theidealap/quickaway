@@ -6,7 +6,6 @@ import { Card } from '@/components/ui/card';
 import { Copy, Hash, AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { ToolEmptyState } from '@/components/tool-empty-state';
-import { ToolResultBadge } from '@/components/tool-result-badge';
 import { useToast } from '@/hooks/use-toast';
 
 // ── Number → words logic ──────────────────────────────────────────────────────
@@ -141,9 +140,8 @@ export default function NumberToWords() {
           ].map(({ label, value }, i) => (
             <Card
               key={label}
-              className={`relative group p-5 flex items-start justify-between gap-4 transition-colors hover:border-primary/40 hover:bg-primary/5 ${i === 0 ? 'bg-primary/5 border-primary/20' : 'bg-card'}`}
+              className={`p-5 flex items-start justify-between gap-4 transition-colors hover:border-primary/40 hover:bg-primary/5 ${i === 0 ? 'bg-primary/5 border-primary/20' : 'bg-card'}`}
             >
-              {i === 0 && <ToolResultBadge />}
               <div className="min-w-0 flex-1">
                 <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">{label}</p>
                 <p className="text-sm leading-relaxed text-foreground break-words">{value}</p>
@@ -151,8 +149,9 @@ export default function NumberToWords() {
               <Button
                 size="icon"
                 variant="ghost"
-                className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                className="shrink-0"
                 onClick={() => copy(value, label)}
+                title={`Copy ${label}`}
               >
                 <Copy className="w-4 h-4" />
               </Button>

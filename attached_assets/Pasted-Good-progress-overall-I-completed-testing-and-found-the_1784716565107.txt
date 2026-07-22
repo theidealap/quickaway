@@ -1,0 +1,100 @@
+Good progress overall. I completed testing and found the following improvements and fixes.
+
+General UX Improvement
+For all tools that display the "Calculated" badge above results:
+- Remove the "Calculated" badge completely.
+- It adds visual clutter and does not provide useful information.
+- This applies to:
+  - Password Generator
+  - Roman Numeral Converter
+  - Lorem Ipsum Generator
+  - Number to Words Converter
+  - UUID Generator
+  - Base64 Encoder / Decoder
+
+1) Password Generator
+- Remove the "Calculated" badge.
+- Set the default password length to 8 characters.
+- Verify copied passwords do not contain any leading or trailing spaces.
+- Verify no hidden whitespace characters are copied.
+
+2) Date Difference Calculator
+- No issues found.
+
+3) Discount Calculator
+- Long values overflow outside the result cards.
+- Fix responsive behavior for:
+  - You Save
+  - Discount
+- Values should wrap, shrink appropriately, or use a responsive layout so they always remain inside the card boundaries.
+
+4) Tip Calculator
+- Long values overflow outside the result cards.
+- Fix responsive behavior for:
+  - Tip Total
+  - Tip / Person
+  - Grand Total
+- Values must always remain fully visible inside their containers.
+
+5) Text Case Converter
+- No issues found.
+
+6) Roman Numeral Converter
+- Remove the "Calculated" badge.
+- Add clear validation messaging for unsupported values.
+- Current limitation is 1–3999.
+- If a user enters:
+  - Negative numbers
+  - Zero
+  - Numbers above 3999
+  show a clear validation message explaining the supported range.
+- Do not silently fail.
+
+7) Lorem Ipsum Generator
+- Remove the "Calculated" badge.
+- The badge currently creates a visual issue above the Copy action.
+
+8) Binary / Hex / Octal Converter
+- No issues found.
+
+9) Number to Words Converter
+- Remove the "Calculated" badge.
+- Add a Copy button for the generated text output.
+
+10) UUID Generator
+- Remove the "Calculated" badge.
+- The badge currently creates a visual issue above the Copy action.
+
+- Add a short beginner-friendly explanation section:
+  Example:
+  "UUID (Universally Unique Identifier) is a unique ID used by applications, databases, APIs, and software systems to identify records without duplication."
+
+- Add helper text for:
+  "Number of UUIDs"
+
+  Example:
+  "Choose how many unique IDs to generate at once."
+
+- Keep the explanation concise and user-friendly.
+
+11) Base64 Encoder / Decoder
+- Remove the "Calculated" badge.
+- The badge currently creates a visual issue above the Copy action.
+
+- Improve usability:
+  When switching between:
+    - Text → Base64
+    - Base64 → Text
+
+  Do not clear the existing content automatically.
+
+- Preserve the current content and allow users to switch directions without re-pasting data.
+
+- Ensure Encode and Decode workflows remain intuitive.
+
+After implementing:
+Please provide:
+1. Build validation results
+2. Files changed
+3. Any UI/UX improvements made beyond the requested fixes
+4. New commit hash

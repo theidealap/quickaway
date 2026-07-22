@@ -6,7 +6,6 @@ import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
 import { Copy, RefreshCw, Check } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { ToolResultBadge } from '@/components/tool-result-badge';
 
 // ── UUID v4 generation ────────────────────────────────────────────────────────
 
@@ -67,12 +66,21 @@ export default function UuidGenerator() {
 
   return (
     <div className="space-y-6">
+      {/* What is a UUID? */}
+      <div className="rounded-xl border bg-muted/40 p-4 text-sm text-muted-foreground leading-relaxed">
+        <span className="font-semibold text-foreground">What is a UUID?</span>{' '}
+        A UUID (Universally Unique Identifier) is a unique ID used by applications, databases, APIs, and software systems to identify records without duplication. Each UUID v4 is randomly generated and practically guaranteed to be unique across all time and space.
+      </div>
+
       {/* Controls */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {/* Count slider */}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <Label className="text-base">Number of UUIDs</Label>
+            <div>
+              <Label className="text-base">Number of UUIDs</Label>
+              <p className="text-xs text-muted-foreground mt-0.5">Choose how many unique IDs to generate at once.</p>
+            </div>
             <span className="text-2xl font-bold font-display text-primary w-8 text-right">{count}</span>
           </div>
           <Slider min={1} max={20} step={1} value={[count]} onValueChange={changeCount} />
@@ -92,9 +100,7 @@ export default function UuidGenerator() {
       </div>
 
       {/* UUID list */}
-      <Card className="relative p-5 bg-primary/5 border-primary/20 space-y-2">
-        <ToolResultBadge />
-
+      <Card className="p-5 bg-primary/5 border-primary/20 space-y-2">
         {/* Header row */}
         <div className="flex items-center justify-between mb-3">
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
