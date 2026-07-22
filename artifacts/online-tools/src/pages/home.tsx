@@ -1,12 +1,16 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'wouter';
 import { toolsRegistry, CATEGORY_SLUGS, type Category } from '@/lib/tools-registry';
-import { Search, ArrowRight, Hammer } from 'lucide-react';
+import { guidesRegistry } from '@/lib/guides-registry';
+import { Search, ArrowRight, Hammer, BookOpen } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { SEO } from '@/components/seo';
 import { JsonLd, buildWebsiteSchema, buildOrganizationSchema } from '@/components/json-ld';
+
+// Show the first 3 guides as "Popular Guides" on the homepage
+const popularGuides = guidesRegistry.slice(0, 3);
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -66,6 +70,41 @@ export default function Home() {
                 data-testid="input-search-tools"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Popular Guides ── */}
+      <section className="container mx-auto px-4 pt-12 md:pt-16">
+        <div className="space-y-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <BookOpen className="w-5 h-5 text-primary" />
+              <h2 className="text-2xl font-bold tracking-tight">Popular Guides</h2>
+            </div>
+            <Link
+              href="/guides"
+              className="text-sm font-medium text-primary hover:underline underline-offset-4 transition-colors shrink-0"
+            >
+              Browse all guides →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {popularGuides.map((guide) => (
+              <Link key={guide.slug} href={`/guides/${guide.slug}`}>
+                <Card className="h-full hover:border-primary/50 hover:shadow-md transition-all cursor-pointer group flex flex-col bg-card/50">
+                  <CardHeader className="flex-1">
+                    <Badge variant="secondary" className="text-xs w-fit mb-2">{guide.category}</Badge>
+                    <CardTitle className="text-base leading-snug group-hover:text-primary transition-colors">
+                      {guide.title}
+                    </CardTitle>
+                    <CardDescription className="text-sm text-muted-foreground leading-relaxed mt-1">
+                      {guide.description}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

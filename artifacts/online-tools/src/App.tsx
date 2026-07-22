@@ -10,6 +10,8 @@ import Contact from '@/pages/contact';
 import Privacy from '@/pages/privacy';
 import Terms from '@/pages/terms';
 import CategoryPage from '@/pages/category';
+import GuidesIndex from '@/pages/guides-index';
+import GuideDetail from '@/pages/guide-detail';
 import NotFound from '@/pages/not-found';
 
 function Router() {
@@ -22,6 +24,9 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />
+        {/* Guides — must be before /:categorySlug so /guides is not swallowed */}
+        <Route path="/guides" component={GuidesIndex} />
+        <Route path="/guides/:slug" component={GuideDetail} />
         {/* Category routes — must be before the NotFound catch-all.
             CategoryPage validates the slug internally and renders NotFound
             if it doesn't match a known category. */}

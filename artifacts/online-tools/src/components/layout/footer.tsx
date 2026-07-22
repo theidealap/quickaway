@@ -1,6 +1,7 @@
 import { Link } from 'wouter';
 import { Hammer } from 'lucide-react';
 import { CATEGORY_SLUGS, type Category } from '@/lib/tools-registry';
+import { guidesRegistry } from '@/lib/guides-registry';
 
 const categories: Category[] = [
   'Calculators',
@@ -19,15 +20,18 @@ const popularTools = [
   { slug: 'word-counter',          name: 'Word Counter' },
 ];
 
+// Show the first 4 guides in the footer
+const footerGuides = guidesRegistry.slice(0, 4);
+
 export function Footer() {
   return (
     <footer className="border-t bg-card mt-auto">
       <div className="container mx-auto px-4 py-8 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
 
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+          {/* Brand — full width on mobile, span 1 on md+, span 2 on lg */}
+          <div className="col-span-2 md:col-span-3 lg:col-span-2">
+            <Link href="/" className="inline-flex items-center gap-2 mb-4">
               <div className="bg-primary/10 text-primary p-1.5 rounded-md">
                 <Hammer className="h-5 w-5" />
               </div>
@@ -73,15 +77,38 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Legal</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
-              <li><Link href="/about" className="hover:text-primary transition-colors">About</Link></li>
-              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
-            </ul>
+          {/* Guides + Legal */}
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold text-foreground mb-4">Guides</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                {footerGuides.map((guide) => (
+                  <li key={guide.slug}>
+                    <Link
+                      href={`/guides/${guide.slug}`}
+                      className="hover:text-primary transition-colors"
+                    >
+                      {guide.title}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link href="/guides" className="hover:text-primary transition-colors font-medium text-primary/80">
+                    All guides →
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-foreground mb-4">Legal</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+                <li><Link href="/about" className="hover:text-primary transition-colors">About</Link></li>
+                <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+              </ul>
+            </div>
           </div>
 
         </div>

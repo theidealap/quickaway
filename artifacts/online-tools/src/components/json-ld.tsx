@@ -147,6 +147,85 @@ export function buildCategoryBreadcrumbSchema(opts: { name: string; slug: string
   };
 }
 
+// ── Guide schema builders ─────────────────────────────────────────────────────
+
+/**
+ * Schema.org Article for a single guide page.
+ */
+export function buildArticleSchema(opts: {
+  title: string;
+  description: string;
+  slug: string;
+  datePublished: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: opts.title,
+    description: opts.description,
+    url: `${SITE_URL}/guides/${opts.slug}`,
+    datePublished: opts.datePublished,
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    author: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+    },
+    isAccessibleForFree: true,
+    inLanguage: 'en',
+  };
+}
+
+/** BreadcrumbList for the /guides index page: Home > Guides (2 items). */
+export function buildGuidesIndexBreadcrumbSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: `${SITE_URL}/guides` },
+    ],
+  };
+}
+
+/** BreadcrumbList for a single guide page: Home > Guides > Guide Title (3 items). */
+export function buildGuideBreadcrumbSchema(opts: { title: string; slug: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: `${SITE_URL}/guides` },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: opts.title,
+        item: `${SITE_URL}/guides/${opts.slug}`,
+      },
+    ],
+  };
+}
+
+/** Schema.org CollectionPage for the /guides index listing all guides. */
+export function buildGuidesCollectionSchema(guides: Array<{ title: string; slug: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Free Guides & How-To Articles | ToolBox',
+    description:
+      'Step-by-step guides explaining the maths and concepts behind free online tools — worked examples, formulas, and FAQs.',
+    url: `${SITE_URL}/guides`,
+    hasPart: guides.map((g) => ({
+      '@type': 'Article',
+      name: g.title,
+      url: `${SITE_URL}/guides/${g.slug}`,
+    })),
+  };
+}
+
 /**
  * Schema.org CollectionPage for a category page listing multiple tools.
  */
