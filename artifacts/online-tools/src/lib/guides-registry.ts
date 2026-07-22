@@ -35,6 +35,11 @@ export type GuideSectionTable = {
   heading: string;
   headers: string[];
   rows: string[][];
+  /**
+   * Column indices (0-based) that should render in monospace.
+   * Omit or leave undefined for all body-font columns.
+   */
+  monoColumns?: number[];
 };
 
 export type GuideSection =
@@ -395,6 +400,7 @@ export const guidesRegistry: GuideEntry[] = [
           ['D', '500', 'Half of M (originally Ↄ)'],
           ['M', '1000', 'Mille (Latin: thousand)'],
         ],
+        monoColumns: [0, 1],
       },
       {
         type: 'text',
@@ -417,6 +423,7 @@ export const guidesRegistry: GuideEntry[] = [
           ['9', 'IX', '19', 'XIX'],
           ['10', 'X', '20', 'XX'],
         ],
+        monoColumns: [0, 1, 2, 3],
       },
       {
         type: 'table',
@@ -437,6 +444,7 @@ export const guidesRegistry: GuideEntry[] = [
           ['2024', 'MMXXIV', 'MM + XX + IV'],
           ['3999', 'MMMCMXCIX', 'MMM + CM + XC + IX'],
         ],
+        monoColumns: [0, 1],
       },
       {
         type: 'steps',

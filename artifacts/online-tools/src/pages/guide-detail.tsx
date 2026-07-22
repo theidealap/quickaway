@@ -1,7 +1,5 @@
 import { Link } from 'wouter';
-import { ArrowRight, BookOpen, Wrench, AlertCircle } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { ArrowRight, BookOpen, Wrench, Info } from 'lucide-react';
 import { SEO } from '@/components/seo';
 import {
   JsonLd,
@@ -14,111 +12,138 @@ import NotFound from '@/pages/not-found';
 
 // ── Section renderers ─────────────────────────────────────────────────────────
 
+function SectionWrapper({
+  children,
+  withDivider,
+}: {
+  children: React.ReactNode;
+  withDivider: boolean;
+}) {
+  return (
+    <div className={withDivider ? 'pt-8 mt-8 border-t border-border' : ''}>
+      {children}
+    </div>
+  );
+}
+
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="text-base font-semibold text-foreground mb-3">{children}</h2>
+  );
+}
+
 function renderSection(section: GuideSection, idx: number) {
+  const withDivider = idx > 0;
+
   switch (section.type) {
     case 'text':
       return (
-        <div key={idx} className="space-y-3">
-          {section.heading && (
-            <h2 className="text-xl font-bold tracking-tight text-foreground">{section.heading}</h2>
-          )}
-          {section.body.split('\n').map((line, i) =>
-            line === '' ? null : (
-              <p key={i} className="text-muted-foreground leading-relaxed text-base">
+        <SectionWrapper key={idx} withDivider={withDivider}>
+          {section.heading && <SectionHeading>{section.heading}</SectionHeading>}
+          <div className="space-y-3">
+            {section.body.split('\n').filter(Boolean).map((line, i) => (
+              <p key={i} className="text-sm text-muted-foreground leading-relaxed">
                 {line}
               </p>
-            )
-          )}
-        </div>
+            ))}
+          </div>
+        </SectionWrapper>
       );
 
     case 'steps':
       return (
-        <div key={idx} className="space-y-3">
-          <h2 className="text-xl font-bold tracking-tight text-foreground">{section.heading}</h2>
+        <SectionWrapper key={idx} withDivider={withDivider}>
+          <SectionHeading>{section.heading}</SectionHeading>
           <ol className="space-y-3">
             {section.steps.map((step, i) => (
-              <li key={i} className="flex gap-3">
-                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/10 text-primary text-sm font-bold flex items-center justify-center mt-0.5">
+              <li key={i} className="flex gap-3 items-start">
+                <span className="shrink-0 w-5 h-5 rounded-full border border-border bg-secondary text-xs font-semibold text-muted-foreground flex items-center justify-center mt-0.5">
                   {i + 1}
                 </span>
-                <p className="text-muted-foreground leading-relaxed text-base pt-0.5">{step}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{step}</p>
               </li>
             ))}
           </ol>
-        </div>
+        </SectionWrapper>
       );
 
     case 'example':
       return (
-        <div key={idx} className="space-y-3">
-          <h2 className="text-xl font-bold tracking-tight text-foreground">{section.heading}</h2>
-          <Card className="bg-muted/30 border-muted-foreground/20">
-            <CardContent className="pt-5 space-y-3">
-              <p className="text-sm font-semibold text-foreground">
-                Scenario: {section.scenario}
-              </p>
-              <ol className="space-y-2">
-                {section.solution.map((step, i) => (
-                  <li key={i} className="flex gap-2.5 text-sm text-muted-foreground leading-relaxed">
-                    <span className="shrink-0 font-mono text-primary font-bold mt-0.5">{i + 1}.</span>
-                    <span>{step}</span>
-                  </li>
-                ))}
-              </ol>
-            </CardContent>
-          </Card>
-        </div>
+        <SectionWrapper key={idx} withDivider={withDivider}>
+          <SectionHeading>{section.heading}</SectionHeading>
+          <div className="border border-border rounded-md bg-secondary p-4 space-y-3">
+            <p className="text-sm font-medium text-foreground">
+              Scenario: {section.scenario}
+            </p>
+            <ol className="space-y-2">
+              {section.solution.map((step, i) => (
+                <li key={i} className="flex gap-2.5 text-sm text-muted-foreground leading-relaxed">
+                  <span className="shrink-0 font-mono text-xs text-primary font-semibold mt-0.5">
+                    {i + 1}.
+                  </span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </SectionWrapper>
       );
 
     case 'faq':
       return (
-        <div key={idx} className="space-y-4">
-          <h2 className="text-xl font-bold tracking-tight text-foreground">
-            {section.heading ?? 'Frequently Asked Questions'}
-          </h2>
-          <div className="space-y-4">
+        <SectionWrapper key={idx} withDivider={withDivider}>
+          <SectionHeading>{section.heading ?? 'Frequently Asked Questions'}</SectionHeading>
+          <div className="space-y-3">
             {section.items.map((item, i) => (
-              <div key={i} className="border rounded-xl p-5 space-y-2 bg-card">
-                <p className="font-semibold text-foreground text-base">{item.q}</p>
-                <p className="text-muted-foreground text-sm leading-relaxed">{item.a}</p>
+              <div key={i} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>
-        </div>
+        </SectionWrapper>
       );
 
     case 'tip':
       return (
-        <div key={idx} className="flex gap-3 bg-primary/5 border border-primary/20 rounded-xl p-5">
-          <AlertCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-          <p className="text-sm text-foreground leading-relaxed">{section.body}</p>
-        </div>
+        <SectionWrapper key={idx} withDivider={withDivider}>
+          <div className="flex gap-3 border border-amber-200 bg-amber-50 rounded-md p-4">
+            <Info className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+            <p className="text-sm text-amber-900 leading-relaxed">{section.body}</p>
+          </div>
+        </SectionWrapper>
       );
 
     case 'table':
       return (
-        <div key={idx} className="space-y-3">
-          <h2 className="text-xl font-bold tracking-tight text-foreground">{section.heading}</h2>
-          <div className="overflow-x-auto rounded-xl border">
+        <SectionWrapper key={idx} withDivider={withDivider}>
+          <SectionHeading>{section.heading}</SectionHeading>
+          <div className="overflow-x-auto border border-border rounded-md">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-muted/50">
+                <tr className="bg-secondary border-b border-border">
                   {section.headers.map((h, i) => (
                     <th
                       key={i}
-                      className="px-4 py-3 text-left font-semibold text-foreground whitespace-nowrap"
+                      className="px-4 py-2.5 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wide whitespace-nowrap"
                     >
                       {h}
                     </th>
                   ))}
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="divide-y divide-border">
                 {section.rows.map((row, ri) => (
-                  <tr key={ri} className={ri % 2 === 0 ? 'bg-card' : 'bg-muted/20'}>
+                  <tr key={ri} className="hover:bg-secondary/60 transition-colors">
                     {row.map((cell, ci) => (
-                      <td key={ci} className="px-4 py-3 text-muted-foreground font-mono">
+                      <td
+                        key={ci}
+                        className={`px-4 py-2.5 text-sm ${
+                          (section.monoColumns ?? []).includes(ci)
+                            ? 'font-mono text-foreground'
+                            : 'text-muted-foreground'
+                        }`}
+                      >
                         {cell}
                       </td>
                     ))}
@@ -127,7 +152,7 @@ function renderSection(section: GuideSection, idx: number) {
               </tbody>
             </table>
           </div>
-        </div>
+        </SectionWrapper>
       );
   }
 }
@@ -140,17 +165,12 @@ interface GuideDetailProps {
 
 export default function GuideDetail({ params }: GuideDetailProps) {
   const guide = findGuideBySlug(params.slug);
+  if (!guide) return <NotFound />;
 
-  if (!guide) {
-    return <NotFound />;
-  }
-
-  // Related tools from toolsRegistry
   const relatedTools = guide.relatedToolSlugs
     .map((s) => toolsRegistry.find((t) => t.slug === s))
     .filter(Boolean) as typeof toolsRegistry;
 
-  // Related guides from guidesRegistry
   const relatedGuides = (guide.relatedGuideSlugs ?? [])
     .map((s) => guidesRegistry.find((g) => g.slug === s))
     .filter(Boolean) as typeof guidesRegistry;
@@ -158,59 +178,63 @@ export default function GuideDetail({ params }: GuideDetailProps) {
   return (
     <>
       <SEO title={guide.seoTitle} description={guide.seoDescription} />
-      <JsonLd id="guide-article" schema={buildArticleSchema({
-        title: guide.title,
-        description: guide.description,
-        slug: guide.slug,
-        datePublished: guide.datePublished,
-      })} />
-      <JsonLd id="guide-breadcrumb" schema={buildGuideBreadcrumbSchema({
-        title: guide.title,
-        slug: guide.slug,
-      })} />
+      <JsonLd
+        id="guide-article"
+        schema={buildArticleSchema({
+          title: guide.title,
+          description: guide.description,
+          slug: guide.slug,
+          datePublished: guide.datePublished,
+        })}
+      />
+      <JsonLd
+        id="guide-breadcrumb"
+        schema={buildGuideBreadcrumbSchema({ title: guide.title, slug: guide.slug })}
+      />
 
-      <div className="container mx-auto px-4 py-8 md:py-12 max-w-6xl">
-        {/* ── Breadcrumb ── */}
-        <nav aria-label="Breadcrumb" className="mb-8">
-          <ol className="flex items-center gap-1.5 text-sm text-muted-foreground flex-wrap">
-            <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-            <li aria-hidden="true" className="text-muted-foreground/50">›</li>
-            <li><Link href="/guides" className="hover:text-primary transition-colors">Guides</Link></li>
-            <li aria-hidden="true" className="text-muted-foreground/50">›</li>
-            <li className="text-foreground font-medium">{guide.title}</li>
-          </ol>
-        </nav>
+      {/* ── Page header ── */}
+      <div className="border-b border-border bg-secondary">
+        <div className="container mx-auto px-4 py-8 md:py-10 max-w-6xl">
+          <nav aria-label="Breadcrumb" className="mb-4">
+            <ol className="flex items-center gap-1.5 text-sm text-muted-foreground flex-wrap">
+              <li><Link href="/" className="hover:text-foreground transition-colors">Home</Link></li>
+              <li aria-hidden="true" className="text-border">›</li>
+              <li><Link href="/guides" className="hover:text-foreground transition-colors">Guides</Link></li>
+              <li aria-hidden="true" className="text-border">›</li>
+              <li className="text-foreground font-medium">{guide.title}</li>
+            </ol>
+          </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10">
-          {/* ── Main article ── */}
-          <article className="space-y-10">
-            {/* Header */}
-            <header className="space-y-4">
-              <Badge variant="secondary">{guide.category}</Badge>
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground leading-tight">
-                {guide.title}
-              </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                {guide.description}
-              </p>
-            </header>
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+            {guide.title}
+          </h1>
+          <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl">
+            {guide.description}
+          </p>
+        </div>
+      </div>
 
-            {/* Sections */}
+      {/* ── Body ── */}
+      <div className="container mx-auto px-4 py-8 md:py-10 max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-10">
+
+          {/* ── Article ── */}
+          <article className="max-w-prose">
             {guide.sections.map((section, idx) => renderSection(section, idx))}
 
-            {/* Related tools inline mention */}
+            {/* Inline tool CTAs at article end */}
             {relatedTools.length > 0 && (
-              <div className="border-t pt-8">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium mb-3">
-                  <Wrench className="w-4 h-4" />
-                  <span>Use the free tool</span>
-                </div>
-                <div className="flex flex-wrap gap-3">
+              <div className="pt-8 mt-8 border-t border-border">
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3 flex items-center gap-1.5">
+                  <Wrench className="w-3.5 h-3.5" />
+                  Use the free tool
+                </p>
+                <div className="flex flex-wrap gap-2">
                   {relatedTools.map((tool) => (
                     <Link
                       key={tool.slug}
                       href={`/tools/${tool.slug}`}
-                      className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
+                      className="inline-flex items-center gap-1.5 border border-primary text-primary px-3 py-1.5 rounded text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
                     >
                       {tool.name}
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -222,78 +246,58 @@ export default function GuideDetail({ params }: GuideDetailProps) {
           </article>
 
           {/* ── Sidebar ── */}
-          <aside className="space-y-6">
-            {/* Related Tools card */}
+          <aside className="space-y-4 lg:sticky lg:top-20">
+
+            {/* Related Tools */}
             {relatedTools.length > 0 && (
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <Wrench className="w-4 h-4 text-primary" />
-                    Related Tools
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0 space-y-2">
+              <div className="border border-border rounded-md p-4">
+                <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3 flex items-center gap-1.5">
+                  <Wrench className="w-3.5 h-3.5" />
+                  Related Tools
+                </h3>
+                <ul className="space-y-1">
                   {relatedTools.map((tool) => (
-                    <Link
-                      key={tool.slug}
-                      href={`/tools/${tool.slug}`}
-                      className="flex items-center justify-between gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors group"
-                    >
-                      <div>
-                        <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                          {tool.name}
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
-                          {tool.shortDescription}
-                        </p>
-                      </div>
-                      <ArrowRight className="w-4 h-4 text-muted-foreground shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
+                    <li key={tool.slug}>
+                      <Link
+                        href={`/tools/${tool.slug}`}
+                        className="block py-1.5 text-sm text-foreground hover:text-primary transition-colors"
+                      >
+                        {tool.name}
+                      </Link>
+                    </li>
                   ))}
-                </CardContent>
-              </Card>
+                </ul>
+              </div>
             )}
 
-            {/* Related Guides card */}
+            {/* Related Guides */}
             {relatedGuides.length > 0 && (
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <BookOpen className="w-4 h-4 text-primary" />
-                    Related Guides
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0 space-y-2">
+              <div className="border border-border rounded-md p-4">
+                <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3 flex items-center gap-1.5">
+                  <BookOpen className="w-3.5 h-3.5" />
+                  Related Guides
+                </h3>
+                <ul className="space-y-2">
                   {relatedGuides.map((related) => (
-                    <Link
-                      key={related.slug}
-                      href={`/guides/${related.slug}`}
-                      className="flex items-center justify-between gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors group"
-                    >
-                      <div>
-                        <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                          {related.title}
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2 leading-relaxed">
-                          {related.description}
-                        </p>
-                      </div>
-                      <ArrowRight className="w-4 h-4 text-muted-foreground shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
+                    <li key={related.slug}>
+                      <Link
+                        href={`/guides/${related.slug}`}
+                        className="block text-sm text-foreground hover:text-primary transition-colors leading-snug"
+                      >
+                        {related.title}
+                      </Link>
+                    </li>
                   ))}
-                </CardContent>
-              </Card>
+                </ul>
+              </div>
             )}
 
-            {/* Browse all guides */}
-            <div className="text-center">
-              <Link
-                href="/guides"
-                className="text-sm text-primary hover:underline underline-offset-4 font-medium"
-              >
-                ← Browse all guides
-              </Link>
-            </div>
+            <Link
+              href="/guides"
+              className="block text-xs text-muted-foreground hover:text-primary transition-colors"
+            >
+              ← All guides
+            </Link>
           </aside>
         </div>
       </div>

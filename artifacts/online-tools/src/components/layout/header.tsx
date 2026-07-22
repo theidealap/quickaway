@@ -1,67 +1,84 @@
 import { Link, useLocation } from 'wouter';
-import { Menu, X, Hammer, Search } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
+
+const navLinks = [
+  { href: '/',              label: 'Tools'   },
+  { href: '/guides',        label: 'Guides'  },
+  { href: '/about',         label: 'About'   },
+  { href: '/contact',       label: 'Contact' },
+];
 
 export function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const [location, setLocation] = useLocation();
-
-  const navLinks = [
-    { href: '/', label: 'Tools' },
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' }
-  ];
 
   const handleNav = (href: string) => {
     setLocation(href);
-    setIsMobileMenuOpen(false);
+    setOpen(false);
   };
 
+  const isActive = (href: string) =>
+    href === '/' ? location === '/' : location.startsWith(href);
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <div className="flex gap-6 md:gap-10">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="bg-primary text-primary-foreground p-1.5 rounded-md">
-              <Hammer className="h-5 w-5" />
-            </div>
-            <span className="font-display font-bold text-xl tracking-tight hidden sm:inline-block">
-              ToolBox
+    <header className="sticky top-0 z-40 w-full border-b border-border bg-background">
+      <div className="container mx-auto px-4 h-14 flex items-center justify-between">
+
+        {/* Logo — plain wordmark, no colored square */}
+        <div className="flex items-center gap-8">
+          <Link href="/" className="flex items-center gap-1.5 shrink-0">
+            <span className="font-display font-bold text-lg tracking-tight text-foreground">
+              Tool<span className="text-primary">Box</span>
             </span>
           </Link>
-          <nav className="hidden md:flex gap-6">
+
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex items-center text-sm font-medium transition-colors hover:text-foreground/80 ${
-                  location === link.href ? 'text-foreground' : 'text-foreground/60'
-                }`}
+                className={`
+                  px-3 py-1.5 rounded text-sm font-medium transition-colors
+                  ${isActive(link.href)
+                    ? 'text-foreground bg-secondary'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+                  }
+                `}
               >
                 {link.label}
               </Link>
             ))}
           </nav>
         </div>
-        
-        <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle Menu">
-            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
-        </div>
+
+        {/* Mobile menu toggle */}
+        <button
+          className="md:hidden p-2 rounded text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+        >
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
 
-      {isMobileMenuOpen && (
-        <div className="md:hidden border-b bg-background px-4 py-4 space-y-4 shadow-lg absolute w-full left-0 top-16">
-          <nav className="flex flex-col space-y-3">
+      {/* Mobile dropdown */}
+      {open && (
+        <div className="md:hidden absolute w-full top-14 left-0 bg-background border-b border-border shadow-sm z-50">
+          <nav className="container mx-auto px-4 py-3 flex flex-col gap-1" aria-label="Mobile navigation">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNav(link.href)}
-                className={`text-left text-sm font-medium p-2 rounded-md ${
-                  location === link.href ? 'bg-secondary text-foreground' : 'text-foreground/60 hover:text-foreground hover:bg-secondary/50'
-                }`}
+                className={`
+                  w-full text-left px-3 py-2.5 rounded text-sm font-medium transition-colors
+                  ${isActive(link.href)
+                    ? 'text-foreground bg-secondary'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+                  }
+                `}
               >
                 {link.label}
               </button>

@@ -1,7 +1,5 @@
 import { useRoute, Link } from 'wouter';
-import { ArrowRight, ChevronRight, Layers } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { ArrowRight } from 'lucide-react';
 import { SEO } from '@/components/seo';
 import {
   JsonLd,
@@ -15,21 +13,24 @@ import {
   CATEGORY_META,
   type Category,
 } from '@/lib/tools-registry';
+import { guidesRegistry } from '@/lib/guides-registry';
 import NotFound from '@/pages/not-found';
 
 export default function CategoryPage() {
   const [, params] = useRoute('/:categorySlug');
   const categorySlug = params?.categorySlug ?? '';
 
-  // Validate the slug maps to a known category
   const category: Category | undefined = SLUG_TO_CATEGORY[categorySlug];
   if (!category) return <NotFound />;
 
   const meta = CATEGORY_META[category];
   const tools = toolsRegistry.filter((t) => t.category === category);
   const otherCategories = (Object.keys(CATEGORY_SLUGS) as Category[]).filter(
-    (c) => c !== category
+    (c) => c !== category,
   );
+
+  // Guides related to this category
+  const relatedGuides = guidesRegistry.filter((g) => g.category === category).slice(0, 3);
 
   return (
     <>
@@ -49,88 +50,110 @@ export default function CategoryPage() {
         schema={buildCategoryBreadcrumbSchema({ name: category, slug: categorySlug })}
       />
 
-      {/* ── Breadcrumb ── */}
-      <div className="border-b bg-muted/30">
-        <div className="container mx-auto px-4 py-3">
-          <nav
-            aria-label="Breadcrumb"
-            className="flex items-center gap-1.5 text-sm text-muted-foreground"
-          >
-            <Link href="/" className="hover:text-foreground transition-colors">
-              All Tools
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 shrink-0" />
-            <span className="text-foreground font-medium">{category}</span>
+      {/* ── Page header — slim, no tinted band ── */}
+      <div className="border-b border-border bg-secondary">
+        <div className="container mx-auto px-4 py-8 md:py-10">
+          {/* Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="mb-4">
+            <ol className="flex items-center gap-1.5 text-sm text-muted-foreground">
+              <li>
+                <Link href="/" className="hover:text-foreground transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-border">›</li>
+              <li className="text-foreground font-medium">{category}</li>
+            </ol>
           </nav>
+
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                {meta.heading}
+              </h1>
+              <p className="text-muted-foreground text-sm md:text-base max-w-2xl leading-relaxed">
+                {meta.description}
+              </p>
+            </div>
+            <span className="shrink-0 text-xs text-muted-foreground font-mono bg-background border border-border rounded px-2 py-1 mt-1">
+              {tools.length} {tools.length === 1 ? 'tool' : 'tools'}
+            </span>
+          </div>
         </div>
       </div>
 
-      {/* ── Hero ── */}
-      <section className="bg-primary/5 border-b border-primary/10 py-12 md:py-16 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-semibold mb-4">
-            <Layers className="w-4 h-4" />
-            <span>{tools.length} free {tools.length === 1 ? 'tool' : 'tools'}</span>
-          </div>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-            {meta.heading}
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl">{meta.description}</p>
-        </div>
-      </section>
-
-      {/* ── Tool Grid ── */}
-      <section className="container mx-auto px-4 py-12 md:py-16">
+      {/* ── Tool grid ── */}
+      <section className="container mx-auto px-4 py-10 md:py-12">
         {tools.length === 0 ? (
           <div className="text-center py-20 text-muted-foreground">
-            <p className="text-lg">No tools in this category yet — check back soon.</p>
-            <Link href="/" className="mt-4 inline-block text-primary font-medium hover:underline">
+            <p className="text-base mb-4">No tools in this category yet — check back soon.</p>
+            <Link href="/" className="text-sm font-medium text-primary hover:underline underline-offset-4">
               Browse all tools
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {tools.map((tool) => (
-              <Link key={tool.slug} href={`/tools/${tool.slug}`}>
-                <Card className="h-full hover:border-primary/50 hover:shadow-md transition-all cursor-pointer group flex flex-col bg-card/50">
-                  <CardHeader>
-                    <CardTitle className="text-xl group-hover:text-primary transition-colors flex justify-between items-start">
-                      {tool.name}
-                      <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-primary shrink-0" />
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-1">
-                    <CardDescription className="text-sm md:text-base text-muted-foreground">
-                      {tool.shortDescription}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+              <Link
+                key={tool.slug}
+                href={`/tools/${tool.slug}`}
+                className="group block border border-border rounded-md p-4 bg-background hover:border-primary/50 hover:bg-secondary transition-colors"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <p className="font-medium text-sm text-foreground group-hover:text-primary transition-colors leading-snug">
+                    {tool.name}
+                  </p>
+                  <ArrowRight className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+                  {tool.shortDescription}
+                </p>
               </Link>
             ))}
           </div>
         )}
       </section>
 
-      {/* ── Other Categories ── */}
-      <section className="border-t bg-muted/20 py-12 px-4">
+      {/* ── Related guides ── */}
+      {relatedGuides.length > 0 && (
+        <section className="border-t border-border px-4 py-8">
+          <div className="container mx-auto max-w-5xl">
+            <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">
+              Related Guides
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {relatedGuides.map((guide) => (
+                <Link
+                  key={guide.slug}
+                  href={`/guides/${guide.slug}`}
+                  className="text-sm text-primary hover:underline underline-offset-4 flex items-center gap-1"
+                >
+                  {guide.title}
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Other categories — clean link list ── */}
+      <section className="border-t border-border bg-secondary px-4 py-8">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-xl font-bold tracking-tight mb-6">Browse Other Categories</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+          <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-4">
+            Other Categories
+          </h2>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
             {otherCategories.map((cat) => {
               const count = toolsRegistry.filter((t) => t.category === cat).length;
               return (
-                <Link key={cat} href={`/${CATEGORY_SLUGS[cat]}`}>
-                  <div className="flex flex-col gap-1.5 p-4 rounded-xl border bg-card hover:border-primary/50 hover:shadow-sm transition-all cursor-pointer group">
-                    <span className="font-medium text-sm group-hover:text-primary transition-colors leading-snug">
-                      {cat}
-                    </span>
-                    <Badge
-                      variant="secondary"
-                      className="w-fit rounded-full text-xs font-mono bg-secondary text-secondary-foreground"
-                    >
-                      {count}
-                    </Badge>
-                  </div>
+                <Link
+                  key={cat}
+                  href={`/${CATEGORY_SLUGS[cat]}`}
+                  className="text-sm text-foreground hover:text-primary transition-colors flex items-center gap-1.5"
+                >
+                  {cat}
+                  <span className="text-xs text-muted-foreground font-mono">({count})</span>
                 </Link>
               );
             })}

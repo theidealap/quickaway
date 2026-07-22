@@ -1,0 +1,147 @@
+Perform a complete UI/UX redesign of the website while preserving all existing functionality, SEO implementation, routes, structured data, sitemap, internal linking, and tool logic.
+
+The goal is to make the website feel like a premium software product rather than an AI-generated tools directory.
+
+Brand Direction
+
+Personality:
+- Professional
+- Modern
+- Trustworthy
+- Minimal
+- Fast
+- Clean
+
+Primary Color:
+#D97706
+
+Primary Hover:
+#B45309
+
+Primary Light:
+#FEF3C7
+
+Text:
+#111827
+
+Secondary Text:
+#6B7280
+
+Borders:
+#E5E7EB
+
+Background:
+#FFFFFF
+
+Surface:
+#F9FAFB
+
+Design Principles
+
+Avoid:
+- Bright gradients
+- Neon colors
+- AI-directory appearance
+- Crypto-style landing pages
+- Template marketplace look
+- Excessive shadows
+- Oversized badges
+- Cartoon-style rounded elements
+- Visual clutter
+
+Prefer:
+- Stripe-inspired simplicity
+- Linear-inspired spacing
+- Vercel-inspired cleanliness
+- Notion-style readability
+- Premium SaaS styling
+
+Required Review Areas
+
+1. Homepage
+- Redesign the hero section
+- Improve visual hierarchy
+- Improve category presentation
+- Improve guide section presentation
+- Create clearer section separation
+- Increase trust and professionalism
+- Reduce visual noise
+
+2. Navigation
+- Review header spacing
+- Improve menu alignment
+- Improve mobile navigation UX
+- Improve active-state indicators
+
+3. Tool Pages
+- Improve tool layout
+- Improve input grouping
+- Improve results presentation
+- Improve mobile responsiveness
+- Improve spacing consistency
+- Improve copy button visibility
+
+4. Category Pages
+- Improve category header design
+- Improve tool card layout
+- Improve visual hierarchy
+- Improve category navigation
+
+5. Guide Pages
+- Improve readability
+- Improve typography hierarchy
+- Improve FAQ presentation
+- Improve table styling
+- Improve sidebar design
+
+6. Cards
+- Standardize all cards
+- Use subtle borders
+- Use very light shadows only
+- Improve hover states
+- Improve spacing consistency
+
+7. Typography
+- Improve heading hierarchy
+- Improve paragraph readability
+- Improve spacing between text blocks
+- Improve font sizing consistency
+
+8. Trust Signals
+- Make the site feel more established
+- Improve footer structure
+- Improve About / Guides visibility
+- Improve professional appearance
+
+9. Mobile Experience
+- Review every page for mobile UX
+- Fix spacing issues
+- Improve touch targets
+- Improve scrolling experience
+
+10. Accessibility
+- Improve contrast where needed
+- Improve focus states
+- Improve keyboard navigation support
+
+Important Constraints
+
+- Do NOT change any tool functionality
+- Do NOT remove SEO schemas
+- Do NOT remove JSON-LD
+- Do NOT remove sitemap entries
+- Do NOT break existing URLs
+- Do NOT change internal linking structure
+- Do NOT affect Rich Results eligibility
+
+Deliverables
+
+Provide:
+
+1. Full UX/UI audit findings
+2. List of design issues discovered
+3. Proposed improvements
+4. Screens/components being redesigned
+5. Build validation results
+6. Before vs After summary
+7. Commit ID
