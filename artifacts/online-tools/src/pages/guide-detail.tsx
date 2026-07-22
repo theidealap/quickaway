@@ -8,6 +8,7 @@ import {
 } from '@/components/json-ld';
 import { guidesRegistry, findGuideBySlug, type GuideSection } from '@/lib/guides-registry';
 import { toolsRegistry } from '@/lib/tools-registry';
+import { AuthorCard } from '@/components/author-card';
 import NotFound from '@/pages/not-found';
 
 // ── Section renderers ─────────────────────────────────────────────────────────
@@ -243,6 +244,9 @@ export default function GuideDetail({ params }: GuideDetailProps) {
                 </div>
               </div>
             )}
+
+            {/* Author attribution — every guide page */}
+            <AuthorCard />
           </article>
 
           {/* ── Sidebar ── */}

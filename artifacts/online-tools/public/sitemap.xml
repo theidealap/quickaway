@@ -4,31 +4,43 @@
   <!-- Core pages -->
   <url>
     <loc>https://online-tool-hub-drab.vercel.app/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://online-tool-hub-drab.vercel.app/about</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://online-tool-hub-drab.vercel.app/author</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://online-tool-hub-drab.vercel.app/editorial-policy</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://online-tool-hub-drab.vercel.app/contact</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://online-tool-hub-drab.vercel.app/privacy</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://online-tool-hub-drab.vercel.app/terms</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

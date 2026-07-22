@@ -77,7 +77,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Guides + Legal */}
+          {/* Guides + Company */}
           <div className="space-y-6">
             <div>
               <h3 className="text-xs font-semibold text-foreground uppercase tracking-wide mb-3">
@@ -110,10 +110,12 @@ export function Footer() {
                 Company
               </h3>
               <ul className="space-y-2">
-                <li><Link href="/about"   className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
-                <li><Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
-                <li><Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/terms"   className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link></li>
+                <li><Link href="/about"             className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
+                <li><Link href="/author"            className="text-sm text-muted-foreground hover:text-foreground transition-colors">Author</Link></li>
+                <li><Link href="/editorial-policy"  className="text-sm text-muted-foreground hover:text-foreground transition-colors">Editorial Policy</Link></li>
+                <li><Link href="/contact"           className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
+                <li><Link href="/privacy"           className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms"             className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link></li>
               </ul>
             </div>
           </div>

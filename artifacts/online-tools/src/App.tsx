@@ -6,6 +6,8 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import Home from '@/pages/home';
 import ToolDetail from '@/pages/tool-detail';
 import About from '@/pages/about';
+import Author from '@/pages/author';
+import EditorialPolicy from '@/pages/editorial-policy';
 import Contact from '@/pages/contact';
 import Privacy from '@/pages/privacy';
 import Terms from '@/pages/terms';
@@ -24,6 +26,9 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />
+        {/* Trust / editorial pages — MUST come before /:categorySlug */}
+        <Route path="/author" component={Author} />
+        <Route path="/editorial-policy" component={EditorialPolicy} />
         {/* Guides — must be before /:categorySlug so /guides is not swallowed */}
         <Route path="/guides" component={GuidesIndex} />
         <Route path="/guides/:slug" component={GuideDetail} />

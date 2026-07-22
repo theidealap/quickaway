@@ -1,5 +1,9 @@
 import { useEffect } from 'react';
 import { SITE_URL, SITE_NAME } from '@/components/seo';
+import { AUTHOR_NAME, PUBLISHER_NAME } from '@/lib/author';
+
+// Canonical logo URL — update to a full-resolution PNG when one is available.
+const LOGO_URL = `${SITE_URL}/favicon.ico`;
 
 // ── Generic renderer ─────────────────────────────────────────────────────────
 
@@ -56,13 +60,18 @@ export function buildWebsiteSchema() {
   };
 }
 
-/** Schema.org Organization. */
+/** Schema.org Organization with logo — used on the homepage. */
 export function buildOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: SITE_NAME,
+    name: PUBLISHER_NAME,
     url: SITE_URL,
+    logo: {
+      '@type': 'ImageObject',
+      url: LOGO_URL,
+    },
+    sameAs: [SITE_URL],
   };
 }
 
@@ -151,12 +160,16 @@ export function buildCategoryBreadcrumbSchema(opts: { name: string; slug: string
 
 /**
  * Schema.org Article for a single guide page.
+ * Includes a Person author and a full Organization publisher with logo
+ * for maximum E-E-A-T signal and AdSense / rich-results eligibility.
  */
 export function buildArticleSchema(opts: {
   title: string;
   description: string;
   slug: string;
   datePublished: string;
+  /** Defaults to datePublished when omitted. */
+  dateModified?: string;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -165,14 +178,20 @@ export function buildArticleSchema(opts: {
     description: opts.description,
     url: `${SITE_URL}/guides/${opts.slug}`,
     datePublished: opts.datePublished,
+    dateModified: opts.dateModified ?? opts.datePublished,
+    author: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+      url: `${SITE_URL}/author`,
+    },
     publisher: {
       '@type': 'Organization',
-      name: SITE_NAME,
+      name: PUBLISHER_NAME,
       url: SITE_URL,
-    },
-    author: {
-      '@type': 'Organization',
-      name: SITE_NAME,
+      logo: {
+        '@type': 'ImageObject',
+        url: LOGO_URL,
+      },
     },
     isAccessibleForFree: true,
     inLanguage: 'en',
