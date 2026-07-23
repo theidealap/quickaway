@@ -62,7 +62,7 @@ export default function About() {
               <Shield className="w-5 h-5 text-primary mb-2" />
               <h3 className="text-sm font-semibold text-foreground mb-1">Nothing You Enter Is Stored</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Whatever you type into a tool stays on your device. We don't collect or store it.
+                Whatever you type into a tool stays on your device — it's never sent to our servers.
               </p>
             </div>
           </div>

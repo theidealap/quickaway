@@ -14,7 +14,7 @@ export default function Terms() {
 
         <div className="prose prose-slate dark:prose-invert prose-headings:font-display prose-headings:tracking-tight max-w-none">
           <p className="lead text-xl text-muted-foreground mb-8">
-            Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            Last updated: July 23, 2026
           </p>
 
           <h2>Acceptance of Terms</h2>
@@ -24,8 +24,8 @@ export default function Terms() {
 
           <h2>Description of Service</h2>
           <p>
-            QuickAway is a collection of free, browser-based tools for everyday calculations and text tasks. Everything runs on your device — nothing you type into a tool is sent to or stored on our servers. See our{' '}
-            <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link> for details.
+            QuickAway is a collection of free, browser-based tools for everyday calculations and text tasks. Everything runs on your device — nothing you type into a tool is sent to or stored on our servers. QuickAway may also display third-party advertisements, including through Google AdSense, to support the free operation of the site. See our{' '}
+            <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link> for full details on data practices and advertising.
           </p>
 
           <h2>Use of the Service</h2>

@@ -168,6 +168,10 @@ export default function Contact() {
                         <Send className="w-4 h-4 mr-2" />
                         {state.submitting ? 'Sending…' : 'Send Message'}
                       </Button>
+                      <p className="text-xs text-muted-foreground">
+                        By submitting this form you agree to our{' '}
+                        <a href="/privacy" className="underline underline-offset-4 hover:text-foreground transition-colors">Privacy Policy</a>.
+                      </p>
                     </form>
                   </CardContent>
                 </>

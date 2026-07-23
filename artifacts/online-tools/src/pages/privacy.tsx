@@ -6,7 +6,7 @@ export default function Privacy() {
     <>
       <SEO
         title="Privacy Policy - QuickAway"
-        description="QuickAway does not collect or store any data you enter into its tools. All calculations run locally in your browser. Read our full privacy policy."
+        description="QuickAway does not collect the data you enter into its tools — all calculations run locally in your browser. Read our full privacy policy."
       />
       
       <div className="container mx-auto px-4 py-16 max-w-3xl">
@@ -14,7 +14,7 @@ export default function Privacy() {
         
         <div className="prose prose-slate dark:prose-invert prose-headings:font-display prose-headings:tracking-tight max-w-none">
           <p className="lead text-xl text-muted-foreground mb-8">
-            Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            Last updated: July 23, 2026
           </p>
 
           <h2>The Short Version</h2>
