@@ -1,4 +1,5 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import { SEO } from '@/components/seo';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -7,47 +8,33 @@ import { Button } from '@/components/ui/button';
 import { MessageSquare, Send, Lightbulb } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-interface ContactFormState {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
-const initialFormState: ContactFormState = {
-  name: '',
-  email: '',
-  subject: '',
-  message: '',
-};
-
 export default function Contact() {
-  const [form, setForm] = useState<ContactFormState>(initialFormState);
+  const [state, handleSubmit, reset] = useForm('mvzebngw');
   const { toast } = useToast();
 
-  const updateField = (field: keyof ContactFormState) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setForm((prev) => ({ ...prev, [field]: e.target.value }));
-  };
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!e.currentTarget.checkValidity()) {
-      e.currentTarget.reportValidity();
-      return;
+  // Success effect
+  useEffect(() => {
+    if (state.succeeded) {
+      toast({
+        title: 'Message sent successfully.',
+        description: 'Thanks for contacting QuickAway.',
+        duration: 5000,
+      });
+      reset();
     }
+  }, [state.succeeded, toast, reset]);
 
-    // TODO: send `form` to a backend endpoint / email service once one is connected.
-    toast({
-      title: 'Message sent',
-      description: "Thanks for reaching out — we'll get back to you soon.",
-      duration: 5000,
-    });
-
-    setForm(initialFormState);
-  };
+  // Error effect
+  useEffect(() => {
+    if (state.errors && state.errors.length > 0 && !state.submitting) {
+      toast({
+        title: 'Something went wrong.',
+        description: 'Please try again.',
+        variant: 'destructive',
+        duration: 5000,
+      });
+    }
+  }, [state.errors, state.submitting, toast]);
 
   return (
     <>
@@ -109,22 +96,24 @@ export default function Contact() {
                       <label htmlFor="name" className="text-sm font-medium">Name</label>
                       <Input
                         id="name"
+                        name="name"
                         placeholder="Jane Doe"
                         required
-                        value={form.name}
-                        onChange={updateField('name')}
+                        disabled={state.submitting}
                       />
+                      <ValidationError field="name" prefix="Name" errors={state.errors} className="text-xs text-destructive" />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium">Email</label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         placeholder="jane@example.com"
                         required
-                        value={form.email}
-                        onChange={updateField('email')}
+                        disabled={state.submitting}
                       />
+                      <ValidationError field="email" prefix="Email" errors={state.errors} className="text-xs text-destructive" />
                     </div>
                   </div>
 
@@ -132,31 +121,33 @@ export default function Contact() {
                     <label htmlFor="subject" className="text-sm font-medium">Subject</label>
                     <Input
                       id="subject"
+                      name="subject"
                       placeholder="Tool Request: Currency Converter"
                       required
                       minLength={3}
-                      value={form.subject}
-                      onChange={updateField('subject')}
+                      disabled={state.submitting}
                     />
+                    <ValidationError field="subject" prefix="Subject" errors={state.errors} className="text-xs text-destructive" />
                   </div>
 
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium">Message</label>
                     <Textarea
                       id="message"
+                      name="message"
                       placeholder="I would love a tool that..."
                       rows={6}
                       required
                       minLength={10}
                       className="resize-none"
-                      value={form.message}
-                      onChange={updateField('message')}
+                      disabled={state.submitting}
                     />
+                    <ValidationError field="message" prefix="Message" errors={state.errors} className="text-xs text-destructive" />
                   </div>
 
-                  <Button type="submit" className="w-full sm:w-auto">
+                  <Button type="submit" className="w-full sm:w-auto" disabled={state.submitting}>
                     <Send className="w-4 h-4 mr-2" />
-                    Send Message
+                    {state.submitting ? 'Sending…' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>
