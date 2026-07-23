@@ -34,7 +34,8 @@ export function JsonLd({ id, schema }: JsonLdProps) {
       // Remove the script when the component unmounts (page navigation).
       document.getElementById(scriptId)?.remove();
     };
-  }, [id, schema]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   return null;
 }
