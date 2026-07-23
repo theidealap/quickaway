@@ -194,6 +194,22 @@ export function buildArticleSchema(opts: {
   };
 }
 
+/** Schema.org FAQPage — emitted alongside Article on guide pages that contain FAQ sections. */
+export function buildFAQSchema(items: Array<{ q: string; a: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  };
+}
+
 /** BreadcrumbList for the /guides index page: Home > Guides (2 items). */
 export function buildGuidesIndexBreadcrumbSchema() {
   return {

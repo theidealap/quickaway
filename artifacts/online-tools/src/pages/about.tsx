@@ -35,7 +35,11 @@ export default function About() {
         <section className="mb-10">
           <h2 className="text-base font-semibold text-foreground mb-3">What QuickAway Is</h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-            QuickAway is a small set of free calculators and utilities — things like checking an age, a percentage, or a word count — built to be quick and easy to use, without ads or unnecessary steps in the way.
+            QuickAway is a small set of free calculators and utilities — things like{' '}
+            <Link href="/tools/age-calculator" className="text-primary hover:underline underline-offset-4">checking an age</Link>,{' '}
+            <Link href="/tools/percentage-calculator" className="text-primary hover:underline underline-offset-4">a percentage</Link>, or a{' '}
+            <Link href="/tools/word-counter" className="text-primary hover:underline underline-offset-4">word count</Link>{' '}
+            — built to be quick and easy to use, without unnecessary steps in the way.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed">
             We're adding more tools over time, based on what people find useful. Have a suggestion? Use the{' '}

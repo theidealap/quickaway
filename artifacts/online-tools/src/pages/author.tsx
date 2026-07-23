@@ -100,7 +100,7 @@ export default function Author() {
         <section className="mb-10 pt-8 border-t border-border">
           <h2 className="text-base font-semibold text-foreground mb-3">Website Mission</h2>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            QuickAway exists to give everyone access to fast, accurate, free tools for the small calculations and lookups that come up in everyday life — without sign-ups, ads, or friction. Every tool runs entirely in your browser, so nothing you type is ever sent to a server.
+            QuickAway exists to give everyone access to fast, accurate, free tools for the small calculations and lookups that come up in everyday life — without sign-ups or friction. Every tool runs entirely in your browser, so nothing you type is ever sent to a server.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed mt-3">
             The guides on QuickAway are written to the same standard: no filler, no jargon, just clear explanations with worked examples and the formulas behind every result.

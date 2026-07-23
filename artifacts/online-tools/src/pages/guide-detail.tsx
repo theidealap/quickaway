@@ -5,8 +5,9 @@ import {
   JsonLd,
   buildArticleSchema,
   buildGuideBreadcrumbSchema,
+  buildFAQSchema,
 } from '@/components/json-ld';
-import { guidesRegistry, findGuideBySlug, type GuideSection } from '@/lib/guides-registry';
+import { guidesRegistry, findGuideBySlug, type GuideSection, type GuideSectionFaq } from '@/lib/guides-registry';
 import { toolsRegistry } from '@/lib/tools-registry';
 import { AuthorCard } from '@/components/author-card';
 import NotFound from '@/pages/not-found';
@@ -176,6 +177,11 @@ export default function GuideDetail({ params }: GuideDetailProps) {
     .map((s) => guidesRegistry.find((g) => g.slug === s))
     .filter(Boolean) as typeof guidesRegistry;
 
+  // Collect all FAQ items across every faq section in this guide
+  const faqItems = guide.sections
+    .filter((s): s is GuideSectionFaq => s.type === 'faq')
+    .flatMap((s) => s.items);
+
   return (
     <>
       <SEO title={guide.seoTitle} description={guide.seoDescription} />
@@ -192,6 +198,9 @@ export default function GuideDetail({ params }: GuideDetailProps) {
         id="guide-breadcrumb"
         schema={buildGuideBreadcrumbSchema({ title: guide.title, slug: guide.slug })}
       />
+      {faqItems.length > 0 && (
+        <JsonLd id="guide-faq" schema={buildFAQSchema(faqItems)} />
+      )}
 
       {/* ── Page header ── */}
       <div className="border-b border-border bg-secondary">
