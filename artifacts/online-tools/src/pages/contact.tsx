@@ -24,9 +24,9 @@ export default function Contact() {
     }
   }, [state.succeeded, toast, reset]);
 
-  // Error effect
+  // Error effect — fires after a completed submission that did not succeed
   useEffect(() => {
-    if (state.errors && state.errors.length > 0 && !state.submitting) {
+    if (state.result && !state.succeeded && !state.submitting) {
       toast({
         title: 'Something went wrong.',
         description: 'Please try again.',
@@ -34,7 +34,7 @@ export default function Contact() {
         duration: 5000,
       });
     }
-  }, [state.errors, state.submitting, toast]);
+  }, [state.result, state.succeeded, state.submitting, toast]);
 
   return (
     <>
