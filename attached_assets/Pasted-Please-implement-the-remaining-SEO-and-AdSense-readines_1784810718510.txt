@@ -1,0 +1,70 @@
+Please implement the remaining SEO and AdSense readiness improvements as one batch.
+
+Tasks:
+
+1. Add FAQPage structured data for existing guides:
+- Review the guide registry and identify guides that already contain FAQ sections.
+- Add FAQPage schema alongside the existing Article and BreadcrumbList schemas.
+- Only generate FAQPage schema when real FAQ content exists.
+- Do not modify the visible guide content or existing Article schema.
+- Ensure there are no duplicate structured data blocks.
+
+2. Prepare the website for AdSense approval:
+Review and audit the following pages:
+- /privacy
+- /terms
+- /about
+- /author
+- /editorial-policy
+- /contact
+
+Requirements:
+- Ensure the pages clearly explain:
+  - Website ownership
+  - Purpose of QuickAway
+  - How tools work
+  - Data handling practices
+  - Third-party services
+- Ensure privacy disclosures are consistent with current integrations:
+  - Vercel Analytics
+  - Google AdSense
+  - Cookies
+  - Third-party advertising services
+- Remove or update any wording that could contradict AdSense usage.
+- Keep the existing writing style and page structure.
+- Do not add unnecessary legal statements or generic copied content.
+
+3. Improve internal linking using existing content only:
+- Review tool pages, category pages, guides, and trust pages.
+- Add natural internal links where they improve user navigation and SEO signals.
+
+Priorities:
+- Tool pages should link to relevant existing guides when available.
+- Category pages should link to related existing guides/tools.
+- About page should link naturally to important sections/tools where appropriate.
+- Improve discoverability of existing content.
+
+Important:
+- Do not create new guides for missing tools at this stage.
+- Do not create placeholder content.
+- New guide creation for the remaining tools will be handled separately after AdSense readiness.
+
+4. Structured data and SEO validation:
+After implementing changes:
+- Review all affected schemas for validity.
+- Ensure:
+  - No duplicate JSON-LD schemas.
+  - SITE_URL remains consistent using https://www.quickaway.app.
+  - No old Vercel or deployment URLs are introduced.
+  - No unsupported schema properties are added.
+
+Constraints:
+- Keep changes focused only on these tasks.
+- Do not modify UI design, styling, routing, or existing functionality.
+- Do not change existing SEO titles/meta descriptions unless a clear issue is found.
+
+After completion, provide:
+1. Files changed.
+2. Summary of each change.
+3. Any remaining SEO or AdSense risks.
+4. Commit hash.
