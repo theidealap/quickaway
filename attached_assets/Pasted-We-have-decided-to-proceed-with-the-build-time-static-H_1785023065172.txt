@@ -1,0 +1,81 @@
+We have decided to proceed with the build-time static HTML generation approach.
+
+However, before implementing anything, I want you to review the current implementation plan from a long-term software architecture perspective.
+
+Our goal is not just solving today's SEO issue.
+
+Our goal is to build a production-grade foundation that can support hundreds of tools, guides, categories and pages over the coming years without requiring architectural redesign.
+
+Please review the existing plan against the following principles:
+
+1. Generic metadata architecture
+
+The metadata generation system should be generic and data-driven.
+
+The generator should consume a common metadata object instead of containing page-type specific logic whenever possible.
+
+Future page types should be easy to add without modifying the generator itself.
+
+2. Single Source of Truth
+
+Metadata must exist in only one place.
+
+React pages and the static generator must consume exactly the same source.
+
+No duplicated titles, descriptions or JSON-LD definitions.
+
+3. Build infrastructure
+
+Treat this as permanent build infrastructure rather than an SEO script.
+
+The implementation should remain useful for future features such as:
+
+sitemap generation
+RSS
+search indexes
+AI/LLM indexes
+feeds
+future static assets
+
+without redesign.
+
+4. Safe HTML generation
+
+If you believe manipulating HTML using regex is not the best long-term approach, recommend a safer alternative (for example an HTML parser such as Cheerio) only if it genuinely improves maintainability.
+
+Do not introduce unnecessary complexity.
+
+5. Stability
+
+Do not change:
+
+Vite
+React
+Wouter
+Vercel static deployment
+
+Do not introduce SSR, Next.js or routing migrations.
+
+The application should behave exactly as it does today.
+
+6. Low-risk implementation
+
+The implementation should:
+
+not change runtime behaviour
+not affect hydration
+not modify routing
+not touch the JS bundle logic
+
+It should only improve the generated HTML during the build.
+
+Before writing any code, I want a technical review of the existing implementation plan.
+
+Please answer:
+
+Which parts of the current plan you would keep unchanged.
+Which parts you would improve.
+Why.
+Whether the final architecture follows modern software engineering best practices for a project expected to grow for many years.
+
+Do not start implementing anything until the architecture review is complete
