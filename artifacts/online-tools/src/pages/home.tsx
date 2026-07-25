@@ -60,6 +60,7 @@ export default function Home() {
             <Input
               type="search"
               placeholder="Search tools…"
+              aria-label="Search tools"
               className="pl-9 h-11 text-base bg-background border-border rounded-md"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}

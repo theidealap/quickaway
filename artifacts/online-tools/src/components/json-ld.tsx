@@ -173,6 +173,9 @@ export function buildArticleSchema(opts: {
     '@type': 'Article',
     headline: opts.title,
     description: opts.description,
+    image: [
+      `${SITE_URL}/og-image.png`,
+    ],
     url: `${SITE_URL}/guides/${opts.slug}`,
     datePublished: opts.datePublished,
     dateModified: opts.dateModified ?? opts.datePublished,
