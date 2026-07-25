@@ -1,0 +1,143 @@
+Before implementing anything, I want to finalize the architecture.
+
+Our objective is NOT only solving today's SEO issue.
+
+We have three long-term priorities, in this exact order:
+
+1. Build a clean architecture that can scale for years.
+2. Maximize Google indexing and SEO quality.
+3. Maximize Google AdSense approval readiness while keeping the implementation low-risk.
+
+Please review the current implementation plan again with these three priorities in mind.
+
+Important constraints:
+
+- No migration to Next.js.
+- No SSR.
+- No runtime architecture changes.
+- No external rendering services.
+- No Puppeteer/headless browser solutions.
+- Keep the existing Vite + React + Wouter architecture.
+- Keep the JavaScript bundle untouched.
+- Keep the routing untouched.
+
+Architecture principles we want:
+
+1. Clear separation of responsibilities.
+
+The architecture should be layered.
+
+Example:
+
+scripts/
+  types.ts
+  build-routes.ts
+  prerender.ts
+
+build-routes.ts should be the ONLY module that understands page types (tool, guide, category, static page).
+
+prerender.ts should know nothing about page types.
+It should only consume PageRoute[].
+
+2. getAllRoutes() must become the single source of truth.
+
+Every future build artifact should consume exactly the same route collection.
+
+Examples:
+
+- prerendered HTML
+- sitemap.xml
+- RSS feed
+- search index
+- llms.txt
+- any future generators
+
+No future generator should read tools-registry or guides-registry directly.
+
+3. Design a scalable PageRoute model.
+
+Instead of a flat object, design a future-proof interface that can support:
+
+- path
+- pageType
+- seo
+    - title
+    - description
+    - canonical
+    - robots
+    - image
+- schemas
+- breadcrumbs
+- lastModified
+- priority
+- changeFrequency
+
+The exact structure is up to you, but it should avoid future refactoring.
+
+4. Keep every metadata source centralized.
+
+SEO strings:
+→ one source.
+
+Schema builders:
+→ one source.
+
+Route collection:
+→ one source.
+
+Avoid duplicated metadata.
+
+5. All JSON-LD builders should live in one module.
+
+React pages and build scripts must import the same builders.
+
+No page component should define its own schema.
+
+6. Prefer maintainability over cleverness.
+
+If Cheerio is the best long-term solution instead of regex, use Cheerio.
+
+We care much more about maintainability than saving one small build dependency.
+
+7. The implementation should follow SOLID principles where practical.
+
+Especially:
+
+- Single Responsibility
+- Open/Closed
+- Separation of Concerns
+- Reusability
+
+-------------------------
+
+Additionally, evaluate the plan from an SEO and Google AdSense perspective.
+
+Please answer these questions explicitly:
+
+1. Does this architecture improve Google's ability to index every page individually?
+
+2. Does it improve social sharing previews (Open Graph/Twitter)?
+
+3. Does it improve the site's technical quality for Google AdSense review?
+
+4. Is there anything in this architecture that could negatively affect AdSense approval?
+
+5. Is there anything you would change specifically to increase our long-term SEO performance and AdSense readiness?
+
+6. Is there anything you would add now that will save significant refactoring in the future?
+
+Please do NOT start implementing anything yet.
+
+Instead provide:
+
+- Updated architecture
+- Folder structure
+- Data flow
+- PageRoute interface
+- Responsibility of every file
+- Any architectural improvements
+- SEO impact
+- AdSense impact
+- Long-term scalability review
+
+Only after we approve the architecture will implementation begin.
