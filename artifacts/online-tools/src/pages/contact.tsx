@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { SEO } from '@/components/seo';
+import { PAGE_META } from '@/lib/page-meta';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -39,8 +40,8 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact Us - QuickAway"
-        description="Get in touch with the QuickAway team. Request new tools, report bugs, or just say hello."
+        title={PAGE_META.contact.title}
+        description={PAGE_META.contact.description}
       />
 
       <div className="container mx-auto px-4 py-16 max-w-5xl">

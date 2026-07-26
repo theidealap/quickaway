@@ -1,6 +1,7 @@
 import { Link } from 'wouter';
 import { ArrowRight } from 'lucide-react';
 import { SEO } from '@/components/seo';
+import { PAGE_META } from '@/lib/page-meta';
 import {
   JsonLd,
   buildGuidesIndexBreadcrumbSchema,
@@ -12,8 +13,8 @@ export default function GuidesIndex() {
   return (
     <>
       <SEO
-        title="Free Guides & How-To Articles | QuickAway"
-        description="Step-by-step guides explaining the maths and concepts behind our free online tools. Learn how to calculate age, percentages, BMI, Roman numerals, and more."
+        title={PAGE_META.guidesIndex.title}
+        description={PAGE_META.guidesIndex.description}
       />
       <JsonLd id="guides-breadcrumb"  schema={buildGuidesIndexBreadcrumbSchema()} />
       <JsonLd id="guides-collection"  schema={buildGuidesCollectionSchema(guidesRegistry.map(g => ({ title: g.title, slug: g.slug })))} />

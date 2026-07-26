@@ -6,6 +6,7 @@ import { Search, ArrowRight, BookOpen } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { SEO } from '@/components/seo';
 import { JsonLd, buildWebsiteSchema, buildOrganizationSchema } from '@/components/json-ld';
+import { PAGE_META } from '@/lib/page-meta';
 
 // Surface 3 guides that span different categories for the homepage strip
 const featuredGuides = [
@@ -37,8 +38,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="QuickAway — Free Online Calculator & Tool Hub"
-        description="Free browser-based utilities for everyday calculations, conversions, and text tasks. Age calculator, BMI, percentage, unit converter, and 17 more tools. No sign-up."
+        title={PAGE_META.home.title}
+        description={PAGE_META.home.description}
       />
       <JsonLd id="website"      schema={buildWebsiteSchema()}      />
       <JsonLd id="organization" schema={buildOrganizationSchema()} />

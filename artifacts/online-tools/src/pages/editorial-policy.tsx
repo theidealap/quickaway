@@ -1,6 +1,7 @@
 import { Link } from 'wouter';
 import { SEO } from '@/components/seo';
 import { JsonLd } from '@/components/json-ld';
+import { PAGE_META } from '@/lib/page-meta';
 import { SITE_URL, SITE_NAME } from '@/lib/site-config';
 import { AUTHOR_NAME, AUTHOR_URL } from '@/lib/author';
 
@@ -90,8 +91,8 @@ export default function EditorialPolicy() {
   return (
     <>
       <SEO
-        title="Editorial Policy | QuickAway"
-        description="How QuickAway creates and maintains its guides — accuracy standards, research process, update policy, and editorial purpose."
+        title={PAGE_META.editorialPolicy.title}
+        description={PAGE_META.editorialPolicy.description}
       />
       <JsonLd id="editorial-policy-schema"    schema={buildEditorialPolicySchema()}    />
       <JsonLd id="editorial-breadcrumb-schema" schema={buildEditorialBreadcrumbSchema()} />

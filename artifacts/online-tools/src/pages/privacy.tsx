@@ -1,12 +1,13 @@
 import { SEO } from '@/components/seo';
+import { PAGE_META } from '@/lib/page-meta';
 import { Link } from 'wouter';
 
 export default function Privacy() {
   return (
     <>
       <SEO
-        title="Privacy Policy - QuickAway"
-        description="QuickAway does not collect the data you enter into its tools — all calculations run locally in your browser. Read our full privacy policy."
+        title={PAGE_META.privacy.title}
+        description={PAGE_META.privacy.description}
       />
       
       <div className="container mx-auto px-4 py-16 max-w-3xl">

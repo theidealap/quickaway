@@ -2,6 +2,7 @@ import { Link } from 'wouter';
 import { User, BookOpen, Wrench, Mail } from 'lucide-react';
 import { SEO } from '@/components/seo';
 import { JsonLd } from '@/components/json-ld';
+import { PAGE_META } from '@/lib/page-meta';
 import { SITE_URL, SITE_NAME } from '@/lib/site-config';
 import {
   AUTHOR_NAME,
@@ -42,8 +43,8 @@ export default function Author() {
   return (
     <>
       <SEO
-        title={`${AUTHOR_NAME} — Author & Web Tools Developer | QuickAway`}
-        description={`${AUTHOR_NAME} is the creator of QuickAway — free browser-based calculators and utility tools. Learn about the author's background, expertise, and the mission behind the site.`}
+        title={PAGE_META.author.title}
+        description={PAGE_META.author.description}
       />
       <JsonLd id="person-schema"           schema={buildPersonSchema()}          />
       <JsonLd id="author-breadcrumb-schema" schema={buildAuthorBreadcrumbSchema()} />

@@ -1,5 +1,6 @@
 import { Link } from 'wouter';
 import { SEO } from '@/components/seo';
+import { PAGE_META } from '@/lib/page-meta';
 import { Zap, Shield, BookOpen, User } from 'lucide-react';
 import { AUTHOR_NAME, AUTHOR_TITLE, AUTHOR_BIO_SHORT, AUTHOR_URL } from '@/lib/author';
 
@@ -7,8 +8,8 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About QuickAway — Free Browser-Based Utilities, No Sign-Up Required"
-        description="QuickAway is a free collection of browser-based calculators and utilities that run entirely on your device. No account needed, no data collected, instant results."
+        title={PAGE_META.about.title}
+        description={PAGE_META.about.description}
       />
 
       {/* ── Page header ── */}

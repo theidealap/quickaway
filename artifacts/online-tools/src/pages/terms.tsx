@@ -1,12 +1,13 @@
 import { SEO } from '@/components/seo';
+import { PAGE_META } from '@/lib/page-meta';
 import { Link } from 'wouter';
 
 export default function Terms() {
   return (
     <>
       <SEO
-        title="Terms of Service - QuickAway"
-        description="Terms and conditions for using QuickAway's free online calculators and utilities. Tools are provided as-is for informational purposes."
+        title={PAGE_META.terms.title}
+        description={PAGE_META.terms.description}
       />
 
       <div className="container mx-auto px-4 py-16 max-w-3xl">
