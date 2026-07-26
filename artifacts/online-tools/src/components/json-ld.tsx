@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { SITE_URL, SITE_NAME, SITE_OG_IMAGE, SITE_LOGO_URL } from '@/lib/site-config';
-import { AUTHOR_NAME, AUTHOR_TITLE, AUTHOR_EXPERTISE, PUBLISHER_NAME } from '@/lib/author';
+import { PUBLISHER_NAME } from '@/lib/author';
 
 // ── Generic renderer ─────────────────────────────────────────────────────────
 
@@ -79,10 +79,6 @@ export function buildSoftwareAppSchema(opts: {
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'Web Browser',
     isAccessibleForFree: true,
-    author: {
-      '@type': 'Person',
-      name: AUTHOR_NAME,
-    },
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -176,9 +172,9 @@ export function buildArticleSchema(opts: {
     datePublished: opts.datePublished,
     dateModified: opts.dateModified ?? opts.datePublished,
     author: {
-      '@type': 'Person',
-      name: AUTHOR_NAME,
-      url: `${SITE_URL}/author`,
+      '@type': 'Organization',
+      name: PUBLISHER_NAME,
+      url: SITE_URL,
     },
     publisher: {
       '@type': 'Organization',
@@ -264,19 +260,23 @@ export function buildGuidesCollectionSchema(guides: Array<{ title: string; slug:
  * Describes the site's author with structured identity and expertise signals
  * for E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness).
  */
+/**
+ * Schema.org Organization for the /author page.
+ * Identifies QuickAway as the creator of all site content.
+ * A real Person schema should be substituted here once the site owner's
+ * name is confirmed — simply replace @type with "Person" and add the
+ * real name, jobTitle, and knowsAbout fields.
+ */
 export function buildPersonSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: AUTHOR_NAME,
-    jobTitle: AUTHOR_TITLE,
-    url: `${SITE_URL}/author`,
-    worksFor: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: SITE_URL,
+    '@type': 'Organization',
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: {
+      '@type': 'ImageObject',
+      url: SITE_LOGO_URL,
     },
-    knowsAbout: AUTHOR_EXPERTISE,
   };
 }
 
