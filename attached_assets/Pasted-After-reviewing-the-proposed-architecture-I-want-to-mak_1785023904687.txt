@@ -1,0 +1,103 @@
+After reviewing the proposed architecture, I want to make one final architectural refinement before implementation.
+
+Please review the entire design from the perspective of a long-term product that is expected to grow significantly over the coming years.
+
+Our priorities are NOT just making prerendering work.
+
+Our priorities are:
+
+long-term maintainability
+scalability
+clean architecture
+future-proof SEO
+Google AdSense readiness
+AI crawler readiness
+minimal technical debt
+single source of truth
+strong software engineering standards
+clear ownership of every responsibility
+
+Assume this project will eventually contain:
+
+hundreds of tools
+hundreds of guides
+multiple authors
+collections
+comparison pages
+landing pages
+RSS feeds
+dynamic sitemap generation
+llms.txt
+AI indexes
+search indexes
+OpenGraph image generation
+additional structured data types
+potentially multiple languages in the future
+
+I want the architecture to support all of this naturally without requiring large refactors.
+
+Before writing any code, please perform one final architecture audit.
+
+Review the proposed architecture and identify:
+
+Anything that could become technical debt in 2–5 years.
+Anything that violates SOLID principles.
+Any hidden coupling between modules.
+Any duplication of responsibility.
+Any missing abstractions.
+Any unnecessary abstractions.
+Any future bottlenecks.
+Any improvements for SEO architecture.
+Any improvements specifically for Google AdSense approval and long-term compliance.
+Any improvements for future AI discoverability (LLMs, search engines, structured data, feeds, machine-readable content).
+Any improvements for future content expansion.
+Any opportunities to make the build pipeline more reusable.
+Any improvements that reduce future maintenance cost.
+Any architecture that would make onboarding future developers easier.
+Any documentation that should exist before implementation (Architecture Decision Records, README, conventions, etc.).
+I also want to establish permanent engineering standards.
+
+Please propose:
+
+folder conventions
+naming conventions
+ownership rules
+extension rules
+import rules
+schema rules
+metadata rules
+SEO rules
+build pipeline rules
+documentation standards
+
+These should become permanent project conventions.
+
+For example:
+
+where every SEO value should live
+where every JSON-LD builder should live
+where every route should be defined
+how future generators should be added
+how future page types should be introduced
+how new metadata should be introduced
+how future contributors should extend the project without breaking architecture
+Deliverables
+
+Before implementing anything, provide:
+
+Final Architecture Review.
+Risks.
+Trade-offs.
+Recommended improvements.
+Project Engineering Standards.
+Architecture Principles.
+Folder ownership rules.
+Build pipeline philosophy.
+Future scalability review.
+Final recommendation.
+
+Do not implement anything yet.
+
+I want to approve the architecture first.
+
+The goal is to establish an architecture that can comfortably support this project for many years while maximizing maintainability, SEO quality, Google AdSense readiness, and future expansion.
