@@ -1,36 +1,8 @@
 import { Link } from 'wouter';
 import { SEO } from '@/components/seo';
-import { JsonLd } from '@/components/json-ld';
+import { JsonLd, buildEditorialPolicySchema, buildEditorialBreadcrumbSchema } from '@/components/json-ld';
 import { PAGE_META } from '@/lib/page-meta';
-import { SITE_URL, SITE_NAME } from '@/lib/site-config';
 import { AUTHOR_NAME, AUTHOR_URL } from '@/lib/author';
-
-function buildEditorialPolicySchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Editorial Policy | QuickAway',
-    url: `${SITE_URL}/editorial-policy`,
-    description:
-      'How QuickAway creates and maintains its guides — accuracy standards, research process, update policy, and editorial purpose.',
-    isPartOf: {
-      '@type': 'WebSite',
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
-  };
-}
-
-function buildEditorialBreadcrumbSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-      { '@type': 'ListItem', position: 2, name: 'Editorial Policy', item: `${SITE_URL}/editorial-policy` },
-    ],
-  };
-}
 
 const sections = [
   {

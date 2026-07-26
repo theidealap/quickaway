@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { SITE_URL, SITE_NAME, SITE_OG_IMAGE, SITE_LOGO_URL } from '@/lib/site-config';
-import { AUTHOR_NAME, PUBLISHER_NAME } from '@/lib/author';
+import { AUTHOR_NAME, AUTHOR_TITLE, AUTHOR_EXPERTISE, PUBLISHER_NAME } from '@/lib/author';
 
 // ── Generic renderer ─────────────────────────────────────────────────────────
 
@@ -254,6 +254,80 @@ export function buildGuidesCollectionSchema(guides: Array<{ title: string; slug:
       name: g.title,
       url: `${SITE_URL}/guides/${g.slug}`,
     })),
+  };
+}
+
+// ── Author page schema builders ───────────────────────────────────────────────
+
+/**
+ * Schema.org Person for the /author page.
+ * Describes the site's author with structured identity and expertise signals
+ * for E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness).
+ */
+export function buildPersonSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: AUTHOR_NAME,
+    jobTitle: AUTHOR_TITLE,
+    url: `${SITE_URL}/author`,
+    worksFor: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    knowsAbout: AUTHOR_EXPERTISE,
+  };
+}
+
+/** BreadcrumbList for the /author page: Home > Author (2 items). */
+export function buildAuthorBreadcrumbSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Author', item: `${SITE_URL}/author` },
+    ],
+  };
+}
+
+// ── Editorial Policy page schema builders ─────────────────────────────────────
+
+/**
+ * Schema.org WebPage for the /editorial-policy page.
+ * Provides structured editorial transparency signals for E-E-A-T.
+ */
+export function buildEditorialPolicySchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Editorial Policy | QuickAway',
+    url: `${SITE_URL}/editorial-policy`,
+    description:
+      'How QuickAway creates and maintains its guides — accuracy standards, research process, update policy, and editorial purpose.',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+  };
+}
+
+/** BreadcrumbList for the /editorial-policy page: Home > Editorial Policy (2 items). */
+export function buildEditorialBreadcrumbSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Editorial Policy',
+        item: `${SITE_URL}/editorial-policy`,
+      },
+    ],
   };
 }
 

@@ -1,9 +1,8 @@
 import { Link } from 'wouter';
 import { User, BookOpen, Wrench, Mail } from 'lucide-react';
 import { SEO } from '@/components/seo';
-import { JsonLd } from '@/components/json-ld';
+import { JsonLd, buildPersonSchema, buildAuthorBreadcrumbSchema } from '@/components/json-ld';
 import { PAGE_META } from '@/lib/page-meta';
-import { SITE_URL, SITE_NAME } from '@/lib/site-config';
 import {
   AUTHOR_NAME,
   AUTHOR_TITLE,
@@ -11,33 +10,6 @@ import {
   AUTHOR_EXPERTISE,
 } from '@/lib/author';
 import { guidesRegistry } from '@/lib/guides-registry';
-
-function buildPersonSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: AUTHOR_NAME,
-    jobTitle: AUTHOR_TITLE,
-    url: `${SITE_URL}/author`,
-    worksFor: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
-    knowsAbout: AUTHOR_EXPERTISE,
-  };
-}
-
-function buildAuthorBreadcrumbSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-      { '@type': 'ListItem', position: 2, name: 'Author', item: `${SITE_URL}/author` },
-    ],
-  };
-}
 
 export default function Author() {
   return (
