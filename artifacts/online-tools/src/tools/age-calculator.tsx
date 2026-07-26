@@ -103,9 +103,17 @@ export default function AgeCalculator() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card className="relative p-6 col-span-1 md:col-span-3 bg-primary/5 border-primary/20 text-center flex flex-col items-center justify-center py-10">
               <ToolResultBadge />
-              <span className="text-sm font-medium text-muted-foreground mb-2 flex items-center gap-1.5"><Clock className="w-4 h-4" /> Exact Age</span>
-              <div className="text-4xl md:text-5xl font-bold font-display tracking-tight text-foreground">
-                {result.years} <span className="text-2xl text-muted-foreground font-sans">years</span>, {result.months} <span className="text-2xl text-muted-foreground font-sans">months</span>, {result.days} <span className="text-2xl text-muted-foreground font-sans">days</span>
+              <span className="text-sm font-medium text-muted-foreground mb-3 flex items-center gap-1.5"><Clock className="w-4 h-4" /> Exact Age</span>
+              <div className="flex flex-wrap justify-center items-baseline gap-x-4 gap-y-1">
+                <span className="text-4xl md:text-5xl font-bold font-display tracking-tight text-foreground tabular-nums">
+                  {result.years}<span className="text-xl md:text-2xl text-muted-foreground font-sans font-normal ml-1.5">yr</span>
+                </span>
+                <span className="text-4xl md:text-5xl font-bold font-display tracking-tight text-foreground tabular-nums">
+                  {result.months}<span className="text-xl md:text-2xl text-muted-foreground font-sans font-normal ml-1.5">mo</span>
+                </span>
+                <span className="text-4xl md:text-5xl font-bold font-display tracking-tight text-foreground tabular-nums">
+                  {result.days}<span className="text-xl md:text-2xl text-muted-foreground font-sans font-normal ml-1.5">d</span>
+                </span>
               </div>
             </Card>
 

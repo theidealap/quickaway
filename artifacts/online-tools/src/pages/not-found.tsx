@@ -22,10 +22,15 @@ export default function NotFound() {
             We couldn't find the tool or page you were looking for. It might have been moved or doesn't exist yet.
           </p>
 
-          <div className="pt-6">
+          <div className="pt-6 flex flex-col sm:flex-row justify-center gap-3">
             <Link href="/">
-              <Button size="lg" className="rounded-full">
-                Back to Tools
+              <Button size="lg">
+                Browse all tools
+              </Button>
+            </Link>
+            <Link href="/guides">
+              <Button size="lg" variant="outline">
+                Read the guides
               </Button>
             </Link>
           </div>

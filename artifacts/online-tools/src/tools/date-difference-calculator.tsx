@@ -112,14 +112,20 @@ export default function DateDifferenceCalculator() {
               <span className="text-sm font-medium text-muted-foreground mb-2 flex items-center gap-1.5">
                 <Clock className="w-4 h-4" /> Difference
               </span>
-              <div className="text-4xl md:text-5xl font-bold font-display tracking-tight text-foreground">
+              <div className="flex flex-wrap justify-center items-baseline gap-x-3 gap-y-1">
                 {result.years > 0 && (
-                  <>{result.years} <span className="text-2xl text-muted-foreground font-sans">yr</span>{' '}</>
+                  <span className="text-4xl md:text-5xl font-bold font-display tracking-tight text-foreground tabular-nums">
+                    {result.years}<span className="text-xl md:text-2xl text-muted-foreground font-sans font-normal ml-1.5">yr</span>
+                  </span>
                 )}
                 {result.months > 0 && (
-                  <>{result.months} <span className="text-2xl text-muted-foreground font-sans">mo</span>{' '}</>
+                  <span className="text-4xl md:text-5xl font-bold font-display tracking-tight text-foreground tabular-nums">
+                    {result.months}<span className="text-xl md:text-2xl text-muted-foreground font-sans font-normal ml-1.5">mo</span>
+                  </span>
                 )}
-                {result.days} <span className="text-2xl text-muted-foreground font-sans">day{result.days !== 1 ? 's' : ''}</span>
+                <span className="text-4xl md:text-5xl font-bold font-display tracking-tight text-foreground tabular-nums">
+                  {result.days}<span className="text-xl md:text-2xl text-muted-foreground font-sans font-normal ml-1.5">day{result.days !== 1 ? 's' : ''}</span>
+                </span>
               </div>
             </Card>
 

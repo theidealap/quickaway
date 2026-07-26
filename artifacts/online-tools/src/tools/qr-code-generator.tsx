@@ -191,8 +191,8 @@ export default function QrCodeGenerator() {
           <ToolEmptyState icon={QrCodeIcon} message="Enter valid content to generate a QR code" className="h-64" />
         ) : (
           <Card className="relative p-6 bg-primary/5 border-primary/20 flex flex-col items-center gap-4">
-            <div className="bg-white rounded-lg p-4 shadow-sm">
-              <canvas ref={canvasRef} data-testid="canvas-qr-code" />
+            <div className="bg-white rounded-lg p-4 shadow-sm overflow-hidden max-w-full">
+              <canvas ref={canvasRef} data-testid="canvas-qr-code" className="max-w-full h-auto" />
             </div>
             <div className="flex gap-2 flex-wrap justify-center">
               <Button onClick={handleDownload} data-testid="button-download-qr">

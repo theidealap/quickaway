@@ -80,8 +80,9 @@ export default function Home() {
               Try a different keyword, or browse all categories.
             </p>
             <button
+              type="button"
               onClick={() => setSearchQuery('')}
-              className="text-sm font-medium text-primary hover:underline underline-offset-4"
+              className="text-sm font-medium text-primary hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
             >
               Clear search
             </button>

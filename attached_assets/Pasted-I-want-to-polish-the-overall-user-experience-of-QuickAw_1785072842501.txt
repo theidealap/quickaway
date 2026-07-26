@@ -1,0 +1,55 @@
+I want to polish the overall user experience of QuickAway before submitting to Google AdSense.
+
+Do not redesign the website or change its visual identity. Focus only on improving usability, polish, responsiveness, and user flow.
+
+Please review the entire website and implement professional UX improvements with these priorities:
+
+1. Mobile Experience
+- Fix every responsive issue across all pages.
+- Ensure badges, buttons, labels, icons and inputs never overflow or become clipped.
+- Fix date picker alignment on mobile.
+- Fix calculated status badge on small screens.
+- Test every tool on common mobile widths.
+
+2. User Journey
+- Improve the flow after users finish using a tool.
+- Make it obvious what users should do next.
+- Add better transitions between:
+  - Tool → Related Tools
+  - Tool → Related Guide
+  - Guide → Tool
+  - Homepage → Categories
+- Reduce dead ends.
+
+3. Forms
+- After a successful Contact form submission:
+  - Clear all fields.
+  - Display a professional success state.
+  - Replace the form with a confirmation message and a "Send another message" button.
+- Improve validation messages to be more user friendly.
+
+4. Content Polish
+- Rewrite any unnatural text.
+- Replace sentence separators using hyphens (-) with proper English sentences where appropriate.
+- Keep bullet lists where bullets are intended.
+- Improve readability without changing SEO meaning.
+
+5. Interaction Polish
+- Improve hover states.
+- Improve focus states.
+- Improve spacing.
+- Improve consistency between buttons.
+- Improve loading and success states.
+
+6. Accessibility
+- Improve keyboard navigation.
+- Improve tap targets on mobile.
+- Improve color contrast where needed.
+- Improve ARIA labels if missing.
+
+7. General Review
+Review the entire site as if you were preparing it for a production launch and Google AdSense approval.
+
+Do not remove existing SEO work, structured data, metadata, schema, routing, URLs or analytics.
+
+Focus only on making the product feel polished, professional, and complete.

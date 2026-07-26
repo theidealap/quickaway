@@ -55,10 +55,11 @@ export function Header() {
 
         {/* Mobile menu toggle */}
         <button
-          className="md:hidden p-2 rounded text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+          className="md:hidden p-2.5 rounded text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           onClick={() => setOpen(!open)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
+          aria-controls="mobile-nav"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -66,7 +67,7 @@ export function Header() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div className="md:hidden absolute w-full top-14 left-0 bg-background border-b border-border shadow-sm z-50">
+        <div id="mobile-nav" className="md:hidden absolute w-full top-14 left-0 bg-background border-b border-border shadow-sm z-50">
           <nav className="container mx-auto px-4 py-3 flex flex-col gap-1" aria-label="Mobile navigation">
             {navLinks.map((link) => (
               <button

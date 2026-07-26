@@ -26,7 +26,7 @@ export default function PercentageCalculator() {
   };
 
   const renderFormula = (text: string) => (
-    <div className="text-sm font-mono text-muted-foreground bg-muted p-2 rounded-md inline-block">
+    <div className="text-sm font-mono text-muted-foreground bg-muted px-3 py-2 rounded-md max-w-full overflow-x-auto whitespace-nowrap">
       {text}
     </div>
   );

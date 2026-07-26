@@ -201,7 +201,7 @@ export default function UnitConverter() {
         ) : (
           <Card className="relative p-6 bg-primary/5 border-primary/20 text-center flex flex-col items-center py-8">
             <ToolResultBadge />
-            <div className="text-2xl md:text-3xl font-bold font-display tracking-tight text-foreground">
+            <div className="text-xl md:text-2xl lg:text-3xl font-bold font-display tracking-tight text-foreground break-words max-w-full px-2">
               {value} {fromLabel.split(' (')[0]} = {formatResult(result)} {toLabel.split(' (')[0]}
             </div>
           </Card>

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { SEO } from '@/components/seo';
 import { PAGE_META } from '@/lib/page-meta';
@@ -6,36 +5,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, Send, Lightbulb, CheckCircle2 } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { MessageSquare, Send, Lightbulb, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 export default function Contact() {
   const [state, handleSubmit, reset] = useForm('mvzebngw');
-  const { toast } = useToast();
 
-  // Success effect
-  useEffect(() => {
-    if (state.succeeded) {
-      toast({
-        title: 'Message sent successfully.',
-        description: 'Thanks for contacting QuickAway.',
-        duration: 5000,
-      });
-      reset();
-    }
-  }, [state.succeeded, toast, reset]);
-
-  // Error effect — fires after a completed submission that did not succeed
-  useEffect(() => {
-    if (state.result && !state.succeeded && !state.submitting) {
-      toast({
-        title: 'Something went wrong.',
-        description: 'Please try again.',
-        variant: 'destructive',
-        duration: 5000,
-      });
-    }
-  }, [state.result, state.succeeded, state.submitting, toast]);
+  const hasServerError = state.result && !state.succeeded && !state.submitting;
 
   return (
     <>
@@ -91,9 +67,9 @@ export default function Contact() {
                   <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-2">
                     <CheckCircle2 className="w-8 h-8 text-primary" />
                   </div>
-                  <h2 className="text-xl font-semibold tracking-tight">Message sent successfully</h2>
+                  <h2 className="text-xl font-semibold tracking-tight">Message sent</h2>
                   <p className="text-muted-foreground max-w-sm leading-relaxed">
-                    Thanks for contacting QuickAway! We've received your message and will get back to you as soon as possible.
+                    Thanks for reaching out! We've received your message and will get back to you as soon as possible.
                   </p>
                   <Button
                     variant="outline"
@@ -107,30 +83,42 @@ export default function Contact() {
                 <>
                   <CardHeader>
                     <CardTitle>Send a Message</CardTitle>
-                    <CardDescription>Fill out the form below and we'll get back to you.</CardDescription>
+                    <CardDescription>We read every message and typically reply within a few days.</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <form className="space-y-4" onSubmit={handleSubmit}>
+                    {hasServerError && (
+                      <Alert variant="destructive">
+                        <AlertCircle className="h-4 w-4" />
+                        <AlertDescription>Something went wrong. Please try again in a moment.</AlertDescription>
+                      </Alert>
+                    )}
+                    <form className="space-y-4" onSubmit={handleSubmit} noValidate>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
-                          <label htmlFor="name" className="text-sm font-medium">Name</label>
+                          <label htmlFor="name" className="text-sm font-medium">
+                            Name <span className="text-muted-foreground font-normal">(required)</span>
+                          </label>
                           <Input
                             id="name"
                             name="name"
                             placeholder="Jane Doe"
                             required
+                            autoComplete="name"
                             disabled={state.submitting}
                           />
                           <ValidationError field="name" prefix="Name" errors={state.errors} className="text-xs text-destructive" />
                         </div>
                         <div className="space-y-2">
-                          <label htmlFor="email" className="text-sm font-medium">Email</label>
+                          <label htmlFor="email" className="text-sm font-medium">
+                            Email <span className="text-muted-foreground font-normal">(required)</span>
+                          </label>
                           <Input
                             id="email"
                             name="email"
                             type="email"
                             placeholder="jane@example.com"
                             required
+                            autoComplete="email"
                             disabled={state.submitting}
                           />
                           <ValidationError field="email" prefix="Email" errors={state.errors} className="text-xs text-destructive" />
@@ -142,7 +130,7 @@ export default function Contact() {
                         <Input
                           id="subject"
                           name="subject"
-                          placeholder="Tool Request: Currency Converter"
+                          placeholder="Tool request, bug report, feedback…"
                           required
                           minLength={3}
                           disabled={state.submitting}
@@ -155,7 +143,7 @@ export default function Contact() {
                         <Textarea
                           id="message"
                           name="message"
-                          placeholder="I would love a tool that..."
+                          placeholder="Tell us what you'd like to see, or describe the issue you ran into…"
                           rows={6}
                           required
                           minLength={10}
@@ -165,14 +153,21 @@ export default function Contact() {
                         <ValidationError field="message" prefix="Message" errors={state.errors} className="text-xs text-destructive" />
                       </div>
 
-                      <Button type="submit" className="w-full sm:w-auto" disabled={state.submitting}>
-                        <Send className="w-4 h-4 mr-2" />
-                        {state.submitting ? 'Sending…' : 'Send Message'}
-                      </Button>
-                      <p className="text-xs text-muted-foreground">
-                        By submitting this form you agree to our{' '}
-                        <a href="/privacy" className="underline underline-offset-4 hover:text-foreground transition-colors">Privacy Policy</a>.
-                      </p>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                        <Button
+                          type="submit"
+                          className="w-full sm:w-auto"
+                          disabled={state.submitting}
+                          aria-busy={state.submitting}
+                        >
+                          <Send className="w-4 h-4 mr-2" />
+                          {state.submitting ? 'Sending…' : 'Send Message'}
+                        </Button>
+                        <p className="text-xs text-muted-foreground">
+                          By submitting you agree to our{' '}
+                          <a href="/privacy" className="underline underline-offset-4 hover:text-foreground transition-colors">Privacy Policy</a>.
+                        </p>
+                      </div>
                     </form>
                   </CardContent>
                 </>

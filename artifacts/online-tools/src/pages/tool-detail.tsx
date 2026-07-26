@@ -111,8 +111,52 @@ export default function ToolDetail() {
             </Suspense>
           </div>
 
-          {/* ── Sidebar ── */}
-          <aside className="space-y-4 lg:sticky lg:top-20">
+          {/* ── Mobile: Explore more (mirrors sidebar; hidden on lg) ── */}
+          <div className="lg:hidden mt-8 pt-8 border-t border-border space-y-5">
+            {relatedGuide && (
+              <div>
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2 flex items-center gap-1.5">
+                  <BookOpen className="w-3.5 h-3.5" />
+                  Related Guide
+                </p>
+                <Link
+                  href={`/guides/${relatedGuide.slug}`}
+                  className="text-sm font-medium text-primary hover:underline underline-offset-4 flex items-center gap-1.5"
+                >
+                  <span className="flex-1">{relatedGuide.title}</span>
+                  <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+                </Link>
+              </div>
+            )}
+            {siblingTools.length > 0 && (
+              <div>
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                  Related Tools
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {siblingTools.map((t) => (
+                    <Link
+                      key={t.slug}
+                      href={`/tools/${t.slug}`}
+                      className="text-sm border border-border rounded px-3 py-1.5 text-foreground hover:border-primary/50 hover:text-primary transition-colors"
+                    >
+                      {t.name}
+                    </Link>
+                  ))}
+                </div>
+                <Link
+                  href={`/${categorySlug}`}
+                  className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
+                >
+                  See all {tool.category}
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* ── Sidebar (desktop) ── */}
+          <aside className="hidden lg:block space-y-4 lg:sticky lg:top-20">
 
             {/* Guide link — highest value item in sidebar */}
             {relatedGuide && (

@@ -307,9 +307,10 @@ export default function GuideDetail({ params }: GuideDetailProps) {
 
             <Link
               href="/guides"
-              className="block text-xs text-muted-foreground hover:text-primary transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary transition-colors"
             >
-              ← All guides
+              <ArrowRight className="w-3 h-3 rotate-180" />
+              All guides
             </Link>
           </aside>
         </div>
