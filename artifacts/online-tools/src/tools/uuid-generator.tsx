@@ -123,7 +123,7 @@ export default function UuidGenerator() {
               key={i}
               className="group flex items-center justify-between gap-3 px-3 py-2 rounded-lg border border-transparent hover:border-border hover:bg-background/60 transition-colors"
             >
-              <span className="font-mono text-[11px] sm:text-sm text-foreground select-all flex-1 min-w-0 truncate">
+              <span className="font-mono text-[11px] sm:text-sm text-foreground select-all flex-1 min-w-0 break-all">
                 {uuid}
               </span>
               <Button
