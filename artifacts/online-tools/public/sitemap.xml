@@ -4,7 +4,7 @@
   <!-- Core pages -->
   <url>
     <loc>https://www.quickaway.app/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -30,7 +30,7 @@
     <loc>https://www.quickaway.app/contact</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/privacy</loc>
@@ -48,37 +48,37 @@
   <!-- Category pages -->
   <url>
     <loc>https://www.quickaway.app/calculators</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/converters</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/generators</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/text-tools</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/developer-tools</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/date-time</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -86,135 +86,135 @@
   <!-- Tool pages -->
   <url>
     <loc>https://www.quickaway.app/tools/age-calculator</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/percentage-calculator</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/bmi-calculator</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/gpa-calculator</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/unit-converter</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/word-counter</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/qr-code-generator</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/whatsapp-link-generator</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/email-signature-generator</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/countdown-to-date</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/password-generator</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/date-difference-calculator</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/discount-calculator</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/tip-calculator</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/text-case-converter</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/roman-numeral-converter</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/lorem-ipsum-generator</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/base-converter</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/number-to-words</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/uuid-generator</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.quickaway.app/tools/base64-encoder-decoder</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Guides index -->
   <url>
     <loc>https://www.quickaway.app/guides</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

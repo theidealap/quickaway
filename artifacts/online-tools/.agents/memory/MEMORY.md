@@ -1,0 +1,1 @@
+- [QuickAway build pipeline](quickaway-pipeline.md) — 6-phase static prerender pipeline complete; architecture, ownership rules, and extension patterns documented.
