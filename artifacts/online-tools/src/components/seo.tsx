@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'wouter';
-
-export const SITE_URL = 'https://www.quickaway.app';
-export const SITE_NAME = 'QuickAway';
+import { SITE_URL, SITE_NAME, SITE_OG_IMAGE } from '@/lib/site-config';
 
 interface SEOProps {
   title: string;
@@ -46,7 +44,7 @@ export function SEO({ title, description, ogImage, robots }: SEOProps) {
   useEffect(() => {
     const canonicalUrl = `${SITE_URL}${location === '/' ? '' : location}`;
     // Prefer an explicit path; fall back to a generic OG image placeholder
-    const image = ogImage ?? `${SITE_URL}/og-image.png`;
+    const image = ogImage ?? SITE_OG_IMAGE;
 
     // ── Page title ───────────────────────────────────────────────────────────
     document.title = title;

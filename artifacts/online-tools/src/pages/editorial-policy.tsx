@@ -1,7 +1,7 @@
 import { Link } from 'wouter';
 import { SEO } from '@/components/seo';
 import { JsonLd } from '@/components/json-ld';
-import { SITE_URL, SITE_NAME } from '@/components/seo';
+import { SITE_URL, SITE_NAME } from '@/lib/site-config';
 import { AUTHOR_NAME, AUTHOR_URL } from '@/lib/author';
 
 function buildEditorialPolicySchema() {

@@ -1,10 +1,6 @@
 import { useEffect } from 'react';
-import { SITE_URL, SITE_NAME } from '@/components/seo';
+import { SITE_URL, SITE_NAME, SITE_OG_IMAGE, SITE_LOGO_URL } from '@/lib/site-config';
 import { AUTHOR_NAME, PUBLISHER_NAME } from '@/lib/author';
-
-// Canonical publisher logo — 1024×1024 PNG, white background, served from /public.
-// Used in Organization, Article publisher, and WebPage schemas.
-const LOGO_URL = `${SITE_URL}/logo.png`;
 
 // ── Generic renderer ─────────────────────────────────────────────────────────
 
@@ -63,7 +59,7 @@ export function buildOrganizationSchema() {
     url: SITE_URL,
     logo: {
       '@type': 'ImageObject',
-      url: LOGO_URL,
+      url: SITE_LOGO_URL,
     },
   };
 }
@@ -174,7 +170,7 @@ export function buildArticleSchema(opts: {
     headline: opts.title,
     description: opts.description,
     image: [
-      `${SITE_URL}/og-image.png`,
+      SITE_OG_IMAGE,
     ],
     url: `${SITE_URL}/guides/${opts.slug}`,
     datePublished: opts.datePublished,
@@ -190,7 +186,7 @@ export function buildArticleSchema(opts: {
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: LOGO_URL,
+        url: SITE_LOGO_URL,
       },
     },
     isAccessibleForFree: true,
