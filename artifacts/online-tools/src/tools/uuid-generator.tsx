@@ -123,13 +123,13 @@ export default function UuidGenerator() {
               key={i}
               className="group flex items-center justify-between gap-3 px-3 py-2 rounded-lg border border-transparent hover:border-border hover:bg-background/60 transition-colors"
             >
-              <span className="font-mono text-sm text-foreground select-all tracking-wide flex-1 truncate">
+              <span className="font-mono text-[11px] sm:text-sm text-foreground select-all flex-1 min-w-0 truncate">
                 {uuid}
               </span>
               <Button
                 size="icon"
                 variant="ghost"
-                className="h-7 w-7 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                className="h-7 w-7 shrink-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
                 onClick={() => copyOne(uuid, i)}
                 aria-label="Copy UUID"
               >

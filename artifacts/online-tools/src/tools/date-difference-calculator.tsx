@@ -130,18 +130,18 @@ export default function DateDifferenceCalculator() {
             </Card>
 
             {/* Secondary stats */}
-            <div className="grid grid-cols-3 gap-4">
-              <Card className="p-4 text-center">
+            <div className="grid grid-cols-3 gap-3 md:gap-4">
+              <Card className="p-3 md:p-4 text-center min-w-0 overflow-hidden">
                 <span className="text-xs text-muted-foreground block mb-1">Total Days</span>
-                <span className="text-2xl font-bold font-display">{result.totalDays.toLocaleString()}</span>
+                <span className="text-lg md:text-2xl font-bold font-display break-all leading-tight">{result.totalDays.toLocaleString()}</span>
               </Card>
-              <Card className="p-4 text-center">
+              <Card className="p-3 md:p-4 text-center min-w-0 overflow-hidden">
                 <span className="text-xs text-muted-foreground block mb-1">Weeks</span>
-                <span className="text-2xl font-bold font-display">{result.weeks.toLocaleString()}</span>
+                <span className="text-lg md:text-2xl font-bold font-display break-all leading-tight">{result.weeks.toLocaleString()}</span>
               </Card>
-              <Card className="p-4 text-center">
+              <Card className="p-3 md:p-4 text-center min-w-0 overflow-hidden">
                 <span className="text-xs text-muted-foreground block mb-1">Hours</span>
-                <span className="text-2xl font-bold font-display">{result.hours.toLocaleString()}</span>
+                <span className="text-lg md:text-2xl font-bold font-display break-all leading-tight">{result.hours.toLocaleString()}</span>
               </Card>
             </div>
           </div>

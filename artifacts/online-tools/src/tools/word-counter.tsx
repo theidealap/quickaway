@@ -47,25 +47,25 @@ export default function WordCounter() {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card className="p-4 flex flex-col items-center justify-center text-center bg-card">
-          <span className="text-sm font-medium text-muted-foreground mb-1 flex items-center gap-1.5"><Type className="w-3.5 h-3.5" /> Words</span>
-          <span className="text-3xl md:text-4xl font-bold font-display text-primary">{stats.words.toLocaleString()}</span>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        <Card className="p-3 md:p-4 flex flex-col items-center justify-center text-center bg-card min-w-0 overflow-hidden">
+          <span className="text-xs md:text-sm font-medium text-muted-foreground mb-1 flex items-center gap-1.5"><Type className="w-3.5 h-3.5" /> Words</span>
+          <span className="text-2xl md:text-4xl font-bold font-display text-primary tabular-nums">{stats.words.toLocaleString()}</span>
         </Card>
         
-        <Card className="p-4 flex flex-col items-center justify-center text-center bg-card">
-          <span className="text-sm font-medium text-muted-foreground mb-1 flex items-center gap-1.5"><Hash className="w-3.5 h-3.5" /> Characters</span>
-          <span className="text-3xl md:text-4xl font-bold font-display text-foreground">{stats.charsTotal.toLocaleString()}</span>
+        <Card className="p-3 md:p-4 flex flex-col items-center justify-center text-center bg-card min-w-0 overflow-hidden">
+          <span className="text-xs md:text-sm font-medium text-muted-foreground mb-1 flex items-center gap-1.5"><Hash className="w-3.5 h-3.5" /> Characters</span>
+          <span className="text-2xl md:text-4xl font-bold font-display text-foreground tabular-nums">{stats.charsTotal.toLocaleString()}</span>
         </Card>
 
-        <Card className="p-4 flex flex-col items-center justify-center text-center bg-card">
-          <span className="text-sm font-medium text-muted-foreground mb-1 flex items-center gap-1.5"><Quote className="w-3.5 h-3.5" /> Sentences</span>
-          <span className="text-3xl md:text-4xl font-bold font-display text-foreground">{stats.sentences.toLocaleString()}</span>
+        <Card className="p-3 md:p-4 flex flex-col items-center justify-center text-center bg-card min-w-0 overflow-hidden">
+          <span className="text-xs md:text-sm font-medium text-muted-foreground mb-1 flex items-center gap-1.5"><Quote className="w-3.5 h-3.5" /> Sentences</span>
+          <span className="text-2xl md:text-4xl font-bold font-display text-foreground tabular-nums">{stats.sentences.toLocaleString()}</span>
         </Card>
 
-        <Card className="p-4 flex flex-col items-center justify-center text-center bg-card">
-          <span className="text-sm font-medium text-muted-foreground mb-1 flex items-center gap-1.5"><AlignLeft className="w-3.5 h-3.5" /> Paragraphs</span>
-          <span className="text-3xl md:text-4xl font-bold font-display text-foreground">{stats.paragraphs.toLocaleString()}</span>
+        <Card className="p-3 md:p-4 flex flex-col items-center justify-center text-center bg-card min-w-0 overflow-hidden">
+          <span className="text-xs md:text-sm font-medium text-muted-foreground mb-1 flex items-center gap-1.5"><AlignLeft className="w-3.5 h-3.5" /> Paragraphs</span>
+          <span className="text-2xl md:text-4xl font-bold font-display text-foreground tabular-nums">{stats.paragraphs.toLocaleString()}</span>
         </Card>
       </div>
 

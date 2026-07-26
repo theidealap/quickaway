@@ -90,9 +90,8 @@ export default function GpaCalculator() {
         </div>
 
         {courses.map((course, index) => (
-          <div key={course.id} className="grid grid-cols-1 md:grid-cols-[1fr_140px_140px_44px] gap-3 items-center">
-            <div className="text-sm text-muted-foreground md:hidden">Course {index + 1}</div>
-            <div className="hidden md:block text-sm text-muted-foreground">Course {index + 1}</div>
+          <div key={course.id} className="grid grid-cols-[1fr_96px_44px] md:grid-cols-[1fr_140px_140px_44px] gap-2 md:gap-3 items-center">
+            <div className="col-span-3 md:col-span-1 text-sm text-muted-foreground">Course {index + 1}</div>
             <Select value={course.grade} onValueChange={(v) => updateCourse(course.id, 'grade', v)}>
               <SelectTrigger data-testid={`select-grade-${index}`}>
                 <SelectValue />
