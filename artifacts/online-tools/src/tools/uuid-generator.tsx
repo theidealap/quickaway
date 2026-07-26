@@ -146,7 +146,7 @@ export default function UuidGenerator() {
 
       {/* Info note */}
       <p className="text-xs text-muted-foreground">
-        UUID v4 — generated using <code className="font-mono">crypto.getRandomValues()</code>. All IDs are created locally in your browser; nothing is sent to a server.
+        UUID v4, generated using <code className="font-mono">crypto.getRandomValues()</code>. All IDs are created locally in your browser; nothing is sent to a server.
       </p>
     </div>
   );

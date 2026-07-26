@@ -86,7 +86,7 @@ export default function CategoryPage() {
       <section className="container mx-auto px-4 py-10 md:py-12">
         {tools.length === 0 ? (
           <div className="text-center py-20 text-muted-foreground">
-            <p className="text-base mb-4">No tools in this category yet — check back soon.</p>
+            <p className="text-base mb-4">No tools in this category yet. Check back soon.</p>
             <Link href="/" className="text-sm font-medium text-primary hover:underline underline-offset-4">
               Browse all tools
             </Link>

@@ -66,7 +66,7 @@ export const PAGE_META: Record<string, StaticPageMeta> = {
   privacy: {
     title: 'Privacy Policy - QuickAway',
     description:
-      'QuickAway does not collect the data you enter into its tools — all calculations run locally in your browser. Read our full privacy policy.',
+      'QuickAway does not collect the data you enter into its tools. All calculations run locally in your browser. Read our full privacy policy.',
     lastModified: '2026-07-23',
   },
 
@@ -80,7 +80,7 @@ export const PAGE_META: Record<string, StaticPageMeta> = {
   editorialPolicy: {
     title: 'Editorial Policy | QuickAway',
     description:
-      'How QuickAway creates and maintains its guides — accuracy standards, research process, update policy, and editorial purpose.',
+      'How QuickAway creates and maintains its guides, covering accuracy standards, research process, update policy, and editorial purpose.',
     lastModified: '2026-07-23',
   },
 

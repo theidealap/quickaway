@@ -135,7 +135,7 @@ export const guidesRegistry: GuideEntry[] = [
           'Subtract 1: years = 30.',
           'Months since last birthday (October 3, 2025): October → November → December → January → February → March → April → May → June → July = 9 months. But July 22 < October 3 in day? No — we are measuring from October 3, 2025. October to July is 9 months, and since day 22 < day 3 we subtract 1 month.',
           'Months = 8 (October 3, 2025 → June 3, 2026 = 8 months).',
-          'Days: July has 31 days. Days in June after June 3 = 27, plus 22 days in July = 49... Actually: last full month boundary was June 3. From June 3 to July 22 = 19 + 22 = 49 — but standard age uses June 3 as the last boundary: July 22 − June 3 = 19 days.',
+          'Days: July has 31 days. Days in June after June 3 = 27, plus 22 days in July = 49... Actually: last full month boundary was June 3. From June 3 to July 22 = 19 + 22 = 49, but standard age uses June 3 as the last boundary: July 22 − June 3 = 19 days.',
           'Result: 30 years, 8 months, 19 days.',
         ],
       },
@@ -165,7 +165,7 @@ export const guidesRegistry: GuideEntry[] = [
           },
           {
             q: 'Why does an online age calculator sometimes show a different result than my manual calculation?',
-            a: 'The most common cause is a time zone difference — "today" may differ by a day depending on where the server or browser clock is set. Always verify the date the tool is using. A secondary cause is different conventions for handling month-end dates (e.g. January 31 + 1 month = February 28 or March 3?).',
+            a: 'The most common cause is a time zone difference, since "today" can differ by a day depending on where the server or browser clock is set. Always verify the date the tool is using. A secondary cause is different conventions for handling month-end dates (e.g. January 31 + 1 month = February 28 or March 3?).',
           },
         ],
       },
@@ -337,7 +337,7 @@ export const guidesRegistry: GuideEntry[] = [
       {
         type: 'text',
         heading: 'Limitations of BMI',
-        body: 'BMI is a ratio of weight to height — it cannot distinguish between muscle and fat. A muscular athlete may have a "overweight" BMI despite having very low body fat. Conversely, an older person can have a "normal" BMI while carrying a high proportion of fat (termed "normal-weight obesity").\n\nBMI also does not account for:\n• Where fat is distributed (abdominal fat carries higher risk than hip/thigh fat)\n• Age and sex (older adults and women naturally carry more fat)\n• Ethnicity (Asian and South Asian populations show elevated cardiometabolic risk at lower BMI thresholds; some guidelines use 23.0 as the overweight threshold for these groups)\n\nFor a more complete picture, healthcare providers typically use BMI alongside waist circumference, blood pressure, blood glucose, and cholesterol levels.',
+        body: 'BMI is a ratio of weight to height. It cannot distinguish between muscle and fat. A muscular athlete may have a "overweight" BMI despite having very low body fat. Conversely, an older person can have a "normal" BMI while carrying a high proportion of fat (termed "normal-weight obesity").\n\nBMI also does not account for:\n• Where fat is distributed (abdominal fat carries higher risk than hip/thigh fat)\n• Age and sex (older adults and women naturally carry more fat)\n• Ethnicity (Asian and South Asian populations show elevated cardiometabolic risk at lower BMI thresholds; some guidelines use 23.0 as the overweight threshold for these groups)\n\nFor a more complete picture, healthcare providers typically use BMI alongside waist circumference, blood pressure, blood glucose, and cholesterol levels.',
       },
       {
         type: 'faq',
@@ -349,7 +349,7 @@ export const guidesRegistry: GuideEntry[] = [
           },
           {
             q: 'What BMI is considered healthy?',
-            a: 'The WHO classifies BMI 18.5–24.9 as the normal healthy weight range for adults. However, "healthy" BMI is not a guarantee of good health — lifestyle factors, diet, activity level, and genetics all play major roles beyond what BMI can capture.',
+            a: 'The WHO classifies BMI 18.5–24.9 as the normal healthy weight range for adults. However, "healthy" BMI is not a guarantee of good health. Lifestyle factors, diet, activity level, and genetics all play major roles beyond what BMI can capture.',
           },
           {
             q: 'Why does the imperial BMI formula use 703?',
@@ -405,7 +405,7 @@ export const guidesRegistry: GuideEntry[] = [
       {
         type: 'text',
         heading: 'Additive vs. Subtractive Notation',
-        body: 'Roman numerals are generally written from largest to smallest, left to right, and their values are added together (additive notation). VII = 5 + 1 + 1 = 7. XII = 10 + 1 + 1 = 12.\n\nHowever, six subtractive combinations are allowed to avoid repeating a symbol more than three times. When a smaller symbol appears before a larger one, it is subtracted:\n\n• IV = 4 (not IIII)\n• IX = 9 (not VIIII)\n• XL = 40 (not XXXX)\n• XC = 90 (not LXXXX)\n• CD = 400 (not CCCC)\n• CM = 900 (not DCCCC)\n\nOnly these six combinations are valid. You cannot write IL for 49 — it must be XLIX (40 + 9). The rule is that only I, X, and C can be used subtractively, and only in front of the next two higher values.',
+        body: 'Roman numerals are generally written from largest to smallest, left to right, and their values are added together (additive notation). VII = 5 + 1 + 1 = 7. XII = 10 + 1 + 1 = 12.\n\nHowever, six subtractive combinations are allowed to avoid repeating a symbol more than three times. When a smaller symbol appears before a larger one, it is subtracted:\n\n• IV = 4 (not IIII)\n• IX = 9 (not VIIII)\n• XL = 40 (not XXXX)\n• XC = 90 (not LXXXX)\n• CD = 400 (not CCCC)\n• CM = 900 (not DCCCC)\n\nOnly these six combinations are valid. You cannot write IL for 49. It must be XLIX (40 + 9). The rule is that only I, X, and C can be used subtractively, and only in front of the next two higher values.',
       },
       {
         type: 'table',

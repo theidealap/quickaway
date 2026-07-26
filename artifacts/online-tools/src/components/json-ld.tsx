@@ -243,7 +243,7 @@ export function buildGuidesCollectionSchema(guides: Array<{ title: string; slug:
     '@type': 'CollectionPage',
     name: 'Free Guides & How-To Articles | QuickAway',
     description:
-      'Step-by-step guides explaining the maths and concepts behind free online tools — worked examples, formulas, and FAQs.',
+      'Step-by-step guides explaining the maths and concepts behind free online tools, with worked examples, formulas, and FAQs.',
     url: `${SITE_URL}/guides`,
     hasPart: guides.map((g) => ({
       '@type': 'Article',
@@ -305,7 +305,7 @@ export function buildEditorialPolicySchema() {
     name: 'Editorial Policy | QuickAway',
     url: `${SITE_URL}/editorial-policy`,
     description:
-      'How QuickAway creates and maintains its guides — accuracy standards, research process, update policy, and editorial purpose.',
+      'How QuickAway creates and maintains its guides, covering accuracy standards, research process, update policy, and editorial purpose.',
     isPartOf: {
       '@type': 'WebSite',
       name: SITE_NAME,

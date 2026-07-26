@@ -33,7 +33,7 @@ export const CATEGORY_META: Record<
   'Calculators': {
     heading: 'Free Online Calculators',
     description:
-      'Accurate calculators for everyday maths, finance, health, and academic use — no sign-up, no clutter, instant results.',
+      'Accurate calculators for everyday maths, finance, health, and academic use. No sign-up, no clutter, instant results.',
     seoTitle: 'Free Online Calculators – Math, Finance & Health | QuickAway',
     seoDescription:
       'Browse free online calculators for everyday use: age, BMI, GPA, percentage, tip, discount and more. Fast, no sign-up, works in any browser.',
@@ -41,7 +41,7 @@ export const CATEGORY_META: Record<
   'Converters': {
     heading: 'Free Online Converters',
     description:
-      'Convert units of length, weight, temperature, numbers, and more — accurate, instant, and completely free.',
+      'Convert units of length, weight, temperature, numbers, and more. Accurate, instant, and completely free.',
     seoTitle: 'Free Online Unit Converters – Length, Weight, Temperature & More | QuickAway',
     seoDescription:
       'Convert units of length, weight, temperature, volume and more with free online converter tools. Accurate, instant, and works in any browser without sign-up.',
@@ -49,7 +49,7 @@ export const CATEGORY_META: Record<
   'Generators': {
     heading: 'Free Online Generators',
     description:
-      'Generate QR codes, links, passwords, email signatures, and more with one click — no watermarks, no account required.',
+      'Generate QR codes, links, passwords, email signatures, and more with one click. No watermarks, no account required.',
     seoTitle: 'Free Online Generators – QR Codes, Passwords, Links & More | QuickAway',
     seoDescription:
       'Generate QR codes, WhatsApp links, email signatures, passwords and more with free online generator tools. No watermarks, no sign-up required.',
@@ -65,7 +65,7 @@ export const CATEGORY_META: Record<
   'Developer Tools': {
     heading: 'Free Online Developer Tools',
     description:
-      'Encode, decode, format, and generate — lightweight developer utilities that run entirely in your browser.',
+      'Lightweight developer utilities for encoding, decoding, formatting, and generating. Runs entirely in your browser.',
     seoTitle: 'Free Online Developer Tools – Encode, Format & Generate | QuickAway',
     seoDescription:
       'Free online developer tools: Base64 encoder/decoder, JSON formatter, UUID generator and more. No sign-up, runs in your browser, completely free.',
@@ -73,7 +73,7 @@ export const CATEGORY_META: Record<
   'Date & Time': {
     heading: 'Free Date & Time Tools',
     description:
-      'Live countdowns, date difference calculators, and time utilities — all free and running instantly in your browser.',
+      'Live countdowns, date difference calculators, and time utilities. All free, running instantly in your browser.',
     seoTitle: 'Free Online Date & Time Tools – Countdown & Date Calculator | QuickAway',
     seoDescription:
       'Free online date and time tools: create live countdowns to any date and calculate the exact difference between two dates. Fast, free, no sign-up.',
@@ -236,7 +236,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Pick any two dates to see the precise difference broken down into years, months, and days — plus total days, total weeks, and total hours.',
     seoTitle: 'Free Date Difference Calculator – Days Between Two Dates | QuickAway',
     seoDescription:
-      'Calculate the exact difference between two dates in years, months, days, weeks, and hours. Free online date difference calculator — no sign-up needed.',
+      'Calculate the exact difference between two dates in years, months, days, weeks, and hours. Free online date difference calculator, no sign-up needed.',
     category: 'Date & Time',
     component: lazy(() => import('@/tools/date-difference-calculator')),
   },
@@ -293,7 +293,7 @@ export const toolsRegistry: ToolEntry[] = [
     name: 'Lorem Ipsum Generator',
     shortDescription: 'Generate placeholder Lorem Ipsum text by paragraphs, sentences, or words.',
     longDescription:
-      'Create Lorem Ipsum placeholder text in any amount — choose paragraphs, sentences, or words, set the quantity with a slider, and toggle the classic opening phrase. Copy the result with one click.',
+      'Create Lorem Ipsum placeholder text in any amount. Choose paragraphs, sentences, or words, set the quantity with a slider, and toggle the classic opening phrase. Copy the result with one click.',
     seoTitle: 'Free Lorem Ipsum Generator – Placeholder Text by Paragraph | QuickAway',
     seoDescription:
       'Generate Lorem Ipsum placeholder text by paragraphs, sentences, or words. Choose quantity, toggle the classic opening, and copy instantly. Free online Lorem Ipsum tool.',
@@ -315,7 +315,7 @@ export const toolsRegistry: ToolEntry[] = [
   {
     slug: 'number-to-words',
     name: 'Number to Words Converter',
-    shortDescription: 'Convert any number into English words — cardinal and ordinal forms.',
+    shortDescription: 'Convert any number into English words, in cardinal and ordinal forms.',
     longDescription:
       'Type any integer (positive or negative, up to 999 quadrillion) and instantly see it written out in English — in lowercase, capitalised, cardinal, and ordinal forms. Copy any variant with one click.',
     seoTitle: 'Free Number to Words Converter – Write Numbers in English | QuickAway',
@@ -329,10 +329,10 @@ export const toolsRegistry: ToolEntry[] = [
     name: 'UUID Generator',
     shortDescription: 'Generate up to 20 cryptographically random UUID v4 identifiers at once.',
     longDescription:
-      'Generate 1–20 UUID v4 identifiers in a single click using your browser\'s native crypto API. Toggle uppercase, copy individual UUIDs or all at once, and regenerate any time — nothing is sent to a server.',
+      'Generate 1–20 UUID v4 identifiers in a single click using your browser\'s native crypto API. Toggle uppercase, copy individual UUIDs or all at once, and regenerate any time. Nothing is sent to a server.',
     seoTitle: 'Free UUID Generator – Random UUID v4 Online | QuickAway',
     seoDescription:
-      'Generate 1–20 cryptographically random UUID v4 identifiers instantly. Copy individual or all at once. Runs entirely in your browser — no server, no tracking. Free.',
+      'Generate 1–20 cryptographically random UUID v4 identifiers instantly. Copy individual or all at once. Runs entirely in your browser with no server calls and no tracking. Free.',
     category: 'Developer Tools',
     component: lazy(() => import('@/tools/uuid-generator')),
   },
@@ -344,7 +344,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Switch between Encode and Decode modes. Encoding converts any Unicode text to a Base64 string; decoding converts a Base64 string back to readable text, with clear error messages for invalid input. Everything runs in your browser.',
     seoTitle: 'Free Base64 Encoder / Decoder – Online Base64 Tool | QuickAway',
     seoDescription:
-      'Encode plain text to Base64 or decode Base64 strings back to text. Handles Unicode correctly. Runs entirely in your browser — no uploads, no tracking. Free.',
+      'Encode plain text to Base64 or decode Base64 strings back to text. Handles Unicode correctly. Runs entirely in your browser with no uploads and no tracking. Free.',
     category: 'Developer Tools',
     component: lazy(() => import('@/tools/base64-encoder-decoder')),
   },

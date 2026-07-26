@@ -25,7 +25,7 @@ export default function Terms() {
 
           <h2>Description of Service</h2>
           <p>
-            QuickAway is a collection of free, browser-based tools for everyday calculations and text tasks. Everything runs on your device — nothing you type into a tool is sent to or stored on our servers. QuickAway may also display third-party advertisements, including through Google AdSense, to support the free operation of the site. See our{' '}
+            QuickAway is a collection of free, browser-based tools for everyday calculations and text tasks. Everything runs on your device. Nothing you type into a tool is sent to or stored on our servers. QuickAway may also display third-party advertisements, including through Google AdSense, to support the free operation of the site. See our{' '}
             <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link> for full details on data practices and advertising.
           </p>
 

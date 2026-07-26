@@ -24,7 +24,7 @@ function decodeBase64(b64: string): { ok: true; text: string } | { ok: false; er
     const text = new TextDecoder('utf-8', { fatal: true }).decode(bytes);
     return { ok: true, text };
   } catch {
-    return { ok: false, error: 'Invalid Base64 — check for incorrect padding or non-Base64 characters.' };
+    return { ok: false, error: 'Invalid Base64 string. Check for incorrect padding or non-Base64 characters.' };
   }
 }
 

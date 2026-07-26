@@ -53,7 +53,7 @@ export default function RomanNumeralConverter() {
     if (!numInput) return null;
     const n = parseFloat(numInput);
     if (isNaN(n)) return { ok: false as const, error: 'Enter a whole number between 1 and 3999.' };
-    if (!Number.isInteger(n)) return { ok: false as const, error: 'Roman numerals only support whole numbers — decimals are not supported.' };
+    if (!Number.isInteger(n)) return { ok: false as const, error: 'Roman numerals only support whole numbers. Decimals are not allowed.' };
     if (n === 0) return { ok: false as const, error: 'Zero has no Roman numeral representation. The supported range is 1–3999.' };
     if (n < 0) return { ok: false as const, error: 'Roman numerals only support positive numbers. Negative numbers are not supported (range: 1–3999).' };
     if (n > 3999) return { ok: false as const, error: `${n.toLocaleString()} is above the maximum. Roman numerals only go up to MMMCMXCIX (3,999).` };

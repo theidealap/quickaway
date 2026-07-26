@@ -56,14 +56,14 @@ export default function About() {
               <Zap className="w-5 h-5 text-primary mb-2" />
               <h3 className="text-sm font-semibold text-foreground mb-1">Runs in Your Browser</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Every tool works client-side, so results appear instantly as you type — no page reloads or waiting.
+                Every tool works client-side, so results appear instantly as you type, with no page reloads or waiting.
               </p>
             </div>
             <div className="border border-border rounded-md p-4 bg-background">
               <Shield className="w-5 h-5 text-primary mb-2" />
               <h3 className="text-sm font-semibold text-foreground mb-1">Nothing You Enter Is Stored</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Whatever you type into a tool stays on your device — it's never sent to our servers.
+                Whatever you type into a tool stays on your device and is never sent to our servers.
               </p>
             </div>
           </div>

@@ -23,7 +23,7 @@ export default function Privacy() {
             <strong>We don't collect, store, or share the data you enter into our tools.</strong>
           </p>
           <p>
-            QuickAway's tools run entirely in your browser. When you calculate an age, count words, or work out a percentage, that processing happens on your device — the numbers, text, and dates you enter never reach our servers.
+            QuickAway's tools run entirely in your browser. When you calculate an age, count words, or work out a percentage, that processing happens on your device. The numbers, text, and dates you enter never reach our servers.
           </p>
 
           <h2>Data We Do Collect</h2>
