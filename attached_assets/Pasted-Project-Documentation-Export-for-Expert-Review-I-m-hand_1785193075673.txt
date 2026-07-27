@@ -1,0 +1,212 @@
+Project Documentation Export for Expert Review
+
+I’m handing this project over to an external expert for a full technical and business review. I need you to generate a comprehensive document (Markdown is preferred) covering everything below.
+
+Do not modify any code. Do not refactor anything. Do not deploy anything.
+Your only task is to document the current project.
+
+⸻
+
+1. Project Overview
+
+Provide a high-level overview including:
+
+* Project purpose
+* Tech stack
+* Architecture
+* Main frameworks and libraries
+* Overall workflow
+
+⸻
+
+2. Complete Project Structure
+
+Explain the entire project structure, including:
+
+* Folder tree
+* Purpose of every major folder
+* Purpose of important files
+* Routing structure
+* Tool architecture
+* Shared components
+* Utilities
+* Assets
+* Configuration files
+
+Also explain how adding a new tool currently works.
+
+⸻
+
+3. Build & Deployment
+
+Explain exactly how deployment currently works.
+
+Include:
+
+* Build process
+* Deployment pipeline
+* Vercel configuration
+* Prerendering strategy
+* Static generation approach
+* Any workarounds used
+* Environment variables
+* Domain configuration
+* Canonical handling
+* Sitemap generation
+* Robots.txt generation
+
+Include every important deployment detail.
+
+⸻
+
+4. SEO Strategy
+
+Document everything related to SEO.
+
+Include:
+
+* Meta tags
+* Canonicals
+* Open Graph
+* Twitter Cards
+* JSON-LD implementation
+* Structured data types
+* Breadcrumbs
+* FAQ implementation
+* Internal linking strategy
+* URL structure
+* Content strategy
+* Target keywords
+* Category structure
+* Guide structure
+* Indexing strategy
+* Sitemap strategy
+
+Mention everything that has already been implemented.
+
+⸻
+
+5. Analytics
+
+Provide all available analytics information.
+
+Include:
+
+* Current traffic
+* Traffic sources
+* Geographic distribution
+* Top-performing pages
+* Top-performing tools
+* Bounce rate
+* User engagement
+* Device breakdown
+* Browser breakdown
+* Session duration
+* Returning users vs new users
+
+If something isn’t available, state that clearly.
+
+⸻
+
+6. AdSense Status
+
+Document the complete AdSense status.
+
+Include:
+
+* Current approval stage
+* Timeline of what has been completed
+* Site verification
+* ads.txt status
+* Consent Mode / CMP setup
+* Google Analytics integration
+* Google Search Console integration
+* Current review status
+* Anything still pending
+
+⸻
+
+7. Monetization Strategy
+
+Explain the planned monetization roadmap.
+
+Include:
+
+* AdSense
+* Future advertising plans
+* Affiliate opportunities
+* Premium ideas
+* Long-term monetization strategy
+* Expected timeline
+
+⸻
+
+8. Current Features
+
+List every feature currently implemented.
+
+Include:
+
+* All calculators
+* All converters
+* Guides
+* Categories
+* Search
+* UI features
+* Any reusable systems
+
+⸻
+
+9. Future Roadmap
+
+Document the planned roadmap.
+
+Include:
+
+* Planned guides
+* Planned calculators
+* Planned SEO improvements
+* Planned UX improvements
+* Planned monetization improvements
+* Technical improvements
+* Performance improvements
+
+⸻
+
+10. Known Issues
+
+List:
+
+* Technical debt
+* Bugs
+* Limitations
+* Areas that need improvement
+* Things intentionally postponed
+
+⸻
+
+11. Recommendations
+
+Provide your own recommendations for:
+
+* Architecture improvements
+* SEO improvements
+* Performance
+* Scalability
+* Code quality
+* Future development
+
+⸻
+
+12. Final Summary
+
+Finish with a concise executive summary that explains:
+
+* Current project maturity
+* Current strengths
+* Current weaknesses
+* Overall readiness for scaling
+
+⸻
+
+Output everything as one well-organized Markdown document with clear headings, tables where appropriate, and as much technical detail as possible. Do not leave out implementation details that would help another developer take over the project.

@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "ggVw0aBklJHpV6gDa-GqN"
+uri = "file://docs/quickaway-project-documentation.md"
+type = "text"
+title = "QuickAway — Complete Project Documentation"
