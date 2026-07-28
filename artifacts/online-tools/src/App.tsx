@@ -1,6 +1,7 @@
 import { Route, Switch, Router as WouterRouter } from 'wouter';
 import { Toaster } from '@/components/ui/toaster';
 import { AppLayout } from '@/components/layout/app-layout';
+import { CookieConsentBanner } from '@/components/cookie-consent-banner';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import Home from '@/pages/home';
@@ -51,6 +52,7 @@ export default function App() {
         <Router />
       </WouterRouter>
       <Toaster />
+      <CookieConsentBanner />
     </>
   );
 }

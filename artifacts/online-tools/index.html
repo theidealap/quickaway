@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVJQ39DEMQ"></script>
+    <!-- Google Consent Mode v2 — default DENY before any config fires -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
+      /* Set all consent signals to denied by default.
+         wait_for_update gives the React banner up to 500 ms to call
+         gtag('consent','update',{...}) before GA4 sends any hit. */
+      gtag('consent', 'default', {
+        ad_storage:          'denied',
+        analytics_storage:   'denied',
+        ad_user_data:        'denied',
+        ad_personalization:  'denied',
+        wait_for_update:     500
+      });
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVJQ39DEMQ"></script>
+    <script>
+      gtag('js', new Date());
       gtag('config', 'G-JVJQ39DEMQ');
     </script>
 
