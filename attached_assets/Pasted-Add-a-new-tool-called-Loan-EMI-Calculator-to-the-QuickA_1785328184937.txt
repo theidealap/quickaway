@@ -1,0 +1,25 @@
+Add a new tool called "Loan EMI Calculator" to the QuickAway site, following the existing tool patterns in src/tools/ (use compound-interest-calculator.tsx as the reference template since it's the most recently added and follows the correct conventions).
+
+STANDARD REQUIREMENTS (apply to every new tool, always):
+1. Follow the exact UI/UX pattern of existing tools (check src/tools/compound-interest-calculator.tsx as the reference template) — same layout, spacing, Tailwind classes, Radix UI components, hero card + secondary stat cards + breakdown table structure
+2. Client-side only — no backend calls, no external APIs
+3. Input validation: handle empty fields, negative numbers where invalid, non-numeric input, and show clear inline error messages (not browser alerts)
+4. Mobile responsive — test at 390px width equivalent
+5. Add proper SEO: page title, meta description — matching the pattern used in tools-registry.ts (seoTitle, seoDescription fields); JSON-LD is auto-generated, no manual changes needed
+6. Add the tool to src/lib/tools-registry.ts correctly, in the "Calculators" category, grouped near compound-interest-calculator
+7. Add an entry to public/sitemap.xml with lastmod 2026-07-29, changefreq monthly, priority 0.8
+8. Do NOT modify any other existing tools, files, or shared components unless explicitly required for the new tool to function
+9. Run a self-check with a table: does the tool handle edge cases (zero principal, negative principal, zero interest rate, non-numeric input, zero/negative tenure, unrealistic values)? Does it match existing visual style exactly? Are there any console errors? Confirm build is clean before reporting back.
+
+THIS TOOL'S SPECIFIC REQUIREMENTS:
+- Category: Calculators
+- Slug: loan-emi-calculator
+- Name: "Loan EMI Calculator"
+- Inputs: Loan Amount (principal), Annual Interest Rate (%), Loan Tenure (dropdown or toggle for Years vs Months — default Years)
+- Formula: EMI = P × r × (1+r)^n / ((1+r)^n − 1), where r = monthly interest rate (annual rate / 12 / 100), n = total number of months
+- Output (hero card): Monthly EMI amount
+- Secondary stat cards: Total Principal, Total Interest Payable, Total Payment (Principal + Interest)
+- Year-by-year (or full schedule if short tenure) breakdown table: Year, Principal Paid, Interest Paid, Remaining Balance
+- Add validation guard: interest rate 0 is allowed (should just divide principal by number of months evenly), reject negative rates, reject tenure of 0 or negative, cap tenure at a reasonable max (e.g. 40 years / 480 months) with a friendly error message
+
+After making these changes, do NOT sync/push to GitHub yet — show me the file changes and the completed self-check table first, so I can review before deployment.

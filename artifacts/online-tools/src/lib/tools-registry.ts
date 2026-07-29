@@ -265,6 +265,18 @@ export const toolsRegistry: ToolEntry[] = [
     component: lazy(() => import('@/tools/compound-interest-calculator')),
   },
   {
+    slug: 'loan-emi-calculator',
+    name: 'Loan EMI Calculator',
+    shortDescription: 'Calculate monthly EMI, total interest, and full loan amortisation schedule.',
+    longDescription:
+      'Enter a loan amount, annual interest rate, and tenure (in years or months) to instantly see your monthly EMI, total interest payable, and a year-by-year amortisation breakdown.',
+    seoTitle: 'Free Loan EMI Calculator – Monthly EMI & Amortisation Schedule | QuickAway',
+    seoDescription:
+      'Calculate your monthly loan EMI, total interest payable and full amortisation schedule. Enter loan amount, rate and tenure in years or months. Free online EMI calculator.',
+    category: 'Calculators',
+    component: lazy(() => import('@/tools/loan-emi-calculator')),
+  },
+  {
     slug: 'tip-calculator',
     name: 'Tip Calculator',
     shortDescription: 'Calculate tip amount, total bill, and per-person split instantly.',
