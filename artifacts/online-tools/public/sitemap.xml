@@ -163,6 +163,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.quickaway.app/tools/compound-interest-calculator</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.quickaway.app/tools/tip-calculator</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>

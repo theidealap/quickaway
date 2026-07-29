@@ -253,6 +253,18 @@ export const toolsRegistry: ToolEntry[] = [
     component: lazy(() => import('@/tools/discount-calculator')),
   },
   {
+    slug: 'compound-interest-calculator',
+    name: 'Compound Interest Calculator',
+    shortDescription: 'Calculate compound interest, final amount, and year-by-year growth.',
+    longDescription:
+      'Enter a principal, annual interest rate, compounding frequency, and number of years to see the final balance, total interest earned, and a year-by-year breakdown table.',
+    seoTitle: 'Free Compound Interest Calculator – Final Amount & Year-by-Year Breakdown | QuickAway',
+    seoDescription:
+      'Calculate compound interest instantly. Enter principal, rate, compounding frequency and term to see final balance, total interest earned, and a full year-by-year table. Free.',
+    category: 'Calculators',
+    component: lazy(() => import('@/tools/compound-interest-calculator')),
+  },
+  {
     slug: 'tip-calculator',
     name: 'Tip Calculator',
     shortDescription: 'Calculate tip amount, total bill, and per-person split instantly.',
