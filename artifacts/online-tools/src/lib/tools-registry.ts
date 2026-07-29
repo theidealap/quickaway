@@ -133,6 +133,18 @@ export const toolsRegistry: ToolEntry[] = [
     component: lazy(() => import('@/tools/bmi-calculator')),
   },
   {
+    slug: 'tdee-calculator',
+    name: 'TDEE Calculator',
+    shortDescription: 'Calculate your Total Daily Energy Expenditure and BMR using the Mifflin-St Jeor equation.',
+    longDescription:
+      'Enter your sex, age, height, and weight in metric or imperial units, then select your activity level to see your TDEE (Total Daily Energy Expenditure), Basal Metabolic Rate (BMR), and calorie reference points for weight maintenance, loss, or gain.',
+    seoTitle: 'Free TDEE Calculator – Total Daily Energy Expenditure & BMR | QuickAway',
+    seoDescription:
+      'Calculate your TDEE and BMR using the Mifflin-St Jeor equation. Enter age, height, weight and activity level in metric or imperial. Free online TDEE calculator.',
+    category: 'Calculators',
+    component: lazy(() => import('@/tools/tdee-calculator')),
+  },
+  {
     slug: 'gpa-calculator',
     name: 'GPA Calculator',
     shortDescription: 'Calculate your GPA from course grades and credit hours.',
