@@ -223,6 +223,13 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://www.quickaway.app/tools/mortgage-calculator</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Guides index -->
   <url>
     <loc>https://www.quickaway.app/guides</loc>

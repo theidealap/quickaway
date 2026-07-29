@@ -277,6 +277,18 @@ export const toolsRegistry: ToolEntry[] = [
     component: lazy(() => import('@/tools/loan-emi-calculator')),
   },
   {
+    slug: 'mortgage-calculator',
+    name: 'Mortgage Calculator',
+    shortDescription: 'Calculate your monthly mortgage payment including taxes, insurance, and PMI.',
+    longDescription:
+      'Enter your home price, down payment, interest rate, and loan term to see your total monthly payment broken down into principal & interest, property tax, home insurance, and PMI (if applicable). Includes a full year-by-year amortisation schedule.',
+    seoTitle: 'Free Mortgage Calculator – Monthly Payment, PMI & Amortisation Schedule | QuickAway',
+    seoDescription:
+      'Calculate your monthly mortgage payment including principal & interest, property tax, home insurance, and PMI. See a full year-by-year amortisation table. Free online mortgage calculator.',
+    category: 'Calculators',
+    component: lazy(() => import('@/tools/mortgage-calculator')),
+  },
+  {
     slug: 'tip-calculator',
     name: 'Tip Calculator',
     shortDescription: 'Calculate tip amount, total bill, and per-person split instantly.',

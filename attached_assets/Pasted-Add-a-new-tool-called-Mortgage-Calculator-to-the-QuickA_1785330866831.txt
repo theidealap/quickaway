@@ -1,0 +1,35 @@
+Add a new tool called "Mortgage Calculator" to the QuickAway site, following the existing tool patterns in src/tools/ (use loan-emi-calculator.tsx as the reference template for structure, but this tool has distinct mortgage-specific logic — do not just copy the EMI formula as-is).
+
+STANDARD REQUIREMENTS (apply to every new tool, always):
+1. Follow the exact UI/UX pattern of existing tools (hero card + secondary stat cards + breakdown table structure, same Tailwind classes and Radix UI components)
+2. Client-side only — no backend calls, no external APIs
+3. Input validation: handle empty fields, negative numbers where invalid, non-numeric input, zero values where legitimate (e.g. 0% property tax), inline error messages (not browser alerts)
+4. Mobile responsive — test at 390px width equivalent
+5. IMPORTANT — learned from a previous bug: for any numeric input field, use explicit `=== ''` checks for the "is this field empty" guard, NEVER truthiness checks like `!value`, since a legitimately entered 0 must not be treated as empty
+6. Add proper SEO: seoTitle, seoDescription in tools-registry.ts
+7. Add the tool to src/lib/tools-registry.ts in the "Calculators" category, grouped near loan-emi-calculator
+8. Add an entry to public/sitemap.xml with lastmod 2026-07-29, changefreq monthly, priority 0.8
+9. Do NOT modify any other existing tools, files, or shared components unless required
+10. Run a self-check with a table covering all edge cases including the zero-value fields (0% property tax, 0% down payment, 0 insurance) and confirm build is clean
+
+THIS TOOL'S SPECIFIC REQUIREMENTS:
+- Category: Calculators
+- Slug: mortgage-calculator
+- Name: "Mortgage Calculator"
+- Inputs:
+  - Home Price ($)
+  - Down Payment — toggle between $ amount and % of home price (default 20%)
+  - Interest Rate (annual %)
+  - Loan Term — preset dropdown: 15 years, 20 years, 30 years (default 30)
+  - Property Tax (annual $, optional, default 0) — helper text: "Leave blank if unknown; check your local assessor for an estimate"
+  - Home Insurance (annual $, optional, default 0)
+- Derived: Loan Amount = Home Price − Down Payment (computed, shown as read-only info, not a separate input)
+- PMI logic: if Down Payment < 20% of Home Price, calculate PMI as 0.5% of loan amount annually (divided by 12 for monthly), and show a clearly labeled "PMI" line item with a short note: "PMI is estimated since your down payment is below 20%. Actual PMI varies by lender."
+- Formula: standard amortization for Principal & Interest: M = P × r × (1+r)^n / ((1+r)^n − 1), where r = monthly rate, n = term in months
+- Output (hero card): Total Monthly Payment (P&I + Property Tax/12 + Insurance/12 + PMI if applicable)
+- Secondary stat cards: Principal & Interest (monthly), Loan Amount, Down Payment amount
+- Below that: a clearly labeled breakdown list of what makes up the total monthly payment (P&I, Tax, Insurance, PMI if applicable) — this is important for trust/clarity, not just the amortization table
+- Year-by-year amortization table (same style as loan-emi-calculator): Year, Opening Balance, Principal Paid, Interest Paid, Closing Balance — based on P&I only, taxes/insurance/PMI don't amortize so exclude them from this table
+- Validation: Home Price must be > 0, Down Payment can't exceed Home Price, Interest Rate 0 is valid (test this explicitly given the earlier bug), Term must be one of the three presets, Property Tax and Insurance can be 0 or blank (treat blank as 0, not as an error)
+
+After making these changes, do NOT sync/push to GitHub yet — show me the file changes and the completed self-check table first, so I can review before deployment.
