@@ -51,7 +51,7 @@ export default function LoanEmiCalculator() {
   const [tenureUnit, setTenureUnit]   = useState<TenureUnit>('years');
 
   const result = useMemo((): CalcResult | null => {
-    if (!loanAmount || !rate || !tenure) return null;
+    if (loanAmount === '' || rate === '' || tenure === '') return null;
 
     const P = parseFloat(loanAmount);
     const annualRate = parseFloat(rate);
