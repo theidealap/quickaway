@@ -1,0 +1,31 @@
+Add a new tool called "Calorie Deficit Calculator" to the QuickAway site, following the existing tool patterns in src/tools/ (use tdee-calculator.tsx as the reference template — same inputs, same formula base, this tool extends it with a goal-based deficit/surplus calculation).
+
+STANDARD REQUIREMENTS (apply to every new tool, always):
+1. Follow the exact UI/UX pattern of existing tools (hero card + secondary stat cards structure, same Tailwind classes and Radix UI components)
+2. Client-side only — no backend calls, no external APIs
+3. Input validation: handle empty fields, negative numbers where invalid, non-numeric input, inline error messages (not browser alerts)
+4. Mobile responsive — test at 390px width equivalent
+5. CRITICAL — for any numeric input field, use explicit `=== ''` checks for the "is this field empty" guard, NEVER truthiness checks like `!value`
+6. Add proper SEO: seoTitle, seoDescription in tools-registry.ts
+7. Add the tool to src/lib/tools-registry.ts in the Calculators category, grouped near tdee-calculator (so it auto cross-links as a related tool)
+8. Add an entry to public/sitemap.xml with lastmod 2026-07-29, changefreq monthly, priority 0.7
+9. Do NOT modify any other existing tools, files, or shared components unless required
+10. Run a self-check with a table covering edge cases. IMPORTANT: before reporting numbers by hand in the summary, actually run the formula programmatically (e.g. via a quick script or by executing the component logic directly) rather than computing by hand in the write-up — a previous tool had a reporting-only arithmetic error, so verify computed output, not manual arithmetic in the report
+11. Confirm build is clean
+
+THIS TOOL'S SPECIFIC REQUIREMENTS:
+- Slug: calorie-deficit-calculator
+- Name: "Calorie Deficit Calculator"
+- Inputs: same as TDEE Calculator (Sex, Age, Height cm/ft-in toggle, Weight kg/lb toggle, Activity Level dropdown — same 5-tier scale and multipliers)
+- Additional input: Goal (dropdown or toggle):
+  - Lose weight — target deficit: Mild (-250 cal/day), Moderate (-500 cal/day), Aggressive (-750 cal/day) — show all three as options or a sub-selector
+  - Maintain weight
+  - Gain weight — target surplus: Mild (+250 cal/day), Moderate (+500 cal/day)
+- Formula: same Mifflin-St Jeor BMR + activity multiplier as TDEE, then apply the selected deficit/surplus
+- Output (hero card): Target Daily Calories (TDEE adjusted by selected goal)
+- Secondary stat cards: TDEE (maintenance), Daily Deficit/Surplus Amount, Estimated Weekly Weight Change (deficit/surplus × 7 ÷ 7700 kcal per kg, or ÷ 3500 kcal per lb — pick one unit consistently, likely kg since site defaults to metric, but show both if easy)
+- Validation: same ranges as TDEE (age 15-100, height 50-250cm, weight 20-300kg)
+
+CONTENT TONE: Same as TDEE — factual, neutral, no diet culture language, no "you should" framing. Present numbers as informational reference points only. Include disclaimer: "These are estimates for general reference, not medical advice. Consult a healthcare provider before starting a weight loss or gain plan, especially if you have any health conditions."
+
+After making these changes, do NOT sync/push to GitHub yet — show me the file changes and the completed self-check table first, so I can review before deployment.

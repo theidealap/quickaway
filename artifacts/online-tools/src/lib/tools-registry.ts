@@ -133,6 +133,18 @@ export const toolsRegistry: ToolEntry[] = [
     component: lazy(() => import('@/tools/bmi-calculator')),
   },
   {
+    slug: 'calorie-deficit-calculator',
+    name: 'Calorie Deficit Calculator',
+    shortDescription: 'Calculate your target daily calories for weight loss, maintenance, or gain.',
+    longDescription:
+      'Enter your sex, age, height, weight, and activity level to calculate your TDEE, then choose a goal (lose, maintain, or gain weight) and a deficit or surplus amount to find your target daily calorie intake and estimated weekly weight change.',
+    seoTitle: 'Free Calorie Deficit Calculator – Daily Calories for Weight Loss or Gain | QuickAway',
+    seoDescription:
+      'Calculate your target daily calorie intake for weight loss, maintenance, or gain. Uses Mifflin-St Jeor BMR with activity multiplier. Shows weekly weight change estimate. Free online tool.',
+    category: 'Calculators',
+    component: lazy(() => import('@/tools/calorie-deficit-calculator')),
+  },
+  {
     slug: 'tdee-calculator',
     name: 'TDEE Calculator',
     shortDescription: 'Calculate your Total Daily Energy Expenditure and BMR using the Mifflin-St Jeor equation.',
