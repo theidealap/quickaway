@@ -251,8 +251,11 @@ export default function HashGenerator() {
             Computing hashes…
           </Card>
         ) : hashes ? (
-          <Card className="relative p-5 space-y-5">
-            <ToolResultBadge />
+          <Card className="p-5 space-y-4">
+            {/* Badge in its own row — inline so it never overlaps the MD5 copy link */}
+            <div className="flex justify-end">
+              <ToolResultBadge label="Generated" inline />
+            </div>
 
             <HashRow algorithm="MD5"     value={hashes.md5}    />
             <div className="border-t border-border/50" />

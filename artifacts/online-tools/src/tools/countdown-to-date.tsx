@@ -113,7 +113,7 @@ export default function CountdownToDate() {
           <ToolEmptyState icon={Timer} message="Pick a date and time to start the countdown" className="h-48" />
         ) : (
           <Card className="relative p-6 bg-primary/5 border-primary/20">
-            <ToolResultBadge />
+            <ToolResultBadge label="Done" />
             <div className="flex items-start justify-center gap-2 text-sm text-muted-foreground mb-4 text-center">
               <CalendarClock className="w-4 h-4 shrink-0 mt-0.5" />
               <span className="break-words">

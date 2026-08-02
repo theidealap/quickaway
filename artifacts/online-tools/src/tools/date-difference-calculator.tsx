@@ -108,7 +108,7 @@ export default function DateDifferenceCalculator() {
           <div className="space-y-4">
             {/* Primary result */}
             <Card className="relative p-6 bg-primary/5 border-primary/20 text-center flex flex-col items-center justify-center py-10">
-              <ToolResultBadge />
+              <ToolResultBadge label="Done" />
               <span className="text-sm font-medium text-muted-foreground mb-2 flex items-center gap-1.5">
                 <Clock className="w-4 h-4" /> Difference
               </span>

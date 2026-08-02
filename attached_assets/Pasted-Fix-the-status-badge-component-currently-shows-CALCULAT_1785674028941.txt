@@ -1,0 +1,28 @@
+Fix the status badge component (currently shows "CALCULATED" with a checkmark) that appears on tool result cards across the site.
+
+ISSUE 1 — Wrong label on non-calculator tools:
+The badge currently always says "CALCULATED" regardless of tool type. This is incorrect for Generators (Hash Generator, Color Palette Generator, CSS Gradient Generator, QR Code Generator, etc.) and Converters (Time Zone Converter, Unit Converter, etc.) — nothing is being "calculated" in those tools.
+
+Fix: make the badge label dynamic based on the tool's category from tools-registry.ts:
+- category === 'Calculators' → "CALCULATED"
+- category === 'Generators' → "GENERATED"
+- category === 'Converters' → "CONVERTED"
+- Any other/default category → a sensible neutral label like "DONE" or "READY"
+
+ISSUE 2 — Positioning/design review (not just a one-off overlap patch):
+The badge currently overlaps the "Copy" button in at least one tool (Hash Generator, MD5 row). Don't just patch that single instance — review the badge's positioning logic/CSS across the shared component itself, since if it's fragile in one place it's likely fragile elsewhere (long tool names, mobile widths, tools with multiple copy buttons per section, etc.).
+
+Requirements for the fix:
+- Badge must never visually overlap any other interactive element (buttons, copy icons, text) at any screen width from 320px to desktop
+- Consider whether the badge's current position (appears to float top-right of a result card) is even the best spot design-wise — evaluate if it reads more cleanly placed inline near the card title, or in a fixed corner with proper padding/z-index handling, rather than floating loosely
+- Test specifically on tools with multiple sub-results near the top of a card (Hash Generator's MD5 row with its own Copy button is the known failure case) — confirm no overlap there specifically
+- Maintain visual consistency — same badge style/size across all tools, just repositioned/relabeled correctly
+
+After fixing:
+1. Show me every tool category with the correct badge label — at least one example each: Compound Interest Calculator → "CALCULATED", Hash Generator → "GENERATED", Time Zone Converter → "CONVERTED"
+2. Confirm the Hash Generator overlap is resolved with a screenshot, specifically showing the MD5 row's Copy button clearly separated from the badge
+3. Spot-check 2-3 other tools (e.g. Mortgage Calculator, Color Palette Generator) to confirm the repositioned badge looks correct and didn't break their layouts
+4. Confirm no other existing tool functionality was affected
+5. Confirm build is clean
+
+Do NOT push to GitHub yet — show me the changes and screenshots first for review.

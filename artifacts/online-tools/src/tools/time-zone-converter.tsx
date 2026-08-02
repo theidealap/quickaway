@@ -356,7 +356,7 @@ export default function TimeZoneConverter() {
 
             {/* Hero — converted time */}
             <Card className="relative p-6 bg-primary/5 border-primary/20 text-center py-8">
-              <ToolResultBadge />
+              <ToolResultBadge label="Converted" />
               <span className="text-sm font-medium text-muted-foreground mb-3 flex items-center justify-center gap-1.5">
                 <Clock className="w-4 h-4" />
                 {TIMEZONES.find(t => t.iana === toTz)?.label ?? toTz}

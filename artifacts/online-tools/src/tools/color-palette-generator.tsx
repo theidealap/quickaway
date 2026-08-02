@@ -220,7 +220,7 @@ export default function ColorPaletteGenerator() {
       {/* ── Palette ──────────────────────────────────────────────────────── */}
       <div className="pt-2">
         <Card className="relative overflow-hidden">
-          <ToolResultBadge />
+          <ToolResultBadge label="Generated" />
           {/* Color bar preview */}
           <div className="flex h-20 md:h-24">
             {palette.map((hex, i) => (
