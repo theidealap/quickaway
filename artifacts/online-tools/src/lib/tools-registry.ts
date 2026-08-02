@@ -169,6 +169,18 @@ export const toolsRegistry: ToolEntry[] = [
     component: lazy(() => import('@/tools/gpa-calculator')),
   },
   {
+    slug: 'time-zone-converter',
+    name: 'Time Zone Converter',
+    shortDescription: 'Convert a date and time from one timezone to another, with live current time.',
+    longDescription:
+      'Pick any two IANA timezones using the searchable city dropdowns, enter a date and time in the "From" zone, and instantly see the converted date and time in the "To" zone — with automatic DST handling via the native Intl API. A live current-time strip shows both zones ticking in real time.',
+    seoTitle: 'Free Time Zone Converter – Convert Time Between Cities | QuickAway',
+    seoDescription:
+      'Convert any date and time between 60+ world timezones. Searchable city dropdowns, automatic DST handling, live current time display. Free online time zone converter.',
+    category: 'Converters',
+    component: lazy(() => import('@/tools/time-zone-converter')),
+  },
+  {
     slug: 'unit-converter',
     name: 'Unit Converter',
     shortDescription: 'Convert between length, weight, temperature, area, and volume units.',
@@ -191,6 +203,42 @@ export const toolsRegistry: ToolEntry[] = [
       'Paste or type text to instantly count words, characters (with and without spaces), sentences and paragraphs. Perfect for essays and social posts. Free.',
     category: 'Text Tools',
     component: lazy(() => import('@/tools/word-counter')),
+  },
+  {
+    slug: 'color-palette-generator',
+    name: 'Color Palette Generator',
+    shortDescription: 'Generate 5 harmonious colors from a base color using complementary, analogous, or triadic schemes.',
+    longDescription:
+      'Pick a base color with the color picker or by typing a hex code, then choose a harmony scheme — Complementary, Analogous, Triadic, or Split Complementary — to generate 5 matching colors. Click any swatch to copy its hex code. Includes a detail table with RGB and HSL values.',
+    seoTitle: 'Free Color Palette Generator – Complementary, Analogous & Triadic | QuickAway',
+    seoDescription:
+      'Generate 5 harmonious colors from any base color. Choose complementary, analogous, triadic, or split-complementary schemes. Click-to-copy hex codes, RGB & HSL values. Free online color palette tool.',
+    category: 'Generators',
+    component: lazy(() => import('@/tools/color-palette-generator')),
+  },
+  {
+    slug: 'css-gradient-generator',
+    name: 'CSS Gradient Generator',
+    shortDescription: 'Build linear or radial CSS gradients with a live preview and one-click copy.',
+    longDescription:
+      'Add color stops, set their positions, choose linear or radial gradient type, and adjust the angle with a slider. A live preview updates instantly as you edit. Copy the ready-to-paste CSS code with one click.',
+    seoTitle: 'Free CSS Gradient Generator – Linear & Radial Gradients | QuickAway',
+    seoDescription:
+      'Create linear or radial CSS gradients with a live preview. Add, remove, and reposition color stops. Generates clean background: gradient(...) CSS you can paste anywhere. Free online tool.',
+    category: 'Generators',
+    component: lazy(() => import('@/tools/css-gradient-generator')),
+  },
+  {
+    slug: 'hash-generator',
+    name: 'Hash Generator',
+    shortDescription: 'Generate MD5, SHA-1, and SHA-256 hashes of any text, instantly in your browser.',
+    longDescription:
+      'Type or paste any text to instantly see its MD5, SHA-1, and SHA-256 hashes. SHA-1 and SHA-256 use the browser\'s built-in Web Crypto API; MD5 uses an inline RFC 1321 implementation. Click any hash to copy it. Nothing is sent to a server.',
+    seoTitle: 'Free Hash Generator – MD5, SHA-1 & SHA-256 Online | QuickAway',
+    seoDescription:
+      'Generate MD5, SHA-1, and SHA-256 hashes of any text instantly. Uses the browser\'s Web Crypto API for SHA — no server calls, no tracking. Free online hash generator.',
+    category: 'Generators',
+    component: lazy(() => import('@/tools/hash-generator')),
   },
   {
     slug: 'qr-code-generator',

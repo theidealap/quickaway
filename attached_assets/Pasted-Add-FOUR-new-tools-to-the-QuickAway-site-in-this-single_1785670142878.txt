@@ -1,0 +1,50 @@
+Add FOUR new tools to the QuickAway site in this single session, following the existing tool patterns in src/tools/. Build and report on each tool as a fully discrete section — do not intermix logic between them. Use tdee-calculator.tsx or mortgage-calculator.tsx as structural reference (hero card + secondary stat cards layout, same Tailwind/Radix conventions).
+
+STANDARD REQUIREMENTS (apply to every tool below):
+1. Follow exact UI/UX pattern of existing tools
+2. Client-side only — no backend calls, no external APIs (flag clearly if any tool below cannot be 100% client-side)
+3. Input validation with explicit === '' checks (never truthiness checks like !value) for any numeric/text field where a legitimate value could be falsy
+4. Mobile responsive — test at 390px width equivalent
+5. Add proper SEO: seoTitle, seoDescription in tools-registry.ts for each tool
+6. Add each tool to src/lib/tools-registry.ts in the appropriate category (Converters for Time Zone; Generators for the other three — create categories if they don't already group correctly)
+7. Add a sitemap.xml entry for each tool: lastmod 2026-07-29, changefreq monthly, priority 0.7
+8. Do NOT modify any other existing tools or shared components unless required
+9. For each tool, compute all self-check numbers/values PROGRAMMATICALLY (run the actual logic, not hand-written arithmetic in the report) before writing the summary
+10. Confirm build is clean after all four tools are added, report total page count
+
+═══════════════════════════════════
+TOOL 1 — Time Zone Converter
+Slug: time-zone-converter | Category: Converters
+- Two selectors: "From" timezone and "To" timezone (use IANA timezone names, searchable/filterable dropdown, include major cities as labels e.g. "New York (EST/EDT)", "Riyadh (AST)", "Tokyo (JST)")
+- Time input: date + time picker for the "From" side
+- Output: converted date + time in the "To" timezone, clearly labeled, accounting for DST automatically (use native Intl.DateTimeFormat / Intl API, not a hardcoded offset table)
+- Bonus: show current time in both zones as a live reference below the converter
+- Self-check: verify at least 3 conversions across DST and non-DST regions (e.g. New York→London, Riyadh→Tokyo, Los Angeles→Sydney) with correct UTC offset handling
+
+═══════════════════════════════════
+TOOL 2 — Color Palette Generator
+Slug: color-palette-generator | Category: Generators
+- Input: base color (color picker + hex input, synced)
+- Output: generate 5 harmonious colors using a standard scheme (complementary, analogous, triadic — let user pick scheme via toggle/dropdown)
+- Each generated color shown as a swatch with its hex code, click-to-copy
+- Self-check: verify color math (e.g. complementary = hue + 180°, correct HSL/hex conversion) with at least 2 test cases
+
+═══════════════════════════════════
+TOOL 3 — CSS Gradient Generator
+Slug: css-gradient-generator | Category: Generators
+- Inputs: 2+ color stops (add/remove stops), gradient type (linear/radial), angle slider (for linear)
+- Live preview box showing the rendered gradient
+- Output: copyable CSS code (background: linear-gradient(...) or radial-gradient(...))
+- Self-check: verify generated CSS syntax is valid for at least 2 stop configurations and both gradient types
+
+═══════════════════════════════════
+TOOL 4 — Hash Generator
+Slug: hash-generator | Category: Generators
+- Input: text area for input text
+- Output: MD5, SHA-1, SHA-256 hashes of the input, each with a copy button
+- Use Web Crypto API (crypto.subtle.digest) for SHA algorithms — note if MD5 requires a small client-side library since Web Crypto doesn't support MD5 natively; if so, use a minimal well-known implementation, not an external network call
+- Self-check: verify hash output against known test vectors (e.g. hash of "hello" in SHA-256 should be 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824)
+
+═══════════════════════════════════
+
+After building all four, present a summary organized by tool (file changes + self-check table per tool), confirm total build is clean, and do NOT sync/push to GitHub yet — wait for my review and approval first.
