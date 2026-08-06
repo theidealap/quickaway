@@ -15,7 +15,7 @@ export default function Privacy() {
         
         <div className="prose prose-slate dark:prose-invert prose-headings:font-display prose-headings:tracking-tight max-w-none">
           <p className="lead text-xl text-muted-foreground mb-8">
-            Last updated: July 23, 2026
+            Last updated: August 6, 2026
           </p>
 
           <h2>The Short Version</h2>
@@ -33,6 +33,7 @@ export default function Privacy() {
           <ul>
             <li>Page views, browser type, and referring sites</li>
             <li>Anonymous error/crash reports if something breaks</li>
+            <li>IP addresses (collected automatically by web servers and by third-party ad and analytics services; see "IP Addresses and Ad Serving" below)</li>
           </ul>
 
           <h2>Cookies</h2>
@@ -79,6 +80,20 @@ export default function Privacy() {
           <p>
             For more information on how Google uses data when you use our site, see{' '}
             <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">How Google uses data when you use our partners' sites or apps</a>.
+          </p>
+
+          <h2>IP Addresses and Ad Serving</h2>
+          <p>
+            When this site serves advertisements through Google AdSense or similar third-party ad networks, those networks automatically collect your IP address as part of the ad-serving process. This happens whenever an ad loads on the page, regardless of whether you interact with it. Your IP address may be used by Google and its advertising partners for the following purposes:
+          </p>
+          <ul>
+            <li><strong>Ad personalisation</strong> — to infer approximate geographic location and serve geographically relevant or interest-based advertisements.</li>
+            <li><strong>Fraud prevention</strong> — to detect and prevent invalid clicks, bot traffic, and other forms of advertising fraud.</li>
+            <li><strong>Analytics and measurement</strong> — to count ad impressions, attribute clicks, and measure conversions across sites.</li>
+          </ul>
+          <p>
+            Google and its partners may use cookies, web beacons, and IP addresses to collect information as a result of ad serving on this site. QuickAway does not itself store, process, or access your IP address for advertising purposes — this is handled entirely by Google's ad infrastructure under Google's own privacy policies. For full details, see{' '}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google's Privacy Policy</a>.
           </p>
 
           <h2>Changes to This Policy</h2>
