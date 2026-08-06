@@ -332,7 +332,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Enter a principal, annual interest rate, compounding frequency, and number of years to see the final balance, total interest earned, and a year-by-year breakdown table.',
     seoTitle: 'Free Compound Interest Calculator – Final Amount & Year-by-Year Breakdown | QuickAway',
     seoDescription:
-      'See exactly how compounding frequency affects long-term growth — enter any principal, rate and term to get a final balance, effective APY, and a year-by-year interest breakdown.',
+      'Enter principal, rate, compounding frequency, and term to see final balance, total interest, effective annual rate, and a complete year-by-year growth table.',
     category: 'Calculators',
     component: lazy(() => import('@/tools/compound-interest-calculator')),
   },
