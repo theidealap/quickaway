@@ -351,9 +351,9 @@ export default function CompoundInterestCalculator() {
               Compounding frequency determines how often that interest is added and starts earning
               itself. Consider $10,000 invested at 6% for 10 years. Compounded annually, you end up
               with $17,908.48. Compounded monthly, that rises to $18,193.97 — an extra $285 for
-              choosing a more frequent compounding schedule. Over 30 years at the same rate, the gap
-              between annual and daily compounding on that same $10,000 grows to nearly $800. The
-              longer the horizon, the more frequency matters.
+              choosing a more frequent compounding schedule. Stretch the horizon to 30 years at the
+              same rate, and the gap between annual compounding ($57,434.91) and daily compounding
+              ($60,487.53) widens to $3,052.61. The longer the horizon, the more frequency matters.
             </p>
           </div>
         </div>
@@ -424,7 +424,7 @@ export default function CompoundInterestCalculator() {
             {[
               {
                 q: 'What\'s the difference between simple and compound interest?',
-                a: 'Simple interest is computed on the principal alone every period. Compound interest is computed on the principal plus all previously accumulated interest. On a $10,000 balance at 7% over 20 years, simple interest produces $14,000 in earnings; monthly compound interest produces roughly $29,177 — more than twice as much from the same nominal rate.',
+                a: 'Simple interest is computed on the principal alone every period. Compound interest is computed on the principal plus all previously accumulated interest. On a $10,000 balance at 7% over 20 years, simple interest produces $14,000 in earnings; monthly compound interest produces $30,387 — more than twice as much from the same nominal rate.',
               },
               {
                 q: 'Does more frequent compounding always mean more money?',
