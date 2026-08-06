@@ -332,6 +332,123 @@ export default function CompoundInterestCalculator() {
         </Button>
       </div>
 
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 — How it works */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">
+            How Compound Interest Works
+          </h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              With simple interest, your earnings are always calculated on the original deposit.
+              Compound interest changes that: the interest you earn is added to your balance, and
+              the next period's interest is calculated on the new, larger total. The result is
+              exponential growth — money making money on the money it already made.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Compounding frequency determines how often that interest is added and starts earning
+              itself. Consider $10,000 invested at 6% for 10 years. Compounded annually, you end up
+              with $17,908.48. Compounded monthly, that rises to $18,193.97 — an extra $285 for
+              choosing a more frequent compounding schedule. Over 30 years at the same rate, the gap
+              between annual and daily compounding on that same $10,000 grows to nearly $800. The
+              longer the horizon, the more frequency matters.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 — The formula */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">
+            The Compound Interest Formula
+          </h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The formula is: <span className="font-semibold text-foreground font-mono">A = P(1 + r/n)^(nt)</span>
+            </p>
+            <div className="border border-border rounded-md bg-secondary p-4 space-y-1.5">
+              {[
+                ['A', 'the final amount (principal plus all earned interest)'],
+                ['P', 'the principal — your starting balance'],
+                ['r', 'the annual rate as a decimal (e.g. 5% → 0.05)'],
+                ['n', 'compounding periods per year (12 for monthly, 365 for daily)'],
+                ['t', 'the time in years'],
+              ].map(([sym, desc]) => (
+                <p key={sym} className="text-sm text-muted-foreground leading-relaxed">
+                  <span className="font-semibold text-foreground font-mono">{sym}</span> — {desc}
+                </p>
+              ))}
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              <span className="font-medium text-foreground">Worked example:</span> $5,000 at 4%
+              compounded quarterly for 3 years.
+              A&nbsp;=&nbsp;5,000&nbsp;×&nbsp;(1&nbsp;+&nbsp;0.04/4)^(4×3)&nbsp;=&nbsp;5,000&nbsp;×&nbsp;(1.01)^12&nbsp;≈&nbsp;<span className="font-semibold text-foreground">$5,634.13</span>.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The exponent (nt) is where most of the growth hides — doubling the time period has a
+              far bigger impact than doubling the rate, which is why starting early matters more
+              than chasing a higher yield.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 — When to use */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">
+            When to Use This Calculator
+          </h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              This calculator is most useful when comparing savings or investment options with
+              different rates and compounding schedules — a lower APR that compounds daily can
+              outperform one that compounds annually. It helps you estimate how a one-time lump sum
+              grows over a fixed horizon, whether that's a CD, a bond, or an initial investment
+              contribution.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Retirement planners use it to check whether an amount saved today will hit a target
+              balance by a specific year. It also makes the cost of compound debt concrete: running
+              the numbers on a high-APR credit card balance is often more persuasive than any
+              written warning label.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 4 — FAQ */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: 'What\'s the difference between simple and compound interest?',
+                a: 'Simple interest is computed on the principal alone every period. Compound interest is computed on the principal plus all previously accumulated interest. On a $10,000 balance at 7% over 20 years, simple interest produces $14,000 in earnings; monthly compound interest produces roughly $29,177 — more than twice as much from the same nominal rate.',
+              },
+              {
+                q: 'Does more frequent compounding always mean more money?',
+                a: 'Yes, when the nominal rate is identical. Interest that is added more often starts earning its own interest sooner, which raises the effective yield. The gap between monthly and daily compounding is small, but the difference between annual and monthly compounding on the same stated rate produces a measurably higher balance over long periods.',
+              },
+              {
+                q: 'How is compound interest different from APY?',
+                a: 'APY (Annual Percentage Yield) is the real return you receive in one year once compounding is applied. A 6% rate compounded monthly has an APY of 6.168% — that extra 0.168 percentage point is the compounding effect. When comparing savings accounts, always compare APY rather than the stated rate, since it puts different compounding frequencies on equal footing.',
+              },
+              {
+                q: 'Can compound interest work against me?',
+                a: 'Yes — any compounding debt works against you the same way a savings account works for you. Credit card balances at 20–25% APR compound daily, meaning unpaid interest is added to your balance each day and the next charge is slightly larger. A $3,000 balance at 22% APR with only minimum payments can take over a decade to clear and cost more than $2,000 in total interest.',
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
     </div>
   );
 }
