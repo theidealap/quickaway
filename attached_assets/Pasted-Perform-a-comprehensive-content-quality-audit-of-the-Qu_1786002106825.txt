@@ -1,0 +1,52 @@
+Perform a comprehensive content/quality audit of the QuickAway site against Google AdSense's publisher requirements. This is a READ-ONLY audit — do not modify any files. Produce a structured report only.
+
+CONTEXT: AdSense rejected the site citing "Low value content" / thin content, pointing to:
+1. Minimum content requirements (support.google.com/adsense/answer/9335564)
+2. Unique high-quality content + good user experience (support.google.com/adsense/answer/10015918)
+3. Webmaster quality guidelines — thin content (support.google.com/webmasters/answer/9044175#thin-content)
+
+AUDIT EACH OF THE FOLLOWING AND REPORT FINDINGS AS A TABLE:
+
+═══════════════════════════════════
+SECTION 1 — Per-page content depth
+For EVERY tool page (all 9+ tools) and EVERY guide page, report:
+- Word count of actual unique prose content (exclude UI labels, button text, form field labels, and the tool's own dynamic output — count only paragraph/descriptive text)
+- Does the page have more than just: title + 1-sentence description + the tool itself? (Yes/No)
+- Is there a "How it works" or "How to use" explanation section? (Yes/No)
+- Is there an FAQ section? (Yes/No)
+- Flag any page under 150 words of unique prose as HIGH RISK for thin content
+
+SECTION 2 — Duplicate/templated content check
+- Compare the descriptive text/intro paragraphs across all tool pages — flag any pages that use near-identical sentence structures with only the tool name swapped (this counts as "templated" content per Google's guidelines, even if not literally duplicate)
+- Check if meta descriptions are meaningfully distinct per page, or formulaic/templated
+
+SECTION 3 — Site-wide required pages
+Confirm presence AND actual accessibility (not just linked, but real content) of:
+- Privacy Policy page — report its word count and whether it discloses cookies/IP/ad-related data collection specifically (required by Google's privacy disclosure policy)
+- About page — does it exist? If not, flag as missing
+- Contact page — does it exist and is it functional (not just a broken mailto or empty form)?
+- Terms of Service — does it exist? (not strictly required but commonly expected)
+
+SECTION 4 — Navigation & structure
+- Is there a clear, working navigation menu accessible from every page?
+- Are there any broken internal links, 404s, or links to missing pages? Crawl all internal links and report any that fail
+- Are there any "under construction" or placeholder pages live on the site?
+
+SECTION 5 — Technical compliance re-check
+- Confirm ads.txt is still correctly served and accessible
+- Confirm robots.txt does not block any content pages (only report what it currently allows/disallows)
+- Confirm sitemap.xml includes all live pages and has no broken/orphaned entries
+- Confirm the site is NOT using cloaking, doorway pages, or auto-redirects of any kind
+
+SECTION 6 — Ad placement readiness (forward-looking, not currently an issue since no ads are live yet)
+- Note any page layouts that, if ads were added, would risk violating "more ads than content" or "ads on screens without substantial content" — specifically flag any page where the current unique content is thin enough that even one ad unit would tip the page into "more ads than content" territory once monetized
+
+═══════════════════════════════════
+OUTPUT FORMAT:
+Produce ONE consolidated report with:
+1. A summary table: page name | word count | has How-it-works? | has FAQ? | risk level (High/Medium/Low)
+2. A prioritized action list — pages sorted from HIGHEST risk (least content) to lowest, so we know exactly where to start
+3. Any missing required pages listed separately
+4. Any broken links or technical issues found
+
+Do not fix anything yet. Do not create any files. This is audit-only — I will review the report and decide the fix priority order myself.
