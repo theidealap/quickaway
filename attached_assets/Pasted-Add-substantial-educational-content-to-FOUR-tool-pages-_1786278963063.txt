@@ -1,0 +1,44 @@
+Add substantial educational content to FOUR tool pages, following the exact pattern established on the Compound Interest Calculator (src/tools/compound-interest-calculator.tsx) — same structure, same depth, same rigor. This is to fix Google AdSense's "thin content" rejection.
+
+MANDATORY PROCESS RULE (non-negotiable, learned from a prior error):
+For EVERY numeric example or claim in ANY of the four tools below, compute the number programmatically first (write and run a script), confirm the output, THEN write the sentence around the verified number. Do not estimate or hand-calculate numbers in prose. After writing each tool's content, list every numeric claim in a verification table (claim → script output → match) before presenting it to me, exactly like the corrected Compound Interest Calculator report.
+
+STRUCTURE TO REPLICATE FOR EACH TOOL (400-500 words per tool, adjust section names to fit each tool's actual subject matter):
+1. "How [Tool Subject] Works" (150-200 words) — plain-language explanation of the underlying concept, with one worked example using real, verified numbers
+2. "The Formula" or "How It's Calculated" (100-150 words) — the actual formula/method explained, with variables defined, plus one step-by-step worked example
+3. "When to Use This [Tool]" (75-100 words) — specific, genuine use cases (not vague filler)
+4. FAQ (4-5 questions, specific to this exact tool, not generic/interchangeable with other tools) — each answer 40-80 words
+
+CONSTRAINTS (same as before):
+- No generic phrases that could apply to any tool ("our free tool makes it easy..." style padding is forbidden)
+- Each tool's content must be structurally and substantively distinct — do not reuse sentence templates across the four tools
+- Place content BELOW the calculator/tool and its results, not above
+- Update each tool's seoDescription in tools-registry.ts to something specific and non-templated (avoid "Free [tool]" / "no sign-up needed" boilerplate patterns) — and this time, double check the registry file actually saves this change before reporting done, given the earlier miss on Compound Interest Calculator
+- Match the existing visual/heading pattern used on the Compound Interest Calculator page
+
+THE FOUR TOOLS (in priority order — these are the current highest-traffic tool pages per Vercel Analytics):
+
+1. BMI Calculator (src/tools/bmi-calculator.tsx)
+   - Cover: BMI formula (weight/height²), BMI categories (underweight/normal/overweight/obese) with real ranges, why BMI has limitations (doesn't account for muscle mass, distributes differently by build), when to use it as one data point vs. relying on it alone
+   - FAQ ideas: "Is BMI accurate for athletes?", "What's a healthy BMI range?", "Does BMI differ by age or sex?", "What are BMI's limitations?"
+
+2. Color Palette Generator (src/tools/color-palette-generator.tsx)
+   - Cover: what color harmony means, how complementary/analogous/triadic/split-complementary schemes work on the color wheel (in plain language, not just hue math), practical design use cases
+   - FAQ ideas: "What's the difference between complementary and analogous colors?", "How many colors should a palette have?", "What is HSL vs RGB vs Hex?", "How do I pick a good base color?"
+
+3. Hash Generator (src/tools/hash-generator.tsx)
+   - Cover: what a hash function actually does (one-way, fixed-length output, deterministic), practical uses (file integrity verification, password storage concepts, checksums), why MD5 is considered weak for security but still used for checksums, difference between SHA-1/SHA-256 in brief
+   - FAQ ideas: "What is a hash used for?", "Is MD5 secure?", "Can a hash be reversed?", "Why do the same input always produce the same hash?"
+
+4. Percentage Calculator (src/tools/percentage-calculator.tsx)
+   - Cover: the core percentage formula and its variations (finding X% of Y, finding what % X is of Y, percentage increase/decrease), one worked example per variation
+   - FAQ ideas: "How do I calculate percentage increase?", "What's the difference between percentage points and percent?", "How do I reverse-calculate the original number before a percentage change?", "How do I calculate a percentage discount?"
+
+After completing all four:
+1. Show me the full text of each tool's new content section (not summaries)
+2. Show the numeric verification table for each tool
+3. Confirm each seoDescription was actually updated in the registry (paste the exact new line from the file, not just a claim)
+4. Confirm build is clean
+5. Do NOT push to GitHub yet — wait for my review of all four
+
+Do NOT touch any tool beyond these four.

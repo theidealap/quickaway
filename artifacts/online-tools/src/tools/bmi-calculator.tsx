@@ -230,6 +230,110 @@ export default function BmiCalculator() {
           Reset
         </Button>
       </div>
+
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 — How BMI Works */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">How BMI Works</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              BMI (Body Mass Index) is a number derived from your height and weight that places
+              you within one of four standard weight categories. It was developed in the 1800s as
+              a population-level screening tool, not a clinical diagnosis — but it remains the
+              most widely used first-pass indicator of weight status because it requires only
+              two measurements and no specialist equipment.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The calculation divides your weight by the square of your height. A person who is
+              175 cm tall and weighs 70 kg has a BMI of 22.9 — solidly in the Normal weight
+              range. Adding 20 kg to that same height raises BMI to 29.4, placing them in the
+              Overweight band. The four WHO-defined categories are: Underweight (below 18.5),
+              Normal weight (18.5–24.9), Overweight (25–29.9), and Obese (30 and above).
+              These thresholds apply to adults of all sexes.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 — The Formula */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">The BMI Formula</h2>
+          <div className="space-y-3">
+            <div className="border border-border rounded-md bg-secondary p-4 space-y-2">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <span className="font-semibold text-foreground">Metric: </span>
+                <span className="font-mono">BMI = weight (kg) ÷ height (m)²</span>
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <span className="font-semibold text-foreground">Imperial: </span>
+                <span className="font-mono">BMI = (weight (lb) ÷ height (in)²) × 703</span>
+              </p>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The multiplier 703 converts from lb/in² to the same scale as the metric formula.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              <span className="font-medium text-foreground">Worked example — imperial:</span> someone
+              5 ft 10 in tall weighing 180 lb. Convert to inches: 5 × 12 + 10 = 70 in. Square it:
+              70 × 70 = 4,900. Divide: 180 ÷ 4,900 = 0.03673. Multiply by 703:
+              0.03673 × 703 ≈ <span className="font-semibold text-foreground">25.8</span> — Overweight.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 — When to Use */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Calculator</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              BMI is a quick, equipment-free starting point for understanding weight status —
+              useful before a clinical appointment or when tracking trends over months and years.
+              A consistent upward trend in BMI is a meaningful signal regardless of the
+              absolute number.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              It is less reliable as a standalone measure for heavily muscled individuals, older
+              adults, and people of Asian descent, where standard thresholds may overestimate or
+              underestimate health risk. In those cases, waist circumference, body fat percentage,
+              and clinical bloodwork fill in the gaps that BMI leaves.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 4 — FAQ */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: 'Is BMI accurate for athletes and muscular people?',
+                a: 'BMI cannot distinguish between fat mass and lean mass — it only uses total weight and height. A 90 kg bodybuilder at 175 cm gets the same BMI of 29.4 as a sedentary person with identical measurements, despite very different body compositions. For athletes, methods like DEXA scanning or skinfold calipers give a more meaningful picture of actual body fat percentage.',
+              },
+              {
+                q: 'What is a healthy BMI range?',
+                a: 'World Health Organization guidelines classify 18.5 to 24.9 as Normal weight for adults — the range associated with the lowest risk of weight-related health conditions in population studies. Some research suggests the optimal range sits slightly lower (18.5–22.9) for adults of Asian descent, where health risks tied to excess body fat can appear at lower BMI values.',
+              },
+              {
+                q: 'Does BMI differ by age or sex?',
+                a: 'For adults aged 20 and older, the same four BMI thresholds apply regardless of age or sex. Children and teenagers use sex-specific, age-adjusted BMI-for-age percentile charts instead, because body composition changes substantially during development. For adults, BMI does not capture sex differences in fat distribution — a woman and a man with identical BMIs can carry meaningfully different amounts of body fat.',
+              },
+              {
+                q: "What are BMI's key limitations?",
+                a: 'BMI does not capture where fat is stored. Abdominal visceral fat carries a higher cardiovascular risk than fat around the hips and thighs, yet two people with the same BMI can have very different distributions. It also ignores bone density, hydration, and muscle mass. The WHO describes BMI as a population-level screening tool — at the individual level it should always be considered alongside other clinical measurements.',
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }

@@ -288,6 +288,106 @@ export default function HashGenerator() {
         </p>
       )}
 
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 — What a Hash Function Does */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">What a Hash Function Does</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              A hash function takes any input — a single word, an entire file, a database
+              backup — and produces a fixed-length string of characters called a digest. No matter
+              how long or short the input is, the output length never changes for a given
+              algorithm. MD5 always produces 32 hexadecimal characters (128 bits). SHA-1 always
+              produces 40 characters (160 bits). SHA-256 always produces 64 characters (256 bits).
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Three properties define a cryptographic hash. First, it is <span className="font-medium text-foreground">deterministic</span>:
+              the same input always yields the same output — type "hello" and MD5 returns{' '}
+              <span className="font-mono text-xs">5d41402abc4b2a76b9719d911017c592</span> every
+              time. Second, it is <span className="font-medium text-foreground">one-way</span>: the
+              digest cannot be reversed to recover the original input. Third, it has the{' '}
+              <span className="font-medium text-foreground">avalanche effect</span>: changing a
+              single character in the input produces a completely different digest, not a slightly
+              different one.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 — How Hashes Are Computed */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">How Hashes Are Computed</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The algorithm processes the input in fixed-size blocks, mixing bits through a series
+              of bitwise operations (AND, OR, XOR, rotations) using predefined constants and an
+              internal state variable. Each block's output feeds into the next, so the final
+              digest reflects the entire input — not just the last block.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The practical implication: even a single-character input produces a digest of full
+              length. The word "hi" and a 10 MB document both produce a 64-character SHA-256
+              output, and the two digests share no recognizable similarity. This is intentional —
+              making digests predictable based on input length would leak information about the original.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 — When to Use */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use a Hash Generator</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The most common use is file integrity verification. Software providers publish the
+              SHA-256 hash of their installer alongside a download; run the file through a hash
+              generator and compare the output to confirm the file arrived intact and unaltered
+              in transit.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              In development, hashes power cache keys, content-addressable storage (Git uses SHA
+              hashes to identify every file and commit), and deduplication systems that detect
+              identical files without reading their full contents. Password databases hash
+              credentials before storage — when you log in, your entered password is hashed and
+              compared to the stored digest, so the original password is never saved in plaintext.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 4 — FAQ */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: 'What is a hash used for in practice?',
+                a: 'The most common everyday use is file integrity checking — software providers publish the SHA-256 hash of their installer so you can verify your download was not corrupted or tampered with. In development, hashes power cache invalidation, content-addressable storage (Git uses SHA hashes to identify every commit and file), and deduplication systems that identify identical files without reading their full contents.',
+              },
+              {
+                q: 'Is MD5 still secure?',
+                a: 'MD5 is no longer considered secure for any application where collision resistance matters. Researchers demonstrated practical MD5 collisions in 2004, meaning two different inputs can produce the same digest — which breaks any system relying on hash uniqueness for security. For security-sensitive uses such as digital signatures or password storage, use SHA-256 or stronger. MD5 remains widely used for non-security checksums where collision resistance is not a concern.',
+              },
+              {
+                q: 'Can a hash be reversed to recover the original input?',
+                a: 'No — hash functions are designed to be irreversible. There is no algorithm that converts a digest back to its original input because the function deliberately discards information during calculation. What attackers do instead is search for matching inputs: precomputed tables contain millions of common strings and their hashes. Password systems counter this by adding a random value called a salt to each input before hashing, making those tables useless.',
+              },
+              {
+                q: 'Why does the same input always produce the same hash?',
+                a: 'Hash functions are deterministic by design — the output depends entirely on the input, with no randomness involved. Every step of the algorithm uses the same operations and constants every time. This predictability is a feature: it is what makes hashes useful for comparison. Two parties can each hash the same file independently and confirm they have identical copies just by comparing the short digests, without ever transferring the files themselves.',
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
     </div>
   );
 }

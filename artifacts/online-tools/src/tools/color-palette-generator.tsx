@@ -313,6 +313,105 @@ export default function ColorPaletteGenerator() {
         </div>
       </Card>
 
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 — How Color Harmony Works */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">How Color Harmony Works</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Color harmony is the principle that certain combinations of hues feel visually
+              balanced rather than jarring. It is rooted in the geometry of the color wheel — a
+              circular arrangement where hues are positioned by wavelength, measured as a degree
+              from 0 to 360. Colors that share a predictable geometric relationship on the wheel
+              tend to work well together because they provide structured contrast without
+              random conflict.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Each harmony scheme exploits a different geometry. Complementary colors sit 180°
+              apart and create maximum contrast — the visual tension of blue against orange, or
+              red against green. Analogous colors cluster within about 60° of each other, sharing
+              adjacent hues that feel cohesive and calm. Triadic schemes pick three hues evenly
+              spaced 120° apart, producing vibrant variety while maintaining balance.
+              Split-complementary schemes position two accent colors at 150° and 210° from the
+              base, softening the high contrast of a pure complementary pair into something
+              more approachable.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 — How Palettes Are Generated */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">How Palettes Are Generated</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The generator reads your base color's hue angle and derives four additional colors
+              according to the scheme's geometry. All generated colors inherit the saturation and
+              lightness of your base — only the hue shifts, keeping the palette tonally consistent.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              <span className="font-medium text-foreground">Example:</span> starting from blue
+              (#3B82F6, hue ≈ 217°), the complementary scheme places its primary accent at 37°
+              (orange) — exactly 180° away. The triadic scheme on the same base would instead
+              produce hues near 337° (red-violet) and 97° (yellow-green), the three vertices of
+              an equilateral triangle on the wheel. Switching schemes on the same base color
+              completely changes the palette's emotional character while keeping saturation and
+              tone identical.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 — When to Use Each Scheme */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use Each Scheme</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Use the complementary scheme when you need high contrast — a hero banner, a
+              call-to-action button against a background, or a data visualization where two
+              categories must be clearly distinct. Analogous palettes suit designs that need to
+              feel calm and unified: photography portfolios, wellness brands, editorial layouts.
+              Triadic schemes work well for playful interfaces or anywhere you want variety
+              without arbitrary color choices. Split-complementary is a practical middle ground
+              when a complementary pair feels too visually intense.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 4 — FAQ */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: "What's the difference between complementary and analogous colors?",
+                a: 'Complementary colors are directly opposite each other on the color wheel — 180° apart. They maximize contrast and make each other appear more vivid when placed side by side. Analogous colors are adjacent on the wheel, within about 60° of each other, sharing similar hues for a harmonious, low-tension look. Complementary schemes suit contrast-driven design; analogous schemes suit cohesive, subtle palettes.',
+              },
+              {
+                q: 'How many colors should a well-designed palette have?',
+                a: "Most design systems work with 3 to 5 colors: a primary, a secondary or accent, and one or two neutrals. Going beyond 5 colors without a clear organizational system tends to create visual noise. This generator always produces 5 colors per scheme, but you don't have to use all five — choose the two or three that best serve your specific design need.",
+              },
+              {
+                q: 'What is the difference between HSL, RGB, and Hex?',
+                a: 'All three formats describe the same color differently. Hex (#RRGGBB) encodes red, green, and blue as a six-character hexadecimal string — the most common format in web design. RGB expresses the same three channels as decimal values from 0 to 255. HSL (Hue, Saturation, Lightness) is more intuitive for designers: hue as a degree on the color wheel, saturation as intensity, and lightness as how bright or dark the color is.',
+              },
+              {
+                q: 'How do I choose a good base color?',
+                a: "Start with the most distinctive color in your brand or subject matter. Avoid near-neutral bases with very low saturation — harmony schemes operate on hue angle, so a grey or near-white base produces a palette of near-greys regardless of which scheme you pick. To anchor a palette in a mood, map it roughly: blues and greens for calm or trust, reds and oranges for energy or urgency, purples for creativity or depth.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
     </div>
   );
 }

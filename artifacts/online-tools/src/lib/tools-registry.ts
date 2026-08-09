@@ -116,7 +116,7 @@ export const toolsRegistry: ToolEntry[] = [
       'A versatile calculator for working out percentages. Figure out X% of Y, what percentage X is of Y, or the percentage change between two numbers.',
     seoTitle: 'Free Percentage Calculator – Find % of a Number, Change & Ratio | QuickAway',
     seoDescription:
-      'Calculate any percentage instantly: find X% of a number, what percentage X is of Y, or the percentage change between two values. Free online tool.',
+      'Three percentage calculators in one: find X% of a number, calculate what percentage X is of Y, or measure the percentage change between two values — with the formula shown for every result.',
     category: 'Calculators',
     component: lazy(() => import('@/tools/percentage-calculator')),
   },
@@ -128,7 +128,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Enter your height and weight in metric or imperial units to find your BMI and see which weight category it falls into.',
     seoTitle: 'Free BMI Calculator – Metric & Imperial Body Mass Index Checker | QuickAway',
     seoDescription:
-      'Calculate your Body Mass Index from height and weight in metric or imperial. See your BMI category (Underweight to Obese) instantly. Free online BMI tool.',
+      'Enter height and weight in metric or imperial to calculate your BMI, see which WHO weight category it falls into, and understand what the number does — and does not — tell you about your health.',
     category: 'Calculators',
     component: lazy(() => import('@/tools/bmi-calculator')),
   },
@@ -212,7 +212,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Pick a base color with the color picker or by typing a hex code, then choose a harmony scheme — Complementary, Analogous, Triadic, or Split Complementary — to generate 5 matching colors. Click any swatch to copy its hex code. Includes a detail table with RGB and HSL values.',
     seoTitle: 'Free Color Palette Generator – Complementary, Analogous & Triadic | QuickAway',
     seoDescription:
-      'Generate 5 harmonious colors from any base color. Choose complementary, analogous, triadic, or split-complementary schemes. Click-to-copy hex codes, RGB & HSL values. Free online color palette tool.',
+      'Pick any base color and a harmony scheme — complementary, analogous, triadic, or split-complementary — to instantly generate a 5-color palette with click-to-copy hex, RGB, and HSL values.',
     category: 'Generators',
     component: lazy(() => import('@/tools/color-palette-generator')),
   },
@@ -236,7 +236,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Type or paste any text to instantly see its MD5, SHA-1, and SHA-256 hashes. SHA-1 and SHA-256 use the browser\'s built-in Web Crypto API; MD5 uses an inline RFC 1321 implementation. Click any hash to copy it. Nothing is sent to a server.',
     seoTitle: 'Free Hash Generator – MD5, SHA-1 & SHA-256 Online | QuickAway',
     seoDescription:
-      'Generate MD5, SHA-1, and SHA-256 hashes of any text instantly. Uses the browser\'s Web Crypto API for SHA — no server calls, no tracking. Free online hash generator.',
+      'Instantly generate MD5 (128-bit), SHA-1 (160-bit), and SHA-256 (256-bit) hashes for any text — computed in your browser with no server calls. Click any digest to copy it.',
     category: 'Generators',
     component: lazy(() => import('@/tools/hash-generator')),
   },
