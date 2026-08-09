@@ -140,7 +140,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Enter your sex, age, height, weight, and activity level to calculate your TDEE, then choose a goal (lose, maintain, or gain weight) and a deficit or surplus amount to find your target daily calorie intake and estimated weekly weight change.',
     seoTitle: 'Free Calorie Deficit Calculator – Daily Calories for Weight Loss or Gain | QuickAway',
     seoDescription:
-      'Calculate your target daily calorie intake for weight loss, maintenance, or gain. Uses Mifflin-St Jeor BMR with activity multiplier. Shows weekly weight change estimate. Free online tool.',
+      'Calculate target daily calories for weight loss, maintenance, or gain using the Mifflin-St Jeor equation — with a weekly weight-change estimate based on the 7,700 kcal/kg approximation and an explanation of the formula behind every number.',
     category: 'Calculators',
     component: lazy(() => import('@/tools/calorie-deficit-calculator')),
   },
@@ -152,7 +152,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Enter your sex, age, height, and weight in metric or imperial units, then select your activity level to see your TDEE (Total Daily Energy Expenditure), Basal Metabolic Rate (BMR), and calorie reference points for weight maintenance, loss, or gain.',
     seoTitle: 'Free TDEE Calculator – Total Daily Energy Expenditure & BMR | QuickAway',
     seoDescription:
-      'Calculate your TDEE and BMR using the Mifflin-St Jeor equation. Enter age, height, weight and activity level in metric or imperial. Free online TDEE calculator.',
+      'Calculate TDEE and BMR using the Mifflin-St Jeor equation with five activity multipliers (×1.2 to ×1.9). Enter age, height, and weight in metric or imperial — see BMR, maintenance calories, and informational reference points.',
     category: 'Calculators',
     component: lazy(() => import('@/tools/tdee-calculator')),
   },
@@ -284,7 +284,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Pick a target date and time to see a live countdown in days, hours, minutes, and seconds, with a shareable link to the same countdown.',
     seoTitle: 'Free Countdown Timer – Live Countdown to Any Date & Time | QuickAway',
     seoDescription:
-      'Set a live countdown to any future date and time — shown in days, hours, minutes and seconds. Share it with a link. Free online countdown timer.',
+      'Set a live countdown to any date and time, shown in days, hours, minutes, and seconds — with epoch-based storage so the shareable link resolves to the same absolute moment regardless of the viewer\'s time zone.',
     category: 'Date & Time',
     component: lazy(() => import('@/tools/countdown-to-date')),
   },
@@ -308,7 +308,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Pick any two dates to see the precise difference broken down into years, months, and days — plus total days, total weeks, and total hours.',
     seoTitle: 'Free Date Difference Calculator – Days Between Two Dates | QuickAway',
     seoDescription:
-      'Calculate the exact difference between two dates in years, months, days, weeks, and hours. Free online date difference calculator, no sign-up needed.',
+      'Calculate the exact difference between any two dates in years, months, days, weeks, and total hours — with an explanation of why calendar-unit results differ from total days and how leap years affect the count.',
     category: 'Date & Time',
     component: lazy(() => import('@/tools/date-difference-calculator')),
   },
@@ -368,7 +368,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Enter your bill, choose a tip percentage (or use a preset), and split between any number of people to see the tip per person and total per person.',
     seoTitle: 'Free Tip Calculator – Split Bill & Calculate Tip | QuickAway',
     seoDescription:
-      'Calculate the tip on any bill and split it between any number of people. Preset tip buttons for 10%, 15%, 18%, 20%, and 25%. Free online tip calculator.',
+      'Calculate tip amount, grand total, and per-person split for any bill — with preset buttons for 10–25%, a custom percentage input, and an explanation of pre-tax vs. post-tax tipping and how tipping conventions vary by country.',
     category: 'Calculators',
     component: lazy(() => import('@/tools/tip-calculator')),
   },

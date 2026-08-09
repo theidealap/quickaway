@@ -157,6 +157,110 @@ export default function TipCalculator() {
           Reset
         </Button>
       </div>
+
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">How Tips and Splits Are Calculated</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              A tip is a percentage of the bill added on top of the subtotal. The math:
+              tip = bill × (percentage ÷ 100); grand total = bill + tip; per person = grand
+              total ÷ number of people.
+            </p>
+            <div className="border border-border rounded-md bg-secondary p-4 space-y-2">
+              {[
+                ['$85.00 bill, 18%, 4 people', 'Tip: $15.30 · Total: $100.30 · Per person: $25.07'],
+                ['$120.00 bill, 20%, 3 people', 'Tip: $24.00 · Total: $144.00 · Per person: $48.00'],
+              ].map(([ex, res]) => (
+                <p key={ex} className="text-sm text-muted-foreground leading-relaxed">
+                  <span className="font-semibold text-foreground">{ex}:</span> {res}
+                </p>
+              ))}
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Tip conventions vary significantly by country. In the United States, 15–20% is
+              common for restaurant service. In many European countries, 5–10% is typical or
+              entirely optional. In Japan, tipping is generally not practised and may be declined.
+              In Australia, tipping is not expected but is welcomed for exceptional service.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">How the Calculation Works</h2>
+          <div className="space-y-3">
+            <div className="border border-border rounded-md bg-secondary p-4 space-y-2">
+              {[
+                ['Tip amount', 'Bill × (tip % ÷ 100)'],
+                ['Grand total', 'Bill + tip amount'],
+                ['Per person', 'Grand total ÷ number of people'],
+              ].map(([label, formula]) => (
+                <p key={label} className="text-sm text-muted-foreground leading-relaxed">
+                  <span className="font-semibold text-foreground">{label}:</span>{' '}
+                  <span className="font-mono">{formula}</span>
+                </p>
+              ))}
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Tip can be calculated on either the pre-tax or post-tax bill. On a $100 pre-tax
+              bill with 8% tax ($108 post-tax), 18% tip on pre-tax = $18.00; 18% tip on
+              post-tax = $19.44 — a difference of{' '}
+              <span className="font-semibold text-foreground">$1.44</span>. Which base to
+              use varies by convention and personal preference.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Calculator</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Use the preset buttons (10%, 15%, 18%, 20%, 25%) to quickly apply standard amounts.
+              Enter a custom percentage for non-restaurant contexts — spa services often use 15–20%,
+              delivery apps typically suggest 10–20%. For unequal group splits where one person
+              ordered significantly more, this calculator divides equally; calculate each
+              person's share of the subtotal proportionally first, then apply the tip to each
+              individual amount before summing.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 4 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: 'Should I tip on the pre-tax or post-tax amount?',
+                a: "Both conventions exist. Tipping on the pre-tax subtotal is technically the standard in many American etiquette guides, since the tax goes to the government rather than the server. Tipping on the post-tax total is simpler and more common in practice. On a $100 pre-tax bill with 8% tax, the difference between 18% pre-tax ($18.00) and post-tax ($19.44) is $1.44. Most service workers receive either amount graciously — the choice is the payer's.",
+              },
+              {
+                q: "What's a standard tip percentage?",
+                a: "Conventions vary by country and venue type. In the US, 15% was the traditional restaurant baseline; 20% has become more common and is now the informal standard in many cities. For coffee shop counter service, 0–15% is typical. Outside the US, conventions differ substantially — in many European countries tips of 5–10% are appreciated but not expected; in Japan, tipping is generally not practised.",
+              },
+              {
+                q: 'How do I handle an uneven split where people ordered different amounts?',
+                a: "This calculator divides the grand total equally. For an uneven split, calculate each person's share of the pre-tip subtotal first, apply the tip percentage to each individual subtotal, then sum. For example, if Person A ordered $40 and Person B ordered $60 on a $100 bill, a 20% tip allocates $8 to A (total: $48) and $12 to B (total: $72), rather than splitting $24 equally.",
+              },
+              {
+                q: 'How do I calculate a tip when the bill already includes a service charge?',
+                a: "Check whether the listed charge is a mandatory service fee or a suggested gratuity. Many restaurants add an automatic gratuity (often 18–20%) for large parties — in that case the tip is already included. If a service charge is labelled as a 'service fee' that goes to the establishment rather than the staff, some diners choose to add a separate tip. Asking the staff how the charge is distributed is the most reliable approach.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }

@@ -1,0 +1,55 @@
+Add substantial educational content to FIVE tool pages, following the exact pattern established across all 15 previously completed tools — same structure, same depth, same rigor. This continues fixing Google AdSense's "thin content" rejection.
+
+MANDATORY PROCESS RULE (non-negotiable):
+For EVERY numeric/factual claim, compute or verify it programmatically first, THEN write the sentence around the verified result. After writing each tool's content, list every checkable claim in a verification table.
+
+ALSO MANDATORY: after updating each tool's seoDescription in tools-registry.ts, verify the change is actually saved to disk by reading the file back before reporting it as done.
+
+STRUCTURE TO REPLICATE FOR EACH TOOL (400-500 words per tool):
+1. "How [Tool Subject] Works" (150-200 words) — plain-language explanation, one worked example with verified output
+2. "The Formula/Method" (100-150 words) — the actual logic explained, one step-by-step worked example
+3. "When to Use This [Tool]" (75-100 words) — specific, genuine use cases
+4. FAQ (4-5 questions, specific to this exact tool) — each answer 40-80 words
+
+CONSTRAINTS:
+- No generic phrases that could apply to any tool
+- Each tool's content must be structurally and substantively distinct from all 15 previously completed tools
+- Place content BELOW the tool and its results
+- seoDescription must be specific and non-templated
+- IMPORTANT: TDEE and Calorie Deficit are health-adjacent — keep tone factual and neutral, no diet culture language, no "you should" framing, present numbers as informational reference points only, consistent with how these tools were originally built
+
+THE FIVE TOOLS:
+
+1. TDEE Calculator (src/tools/tdee-calculator.tsx)
+   - Cover: what TDEE means, the Mifflin-St Jeor formula already used in the tool, why activity multipliers exist and what they represent
+   - Verify: at least 2 worked examples using the tool's actual formula
+   - FAQ ideas: "What is TDEE used for?", "Why does the Mifflin-St Jeor equation need sex as an input?", "How accurate are TDEE estimates?", "What's the difference between BMR and TDEE?"
+
+2. Calorie Deficit Calculator (src/tools/calorie-deficit-calculator.tsx)
+   - Cover: what a calorie deficit means, the ~7,700 kcal per kg / 3,500 kcal per lb relationship used for weekly change estimates, why deficit size affects rate but has diminishing-returns tradeoffs
+   - Verify: worked example matching the tool's actual weekly-change formula
+   - FAQ ideas: "How is weekly weight change estimated from a calorie deficit?", "Is a bigger deficit always faster?", "Why do two people with the same deficit lose weight at different rates?", "What's a typical safe deficit range?" (factual, not prescriptive — cite general ranges only)
+
+3. Tip Calculator (src/tools/tip-calculator.tsx)
+   - Cover: how tip and per-person split are calculated, common tipping percentage conventions and how they vary by context/country (factual, non-judgmental)
+   - Verify: at least 2 worked examples (tip amount + split)
+   - FAQ ideas: "How do I calculate tip on a bill with tax already included?", "What's a standard tip percentage?", "How do I split a bill unevenly (not per person equally)?", "Should I tip on the pre-tax or post-tax amount?"
+
+4. Date Difference Calculator (src/tools/date-difference-calculator.tsx)
+   - Cover: how the difference between two dates is calculated (accounting for varying month lengths, same leap-year logic as Age Calculator but framed for arbitrary date ranges), difference between calendar-unit output (years/months/days) and total-days output
+   - Verify: at least 2 worked date-range examples
+   - FAQ ideas: "Why does the days count differ from years×365?", "Can I calculate the difference between a past and a future date?", "How are weekends/business days handled?" (clarify if the tool does or doesn't count business days specifically), "Why might two date calculators give slightly different results?"
+
+5. Countdown to Date (src/tools/countdown-to-date.tsx)
+   - Cover: how the countdown is calculated (current time to target time, broken into days/hours/minutes/seconds), how time zones affect a countdown to a specific date
+   - Verify: one worked example (can use a fixed illustrative date/time)
+   - FAQ ideas: "Does the countdown account for my time zone?", "What happens after the countdown reaches zero?", "Can I use this for a recurring annual event like a birthday?", "Why might the countdown differ by a few hours from another site's countdown for the same event?"
+
+After completing all five:
+1. Show me the full text of each tool's new content section (paste actual prose)
+2. Show the verification table for each tool
+3. Confirm each seoDescription was actually updated (paste exact new line from file)
+4. Confirm build is clean
+5. Do NOT push to GitHub yet — wait for my review
+
+Do NOT touch any tool beyond these five.

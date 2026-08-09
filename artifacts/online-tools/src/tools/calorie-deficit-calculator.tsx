@@ -620,6 +620,104 @@ export default function CalorieDeficitCalculator() {
         </Button>
       </div>
 
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">What a Calorie Deficit Means</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              A calorie deficit occurs when the number of calories consumed is lower than total
+              daily energy expenditure (TDEE). The tool estimates how this translates to weekly
+              weight change using an approximation based on the energy density of body tissue:
+              approximately 7,700 kcal per kilogram, or approximately 3,500 kcal per pound.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              At a 500 kcal/day deficit — 3,500 kcal over a week — the estimated change is{' '}
+              <span className="font-semibold text-foreground">0.455 kg (1.00 lb) per week</span>.
+              At 300 kcal/day, the weekly deficit is 2,100 kcal, projecting to{' '}
+              <span className="font-semibold text-foreground">0.273 kg (0.60 lb) per week</span>.
+              These are reference figures from a simplified model; actual weight change reflects
+              additional factors including water retention, glycogen levels, hormonal responses,
+              and the composition of tissues being drawn upon.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">The Weekly Change Formula</h2>
+          <div className="space-y-3">
+            <div className="border border-border rounded-md bg-secondary p-4 space-y-2">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <span className="font-semibold text-foreground">Weekly change (kg)</span>{' '}
+                = (daily deficit × 7) ÷ 7,700
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <span className="font-semibold text-foreground">Weekly change (lb)</span>{' '}
+                = (daily deficit × 7) ÷ 3,500
+              </p>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The 7,700 kcal/kg figure is a modeling approximation for average body tissue energy
+              density under a deficit — not a physical constant. In practice, early weight change
+              is often faster due to glycogen and associated water losses (glycogen stores roughly
+              3 g of water per gram). Worked example: 750 kcal/day deficit. Weekly deficit: 5,250
+              kcal. Estimated change: 5,250 ÷ 7,700 ={' '}
+              <span className="font-semibold text-foreground">0.68 kg</span>, or 5,250 ÷ 3,500
+              = <span className="font-semibold text-foreground">1.50 lb per week</span>.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Calculator</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              This calculator produces reference figures that dietitians and coaches use as a
+              starting point, not a target. The three deficit options — Mild (−250 kcal/day),
+              Moderate (−500 kcal/day), and Aggressive (−750 kcal/day) — represent different
+              points on the tradeoff between rate of estimated change and other physiological
+              factors. Real-world outcomes diverge from these estimates, and the tool's disclaimer
+              is deliberate: the numbers here are informational context, not a dietary plan.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 4 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: 'How is weekly weight change estimated from a calorie deficit?',
+                a: "The estimate divides the weekly calorie deficit by an energy density approximation — 7,700 kcal/kg or 3,500 kcal/lb. A 500 kcal/day deficit produces a weekly deficit of 3,500 kcal, translating to approximately 0.455 kg or 1.00 lb per week. This is a linear approximation; actual weekly change varies due to water balance, glycogen stores, the composition of tissue being drawn upon, and metabolic adaptation over time.",
+              },
+              {
+                q: 'Why do two people with the same deficit often see different rates of change?',
+                a: "The formula assumes a fixed energy density for the tissue being drawn upon, but that composition varies by person. Someone drawing primarily from fat stores loses roughly 7,700 kcal worth of energy per kilogram; someone losing a mix of fat and lean tissue loses fewer calories per kilogram because muscle contains more water and less stored energy than fat. Hormonal factors, sleep quality, metabolic rate, and prior dieting history also influence the actual rate.",
+              },
+              {
+                q: 'Is a larger deficit always faster?',
+                a: "A larger deficit produces a faster estimated rate on paper, but the relationship is not linear in practice. Beyond certain thresholds, larger deficits increase the proportion of lean mass loss, slow metabolic rate through adaptation, and affect energy availability for daily functioning. What constitutes a large or small deficit depends on individual starting point, body composition, and health status — factors the formula does not capture.",
+              },
+              {
+                q: 'What does the "Aggressive" (−750 kcal/day) option represent?',
+                a: "At −750 kcal/day, the weekly energy deficit is 5,250 kcal, which the formula estimates as approximately 0.68 kg or 1.50 lb per week. What this represents as a fraction of total intake varies significantly by individual TDEE: for someone maintaining at 2,500 kcal/day, −750 kcal/day is 30% below maintenance; for someone at 1,500 kcal/day, it is 50% below. The labels describe the calorie delta, not individual suitability.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
     </div>
   );
 }

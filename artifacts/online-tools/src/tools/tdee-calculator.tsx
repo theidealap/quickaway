@@ -495,6 +495,107 @@ export default function TdeeCalculator() {
         </Button>
       </div>
 
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">What TDEE Measures</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              TDEE stands for Total Daily Energy Expenditure — the estimated number of calories
+              burned in a day across all activity, from sleeping and breathing to exercise and
+              movement. It has two components. BMR (Basal Metabolic Rate) is the energy the body
+              uses at complete rest to maintain basic functions: circulation, respiration, and
+              temperature regulation. The activity multiplier scales BMR up to account for
+              typical daily movement.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Example 1: a 30-year-old male, 80 kg, 175 cm, moderately active (exercise 3–5
+              days/week). BMR = <span className="font-semibold text-foreground">1,749 kcal/day</span>.
+              TDEE = 1,749 × 1.55 = <span className="font-semibold text-foreground">2,711 kcal/day</span>.
+              Example 2: a 25-year-old female, 60 kg, 163 cm, lightly active (exercise 1–3
+              days/week). BMR = <span className="font-semibold text-foreground">1,333 kcal/day</span>.
+              TDEE = 1,333 × 1.375 = <span className="font-semibold text-foreground">1,833 kcal/day</span>.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">The Mifflin-St Jeor Formula</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              This calculator uses the Mifflin-St Jeor equation, published in 1990 and widely
+              regarded as the most accurate general-population BMR formula among commonly used
+              methods.
+            </p>
+            <div className="border border-border rounded-md bg-secondary p-4 space-y-2">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <span className="font-semibold text-foreground">Male:</span>{' '}
+                <span className="font-mono">BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5</span>
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <span className="font-semibold text-foreground">Female:</span>{' '}
+                <span className="font-mono">BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161</span>
+              </p>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The only difference between the two equations is the constant term (+5 vs −161),
+              which reflects population-level differences in body composition. TDEE is then
+              BMR multiplied by the activity factor: Sedentary ×1.2 · Lightly active ×1.375 ·
+              Moderately active ×1.55 · Very active ×1.725 · Extra active ×1.9.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Calculator</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              TDEE estimates are commonly used as a starting reference point for understanding
+              approximate energy balance. Researchers, dietitians, and sports coaches use
+              formula-based TDEE as an initial baseline that is then adjusted based on observed
+              outcomes over weeks. The calorie reference points shown — mild loss (−250 kcal/day),
+              weight loss (−500 kcal/day), and gain (+500 kcal/day) — are informational figures
+              derived from the TDEE; actual outcomes depend on factors not captured by the formula.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 4 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: 'What is the difference between BMR and TDEE?',
+                a: "BMR (Basal Metabolic Rate) is the energy the body uses at complete rest — the minimum to sustain organ function, circulation, and temperature regulation. TDEE adds the energy cost of all daily activity on top of BMR. For most people, BMR makes up 60–75% of TDEE. The activity multiplier converts BMR to TDEE by estimating how much additional energy typical movement patterns require above the resting baseline.",
+              },
+              {
+                q: 'Why does the Mifflin-St Jeor formula require sex as an input?',
+                a: "The sex input adjusts for population-level differences in body composition. On average, male bodies carry a higher proportion of lean muscle mass relative to fat mass than female bodies at the same weight and height. Lean tissue has a higher metabolic rate than fat tissue, which is why the male formula constant (+5) is higher than the female constant (−161). These are statistical population averages — individual metabolic rates vary considerably around these figures.",
+              },
+              {
+                q: 'How accurate are TDEE estimates?',
+                a: "Formula-based TDEE estimates are population averages, not individual measurements. Studies have found that Mifflin-St Jeor estimates are within roughly ±10–15% of measured values for most people — meaning actual TDEE may be noticeably higher or lower than calculated. Factors the formula cannot capture include lean mass proportion, metabolic adaptation, hormonal state, medications, and genetics. The figure is most useful as a starting reference point rather than a precise target.",
+              },
+              {
+                q: 'Why does changing the activity level make such a large difference?',
+                a: "The activity multiplier spans from ×1.2 (sedentary) to ×1.9 (extra active), a range that can account for up to a 58% difference in total energy expenditure. A person with a BMR of 1,500 kcal/day has a TDEE of 1,800 if sedentary and 2,850 if extra active — a 1,050 kcal difference from activity alone. Selecting the most representative activity level is therefore the single most impactful input in the calculation.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
     </div>
   );
 }
