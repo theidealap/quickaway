@@ -224,7 +224,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Add color stops, set their positions, choose linear or radial gradient type, and adjust the angle with a slider. A live preview updates instantly as you edit. Copy the ready-to-paste CSS code with one click.',
     seoTitle: 'Free CSS Gradient Generator – Linear & Radial Gradients | QuickAway',
     seoDescription:
-      'Create linear or radial CSS gradients with a live preview. Add, remove, and reposition color stops. Generates clean background: gradient(...) CSS you can paste anywhere. Free online tool.',
+      'Build linear or radial CSS gradients with a live preview — adjust angle (0°–359°), add unlimited color stops with custom positions, and copy the ready-to-paste background: gradient(...) CSS. Covers how angles, color stops, and gradient banding work.',
     category: 'Generators',
     component: lazy(() => import('@/tools/css-gradient-generator')),
   },
@@ -260,7 +260,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Generate a shareable wa.me link (plus a scannable QR code) for a phone number, with an optional pre-filled welcome message.',
     seoTitle: 'Free WhatsApp Link Generator – Create a Direct wa.me Chat Link | QuickAway',
     seoDescription:
-      'Create a shareable wa.me link for any phone number — with or without a pre-filled message. Includes a scannable QR code. Free WhatsApp link maker.',
+      'Generate a wa.me click-to-chat link for any phone number — with automatic E.164 formatting, optional pre-filled message URL-encoding, and a scannable QR code. Covers how the wa.me URL structure works and what happens without WhatsApp installed.',
     category: 'Generators',
     component: lazy(() => import('@/tools/whatsapp-link-generator')),
   },
@@ -272,7 +272,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Fill in your name, title, company, and contact details to generate a clean HTML email signature you can copy straight into your email client.',
     seoTitle: 'Free Email Signature Generator – Professional HTML Signatures | QuickAway',
     seoDescription:
-      'Design a professional HTML email signature with your name, title and contact details. Choose from 3 templates and paste into Gmail or Outlook. Free.',
+      'Generate a professional HTML email signature using inline styles and table-based layout — compatible with Gmail, Outlook, and Apple Mail. Covers why email clients render signatures differently from browsers and why web fonts should not be used.',
     category: 'Generators',
     component: lazy(() => import('@/tools/email-signature-generator')),
   },
@@ -296,7 +296,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Create cryptographically random passwords of any length (4–64 characters). Choose uppercase, lowercase, numbers, and symbols, with a real-time strength indicator.',
     seoTitle: 'Free Password Generator – Strong Random Passwords Online | QuickAway',
     seoDescription:
-      'Generate a secure random password instantly. Choose length (4–64) and character sets (letters, numbers, symbols). No tracking, runs entirely in your browser.',
+      'Generate a cryptographically secure random password using crypto.getRandomValues() — choose length (4–64) and character sets for up to 103.4 bits of entropy. Covers the H = L × log₂(N) entropy formula and why length matters more than complexity.',
     category: 'Generators',
     component: lazy(() => import('@/tools/password-generator')),
   },
@@ -404,7 +404,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Create Lorem Ipsum placeholder text in any amount. Choose paragraphs, sentences, or words, set the quantity with a slider, and toggle the classic opening phrase. Copy the result with one click.',
     seoTitle: 'Free Lorem Ipsum Generator – Placeholder Text by Paragraph | QuickAway',
     seoDescription:
-      'Generate Lorem Ipsum placeholder text by paragraphs, sentences, or words. Choose quantity, toggle the classic opening, and copy instantly. Free online Lorem Ipsum tool.',
+      'Generate Lorem Ipsum placeholder text by paragraphs, sentences, or words — with the origin traced to Cicero\'s De Finibus Bonorum et Malorum (45 BC) and its path to modern design via Letraset and PageMaker explained.',
     category: 'Generators',
     component: lazy(() => import('@/tools/lorem-ipsum-generator')),
   },

@@ -314,6 +314,107 @@ export default function CssGradientGenerator() {
         </p>
       </div>
 
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">How CSS Gradients Work</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              A CSS gradient is a smooth transition between two or more colors generated entirely
+              by the browser — no image file required. Linear gradients draw the transition along
+              a straight line at a specified angle; radial gradients emanate outward from a
+              center point. Both are defined by color stops: each stop specifies a color and the
+              position along the gradient axis (0%–100%) where that color is fully established.
+              Between stops, the browser interpolates values in the sRGB color space.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              This tool generates two formats. Linear three-stop example:{' '}
+              <span className="font-mono text-xs break-all">
+                background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #6bcb77 100%);
+              </span>{' '}
+              Radial example (circle shape):{' '}
+              <span className="font-mono text-xs break-all">
+                background: radial-gradient(circle, #3b82f6 0%, #8b5cf6 100%);
+              </span>{' '}
+              Both paste directly into any CSS <span className="font-mono text-xs">background</span> property.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">How Angle and Color Stops Work</h2>
+          <div className="space-y-3">
+            <div className="border border-border rounded-md bg-secondary p-4 space-y-2">
+              {[
+                ['0°', 'bottom → top  ↑'],
+                ['90°', 'left → right  →'],
+                ['180°', 'top → bottom  ↓'],
+                ['270°', 'right → left  ←'],
+                ['135°', 'top-left → bottom-right  ↘ (tool default)'],
+              ].map(([deg, dir]) => (
+                <p key={deg} className="text-sm text-muted-foreground leading-relaxed">
+                  <span className="font-semibold text-foreground font-mono">{deg}</span> — {dir}
+                </p>
+              ))}
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Color stop positions are percentages of the total gradient length. A stop at 0%
+              sits at the start edge; 50% is the midpoint; 100% is the end edge. Placing two
+              stops close together — for example at 48% and 52% — creates a sharp-edged color
+              boundary rather than a gradual blend. The "Redistribute" button spaces all stops
+              evenly across the full 0%–100% range.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Generator</h2>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            CSS gradients replace flat backgrounds wherever depth, direction, or visual hierarchy
+            is needed — hero sections, button states, card backgrounds, and decorative dividers.
+            Because they are rendered by the browser at display resolution, they are sharp on
+            any screen density, unlike raster gradient images which can appear blurry on high-DPI
+            displays. The generated <span className="font-mono text-xs">background:</span> line
+            pastes directly into a stylesheet, a Tailwind arbitrary-value, or an inline style attribute.
+          </p>
+        </div>
+
+        {/* Section 4 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: "What's the difference between a linear and radial gradient?",
+                a: "A linear gradient draws the transition along a straight line at a specified angle — the blending runs parallel to that line from edge to edge. A radial gradient draws the transition outward from a central point in all directions; this tool uses the 'circle' shape, meaning the gradient expands uniformly. Radial gradients work well for spotlight or vignette effects; linear gradients for directional color washes.",
+              },
+              {
+                q: 'How does the angle value work in a linear gradient?',
+                a: "The angle specifies the direction the gradient flows, measured clockwise from the top: 0° points upward (first color at bottom), 90° points right (first color at left), 180° points downward (first color at top), 270° points left (first color at right). Intermediate values create diagonal gradients. The tool's default of 135° flows from top-left toward bottom-right.",
+              },
+              {
+                q: 'Can I use more than two colors?',
+                a: 'Yes — "Add stop" inserts a new color stop at the midpoint of the largest existing gap, and there is no hard limit on the number of stops. Each stop has its own color and position percentage. You can create multi-step gradients with abrupt boundaries (stops placed very close together), smooth multi-color blends, or rainbow-style transitions by placing stops at evenly spaced intervals.',
+              },
+              {
+                q: 'Why does a gradient sometimes look banded or stepped instead of smooth?',
+                a: "Gradient banding occurs when the color range being interpolated contains fewer distinct values than there are pixels to fill. Most monitors display 8 bits per channel (256 levels per R, G, B), so a very subtle gradient spanning a narrow color range across many pixels can exhaust distinct RGB values before reaching the far edge — producing visible steps. Banding is most common in low-contrast gradients (nearly identical shades of the same hue) on large surfaces. Widening the color range or adding slight noise can reduce it.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
     </div>
   );
 }

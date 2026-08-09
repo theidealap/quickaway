@@ -215,6 +215,98 @@ export default function LoremIpsumGenerator() {
           ))}
         </div>
       </Card>
+
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">What Lorem Ipsum Is</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              "Lorem ipsum" is a scrambled passage of Latin that has served as the standard
+              placeholder text in graphic design and publishing for over five decades. The text
+              originates from <em>De Finibus Bonorum et Malorum</em>, a philosophical work by
+              the Roman orator Cicero, written in 45 BC — specifically from sections 1.10.32
+              and 1.10.33. In 1994, Richard McClintock, a Latin scholar at Hampden-Sydney
+              College, traced the origin by searching for the unusual word "consectetur" in
+              classical Latin literature.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The passage is not a direct quotation — it is scrambled, with words rearranged
+              and some altered, so that it resembles Latin text visually without reading as
+              coherent sentences. This is precisely what makes it useful for design: it looks
+              like real text at a glance without distracting the viewer with actual meaning.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">How It Became the Default Placeholder</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Lorem ipsum entered modern publishing via Letraset, which produced dry-transfer
+              lettering sheets used for page layout in the 1960s and 1970s. Designers used these
+              sheets before digital tools existed, and Letraset included Lorem ipsum as filler
+              in their catalogues. When Aldus Corporation released PageMaker 1.0 in 1985 — one
+              of the first desktop publishing applications — it included Lorem ipsum as built-in
+              placeholder text. From there it spread to virtually every design, layout, and
+              word-processing tool.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The classic opening — <em>"Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit…"</em> — is now universally recognised as the signal for "this is placeholder
+              text." The "Start with Lorem ipsum…" toggle preserves this canonical opening line
+              in every generated block.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use Placeholder Text</h2>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Placeholder text fills space with visually realistic content during layout without
+            drawing attention away from the structure, typography, and spacing being evaluated.
+            When a layout is shown with real copy, reviewers often focus on the words rather
+            than the design. Placeholder text suppresses that reaction. It is standard practice
+            in wireframes, UI mockups, print proofs, website templates, and any context where
+            the visual hierarchy needs to be assessed before final content is written.
+          </p>
+        </div>
+
+        {/* Section 4 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: 'What does Lorem ipsum actually say?',
+                a: "The Lorem ipsum passage is a scrambled excerpt from Cicero's De Finibus Bonorum et Malorum, which discusses pleasure and pain as criteria for moral action — Epicurean philosophy. The scrambled version retains the visual rhythm and character distribution of Latin prose but does not parse as grammatically correct Latin. It is more accurately described as corrupted Latin derived from real Latin rather than meaningful text.",
+              },
+              {
+                q: 'Is Lorem ipsum actual Latin?',
+                a: "It derives from real Latin but the scrambling means most of the passage is not grammatically correct classical Latin. Some words are genuine (lorem is an accusative form of 'pain'; ipsum means 'itself'), but the sentences do not parse correctly. Latin scholars describe it as garbled or corrupted Latin — which is precisely why it works as placeholder text: it reads as convincingly real to most viewers without meaning anything.",
+              },
+              {
+                q: 'Why use placeholder text instead of real content?',
+                a: "Using actual copy from a project as placeholder creates two problems. First, reviewers focus on whether the words are correct rather than whether the layout works. Second, draft content is often confidential or not yet approved, making real text inappropriate for mockups shared beyond the immediate team. Lorem ipsum is universally understood as 'placeholder' — no context or disclaimer needed.",
+              },
+              {
+                q: 'When was Lorem ipsum first used in printing or design?',
+                a: "Its use in modern publishing dates to Letraset's dry-transfer lettering sheets in the 1960s. Its digital adoption began with PageMaker 1.0 in 1985. Before the Letraset era, fragments of classical Latin text appeared in typography specimen books as early as the 16th century to demonstrate typefaces — though the specific scrambled Lorem ipsum passage in its modern form is most reliably traced to the 20th century.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }

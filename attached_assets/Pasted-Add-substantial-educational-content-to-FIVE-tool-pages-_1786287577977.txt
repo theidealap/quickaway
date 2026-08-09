@@ -1,0 +1,54 @@
+Add substantial educational content to FIVE tool pages, following the exact pattern established across all 20 previously completed tools — same structure, same depth, same rigor. This continues fixing Google AdSense's "thin content" rejection.
+
+MANDATORY PROCESS RULE (non-negotiable):
+For EVERY numeric/factual claim, compute or verify it programmatically first, THEN write the sentence around the verified result. For factual claims that aren't computable (e.g. security recommendations, technical standards), verify against a reliable reference rather than asserting from memory. After writing each tool's content, list every checkable claim in a verification table.
+
+ALSO MANDATORY: after updating each tool's seoDescription in tools-registry.ts, verify the change is actually saved to disk by reading the file back before reporting it as done.
+
+STRUCTURE TO REPLICATE FOR EACH TOOL (400-500 words per tool):
+1. "How [Tool Subject] Works" (150-200 words) — plain-language explanation, one worked example with verified output
+2. "The Method/Mechanics" (100-150 words) — the actual logic explained, one step-by-step worked example
+3. "When to Use This [Tool]" (75-100 words) — specific, genuine use cases
+4. FAQ (4-5 questions, specific to this exact tool) — each answer 40-80 words
+
+CONSTRAINTS:
+- No generic phrases that could apply to any tool
+- Each tool's content must be structurally and substantively distinct from all 20 previously completed tools
+- Place content BELOW the tool and its results
+- seoDescription must be specific and non-templated
+
+THE FIVE TOOLS:
+
+1. CSS Gradient Generator (src/tools/css-gradient-generator.tsx)
+   - Cover: how linear vs radial gradients work (angle/direction, color stops, interpolation between stops), what a color stop's position percentage actually controls
+   - Verify: at least one worked example showing the generated CSS syntax matches what the formula/logic would produce
+   - FAQ ideas: "What's the difference between linear and radial gradients?", "How does the angle value work in a linear gradient?", "Can I use more than two colors in a gradient?", "Why might a gradient look banded instead of smooth?" (color banding is a real, factual CSS/rendering phenomenon worth covering accurately)
+
+2. WhatsApp Link Generator (src/tools/whatsapp-link-generator.tsx)
+   - Cover: how a WhatsApp click-to-chat link is structured (the wa.me URL format, phone number formatting requirements, pre-filled message encoding)
+   - Verify: an actual example URL structure, confirm phone number format requirements against WhatsApp's own documentation if possible
+   - FAQ ideas: "What phone number format does the link require?", "Does the recipient need to save my number first?", "Can I pre-fill a message automatically?", "Does this work if the recipient doesn't have WhatsApp installed?"
+
+3. Email Signature Generator (src/tools/email-signature-generator.tsx)
+   - Cover: how HTML email signatures work technically (inline styles vs. CSS classes, why email clients render signatures differently than web browsers), what makes a signature portable across email clients
+   - Verify: factual claims about email client HTML rendering limitations against a reliable source
+   - FAQ ideas: "Why do email signatures look different in Outlook vs. Gmail?", "Should I use an image or text-based signature?", "What's the ideal signature size/dimensions?", "Why shouldn't I use web fonts in an email signature?"
+
+4. Password Generator (src/tools/password-generator.tsx)
+   - Cover: what makes a password resistant to brute-force/dictionary attacks (entropy, character set size, length), why length matters more than complexity beyond a certain point
+   - Verify: an actual entropy calculation for a sample generated password, verify against a standard entropy formula (log2(charset_size^length))
+   - FAQ ideas: "How long should a password be?", "Does adding special characters actually help?", "What is password entropy?", "Should I use a password manager instead of memorizing passwords?"
+
+5. Lorem Ipsum Generator (src/tools/lorem-ipsum-generator.tsx)
+   - Cover: what Lorem Ipsum actually is (garbled Latin from Cicero's writings), why designers use placeholder text instead of real content, the history of how it became the default
+   - Verify: the Cicero source claim against a reliable reference before stating it as fact
+   - FAQ ideas: "What does Lorem Ipsum actually say / mean?", "Why not just use real text as a placeholder?", "Is Lorem Ipsum actual Latin?", "When was Lorem Ipsum first used in publishing/design?"
+
+After completing all five:
+1. Show me the full text of each tool's new content section (paste actual prose, not summaries)
+2. Show the verification table for each tool
+3. Confirm each seoDescription was actually updated (paste exact new line from file)
+4. Confirm build is clean
+5. Do NOT push to GitHub yet — wait for my review
+
+Do NOT touch any tool beyond these five.

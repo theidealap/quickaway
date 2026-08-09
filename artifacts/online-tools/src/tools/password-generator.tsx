@@ -200,6 +200,102 @@ export default function PasswordGenerator() {
           </div>
         ))}
       </div>
+
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">What Makes a Password Resistant to Attack</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Password resistance is measured in entropy — how many guesses an attacker would need
+              to exhaust all possibilities. The formula is{' '}
+              <span className="font-semibold text-foreground">H = L × log₂(N)</span>, where H is
+              entropy in bits, L is the password length, and N is the character set size (the number
+              of distinct characters the attacker must consider at each position).
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              When all four sets are enabled, this generator draws from a pool of{' '}
+              <span className="font-semibold text-foreground">88 characters</span>: 26 uppercase
+              (A–Z), 26 lowercase (a–z), 10 digits (0–9), and 26 symbols
+              (<span className="font-mono text-xs">!@#$%^&amp;*()-_=+[]{}|;:,.&lt;&gt;?</span>).
+              A <span className="font-semibold text-foreground">16-character</span> password from
+              the full pool has entropy of 16 × log₂(88) ={' '}
+              <span className="font-semibold text-foreground">103.4 bits</span>. A 12-character
+              password gives <span className="font-semibold text-foreground">77.5 bits</span>. By
+              comparison, an 8-character lowercase-only password has 37.6 bits — roughly 209 billion
+              combinations, a number modern hardware can search in hours.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">How Passwords Are Generated</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The tool uses the browser's{' '}
+              <span className="font-mono text-xs">crypto.getRandomValues()</span> API — a
+              cryptographically secure random number generator (CSPRNG) seeded by the operating
+              system. This is categorically different from{' '}
+              <span className="font-mono text-xs">Math.random()</span>, which is a pseudorandom
+              generator not suitable for security purposes.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The algorithm guarantees at least one character from each enabled set. Required
+              characters are selected first; the remaining positions fill from the full pool;
+              then the complete set is shuffled using a Fisher-Yates algorithm that also draws
+              from <span className="font-mono text-xs">crypto.getRandomValues()</span> at every
+              swap — preventing the required characters from appearing in predictable positions.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Generator</h2>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            This tool is suited to generating passwords for any account that requires uniqueness
+            and randomness — especially where dictionary words or personal information must be
+            avoided. Because generated passwords are not stored anywhere, the practical workflow
+            is to generate here and immediately paste into a password manager, which handles
+            storage and recall. Lengths above 20 characters provide entropy headroom against
+            possible future increases in attacker computing speed.
+          </p>
+        </div>
+
+        {/* Section 4 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: 'How long should a password be?',
+                a: "Length is the single largest contributor to entropy. A 16-character password from the full 88-character pool (103.4 bits) is highly resistant to brute-force attack by any practical computing resource. NIST guidelines (SP 800-63B) emphasize length over complexity; a 20-character password from even a smaller character set provides more entropy than a short complex one.",
+              },
+              {
+                q: 'Does adding special characters actually help?',
+                a: "Yes, but less than adding length. Expanding from lowercase-only (26 chars, 4.70 bits/char) to the full 88-character pool (6.46 bits/char) is a 37% increase per character. Adding one more character to the password adds the full 6.46 bits — equivalent to more than doubling the character set. Both help, but length scales linearly while character set size has diminishing returns once the pool is reasonably large.",
+              },
+              {
+                q: 'What is password entropy?',
+                a: "Entropy, measured in bits, describes how unpredictable a password is, assuming the attacker knows the generation method (length and character set) but not the specific password. Each additional bit of entropy doubles the number of guesses required. At 103.4 bits, the number of possible 16-character passwords from this tool's pool is 2^103.4 ≈ 1.29 × 10³¹ — beyond the reach of any foreseeable exhaustive search.",
+              },
+              {
+                q: 'Should I use a password manager instead of memorizing passwords?',
+                a: "For most people, yes. Password managers store, recall, and often generate passwords, meaning each account can have a unique, fully random password without memorization. The security model shifts to protecting one strong master password rather than many weaker ones. The passwords this tool generates are intentionally designed to be unmemorizable; saving them immediately to a password manager is the intended workflow.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }

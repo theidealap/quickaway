@@ -244,6 +244,102 @@ export default function EmailSignatureGenerator() {
           <Copy className="w-4 h-4 mr-2" /> Copy HTML Signature
         </Button>
       </div>
+
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">How HTML Email Signatures Work</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Email signatures are HTML snippets that email clients append to outgoing messages.
+              Unlike standard web pages, they cannot rely on external CSS files,{' '}
+              <span className="font-mono text-xs">&lt;style&gt;</span> blocks in{' '}
+              <span className="font-mono text-xs">&lt;head&gt;</span>, or web fonts — because most
+              email clients strip or ignore those entirely. Gmail removes all{' '}
+              <span className="font-mono text-xs">&lt;style&gt;</span> content from received HTML.
+              Outlook on Windows renders HTML using Microsoft Word's layout engine rather than a
+              browser, producing significant differences in how CSS is interpreted.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The solution is table-based layouts with inline styles — CSS written directly on
+              each element as a <span className="font-mono text-xs">style="…"</span> attribute.
+              This generator produces exactly that: every template outputs a{' '}
+              <span className="font-mono text-xs">&lt;table&gt;</span> with all styles inlined,
+              using only web-safe fonts (Arial, Helvetica, Georgia, Segoe UI) that are installed
+              on virtually all operating systems.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">How the HTML Is Structured</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              All three templates produce self-contained HTML with no external dependencies.
+              Each uses a <span className="font-mono text-xs">&lt;table&gt;</span> for layout
+              because table-based HTML renders consistently in Outlook's Word engine, whereas
+              CSS flexbox and grid — standard in web development — are partially or entirely
+              unsupported in Outlook 2016 and later Windows versions.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Contact links use <span className="font-mono text-xs">mailto:</span> and{' '}
+              <span className="font-mono text-xs">https://</span> hrefs with inline color styles.
+              Logo images include an <span className="font-mono text-xs">onerror</span> handler
+              that swaps in an initials avatar if the logo URL becomes unreachable. The copied
+              HTML pastes directly into Gmail's "Signature" settings, Outlook's signature editor,
+              or any client that accepts HTML input.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Generator</h2>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Use this tool when setting up or refreshing a professional email signature. The
+            Compact template suits transactional or high-volume email contexts where brevity
+            matters. Professional is suited to client-facing roles where name prominence and a
+            logo are important. Modern works well for creative or technology-focused fields.
+            Once copied, the HTML pastes directly into Gmail Settings → Signature, Outlook's
+            signature editor, or Apple Mail's Signatures preferences — no external service or
+            account required.
+          </p>
+        </div>
+
+        {/* Section 4 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: 'Why does my signature look different in Outlook than in Gmail?',
+                a: "The two clients use fundamentally different rendering engines. Gmail uses a browser-based renderer but strips <style> blocks from received messages, so only inline styles survive. Outlook on Windows uses Microsoft Word's HTML engine — not a browser — which has limited CSS support, handles table and image sizing differently, and ignores many standard properties. Table-based layouts with inline styles are the lowest common denominator that works in both.",
+              },
+              {
+                q: "Why shouldn't I use custom or web fonts in an email signature?",
+                a: "Web fonts (loaded via @font-face or Google Fonts) require a network request and CSS parsing that most email clients do not support. Gmail, Outlook, and Apple Mail either fall back to a system font or ignore the font declaration entirely. Web-safe fonts — Arial, Helvetica, Georgia, Times New Roman — are pre-installed on Windows, macOS, iOS, and Android, making them the only fonts that render reliably across clients without fallback surprises.",
+              },
+              {
+                q: 'Should I use an image or text for my signature?',
+                a: "Text-based signatures are strongly preferable for professional email. Image-based signatures — a single graphic containing all contact info — are often blocked by clients that disable remote images by default, leaving recipients with a blank space. Text with inline styles is always visible, is searchable, allows hyperlinks to work natively, and passes through spam filters more cleanly than image-heavy HTML.",
+              },
+              {
+                q: 'What size should an email signature be?',
+                a: "There is no enforced limit, but common guidance from email infrastructure providers suggests keeping signature HTML under approximately 10 KB and avoiding large embedded images. Larger signatures increase message size, slow rendering on mobile, and can trigger spam scoring. The signatures generated here are typically under 2 KB of HTML — lightweight because they use table markup with inline styles rather than embedded images or base64-encoded assets.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }

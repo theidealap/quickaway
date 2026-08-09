@@ -187,6 +187,110 @@ export default function WhatsAppLinkGenerator() {
           ))}
         </div>
       </div>
+
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">How a WhatsApp Click-to-Chat Link Works</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              A WhatsApp click-to-chat link uses the <span className="font-mono text-xs">wa.me</span> URL
+              format. When opened in a browser or tapped on mobile, it launches WhatsApp and opens a
+              conversation with the specified number — no need for the recipient to have that number saved
+              as a contact first. The URL structure is:
+            </p>
+            <div className="border border-border rounded-md bg-secondary p-4 space-y-2">
+              <p className="text-sm text-muted-foreground leading-relaxed font-mono text-xs break-all">
+                https://wa.me/{'{'}phone-number{'}'}
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed font-mono text-xs break-all">
+                https://wa.me/{'{'}phone-number{'}'}?text={'{'}url-encoded-message{'}'}
+              </p>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Example — US number +1 (415) 555-1234 with a pre-filled message "Hello, I have a question"
+              produces:{' '}
+              <span className="font-mono text-xs break-all">
+                https://wa.me/14155551234?text=Hello%2C%20I%20have%20a%20question
+              </span>.
+              The <span className="font-mono text-xs">+</span> is omitted; the country code is prepended
+              directly to the subscriber number.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">How the Link Is Built</h2>
+          <div className="space-y-3">
+            <div className="border border-border rounded-md bg-secondary p-4 space-y-2">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <span className="font-semibold text-foreground">Phone number:</span>{' '}
+                dial code digits + local number digits, leading zeros stripped, no spaces or symbols
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <span className="font-semibold text-foreground">Message:</span>{' '}
+                URL percent-encoded via <span className="font-mono text-xs">encodeURIComponent()</span>,
+                appended as <span className="font-mono text-xs">?text=…</span>
+              </p>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              WhatsApp's documentation specifies the number must be in E.164 format — international
+              country code followed by subscriber number, with no <span className="font-mono text-xs">+</span>,
+              spaces, or dashes. This tool produces that format automatically. Local trunk prefixes (such
+              as a leading 0 in many countries) are stripped because they are not used in international
+              dialing. If a message is provided, spaces become <span className="font-mono text-xs">%20</span>,
+              commas become <span className="font-mono text-xs">%2C</span>, and so on.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Generator</h2>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Click-to-chat links are useful anywhere you want to make it easy to start a WhatsApp
+            conversation without requiring the other party to save a number. Common uses include
+            website contact buttons, customer support widgets, QR codes on business cards or printed
+            packaging, marketing links in social media bios, and digital business cards. The pre-filled
+            message option is especially useful for structured enquiries — it prompts the sender with
+            context-relevant starting text that they can edit before sending.
+          </p>
+        </div>
+
+        {/* Section 4 */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: 'What phone number format does the link require?',
+                a: "The number must be in international format — country code followed by the subscriber number, with no plus sign, spaces, dashes, or parentheses. This tool builds the correct format automatically: select the country (which provides the dial code), enter the local number, and the tool combines and cleans them. Local trunk prefixes like a leading 0 are removed because they are not part of the international number.",
+              },
+              {
+                q: 'Does the recipient need to have my number saved to receive the message?',
+                a: "No. The wa.me link opens a new WhatsApp conversation with the specified number without requiring either party to have the other saved as a contact. The recipient sees the sender's number (or profile name if they happen to have it saved) and can respond normally. This is one of the primary advantages of the wa.me format over sharing a plain phone number.",
+              },
+              {
+                q: 'Can I pre-fill a message that opens automatically?',
+                a: "Yes. Text entered in the Welcome Message field is URL-encoded and appended as a ?text= query parameter. When the link is opened, WhatsApp pre-populates the message compose box with that text — but the sender must still tap Send. The message is not transmitted automatically; it is a starting prompt the sender can edit or delete before sending.",
+              },
+              {
+                q: "What happens if the recipient doesn't have WhatsApp installed?",
+                a: "On a device without WhatsApp, opening a wa.me link typically redirects to the WhatsApp download page or the WhatsApp Web interface. On mobile, the user is prompted to install the app. On desktop, wa.me links open WhatsApp Web in the browser if the user has an account linked; otherwise they see a QR code to link a device. The link does not function as a standard call or SMS fallback.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }
