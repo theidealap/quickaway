@@ -1,0 +1,49 @@
+Add substantial educational content to FIVE tool pages, following the exact pattern established on the Compound Interest Calculator (src/tools/compound-interest-calculator.tsx) — same structure, same depth, same rigor. This continues fixing Google AdSense's "thin content" rejection.
+
+MANDATORY PROCESS RULE (non-negotiable):
+For EVERY numeric example or claim in ANY of the five tools below, compute the number programmatically first (write and run a script), confirm the output, THEN write the sentence around the verified number. After writing each tool's content, list every numeric claim in a verification table (claim → script output → match) before presenting it to me.
+
+ALSO MANDATORY: after updating each tool's seoDescription in tools-registry.ts, verify the change is actually saved to disk by reading the file back before reporting it as done — a prior task had a seoDescription silently fail to save.
+
+STRUCTURE TO REPLICATE FOR EACH TOOL (400-500 words per tool):
+1. "How [Tool Subject] Works" (150-200 words) — plain-language explanation, one worked example with verified numbers
+2. "The Formula" or "How It's Calculated" (100-150 words) — formula explained, variables defined, one step-by-step worked example
+3. "When to Use This [Tool]" (75-100 words) — specific, genuine use cases
+4. FAQ (4-5 questions, specific to this exact tool) — each answer 40-80 words
+
+CONSTRAINTS:
+- No generic phrases that could apply to any tool
+- Each tool's content must be structurally and substantively distinct from the others and from previously completed tools
+- Place content BELOW the calculator/tool and its results
+- seoDescription must be specific and non-templated
+
+THE FIVE TOOLS:
+
+1. Age Calculator (src/tools/age-calculator.tsx)
+   - Cover: how age is calculated accounting for leap years and varying month lengths, why simple year-subtraction can be off by one, the difference between chronological age and "age in days/months" uses
+   - FAQ ideas: "Why can't I just subtract birth year from current year?", "How does leap year affect age calculation?", "What is the difference between age in years vs. exact age?", "Why do some cultures calculate age differently?" (brief, factual mention of East Asian age reckoning as one real example, no editorializing)
+
+2. GPA Calculator (src/tools/gpa-calculator.tsx)
+   - Cover: how GPA is calculated (grade points × credit hours, summed, divided by total credit hours), the standard 4.0 scale, difference between weighted and unweighted GPA
+   - FAQ ideas: "What's the difference between weighted and unweighted GPA?", "How do I calculate cumulative GPA across semesters?", "Does a Pass/Fail class affect GPA?", "What GPA is considered good?"
+
+3. Discount Calculator (src/tools/discount-calculator.tsx)
+   - Cover: the discount formula, how to calculate stacked/successive discounts (why 20% off + 10% off isn't 30% off), reverse-calculating original price from a sale price
+   - FAQ ideas: "How do successive discounts stack?", "How do I find the original price before a discount?", "What's the difference between a discount and a markdown?", "How do I calculate the final price with tax after a discount?"
+
+4. Loan EMI Calculator (src/tools/loan-emi-calculator.tsx)
+   - Cover: what EMI means, how the EMI formula works, why early payments are mostly interest and later payments are mostly principal (amortization concept)
+   - FAQ ideas: "Why does more of my payment go to interest early in the loan?", "How does loan tenure affect total interest paid?", "What happens if I make an extra payment?", "How is EMI different from a simple monthly installment?"
+
+5. Mortgage Calculator (src/tools/mortgage-calculator.tsx)
+   - Cover: what makes up a mortgage payment (PITI — principal, interest, taxes, insurance), what PMI is and when it applies, how down payment size affects total cost
+   - FAQ ideas: "What is PITI?", "When can I stop paying PMI?", "How does a larger down payment reduce total cost?", "What's the difference between a 15-year and 30-year mortgage?"
+
+After completing all five:
+1. Show me the full text of each tool's new content section
+2. Show the numeric verification table for each tool
+3. Confirm each seoDescription was actually updated (paste the exact new line from the file)
+4. Confirm build is clean
+5. Do NOT push to GitHub yet — wait for my review
+
+Do NOT touch any tool beyond these five.

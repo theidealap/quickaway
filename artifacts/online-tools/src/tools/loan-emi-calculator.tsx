@@ -366,6 +366,108 @@ export default function LoanEmiCalculator() {
         </Button>
       </div>
 
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 — What EMI Means */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">What EMI Means and How Amortisation Works</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              EMI stands for Equated Monthly Instalment — a fixed payment made every month for the
+              full duration of a loan. The "equated" part is key: although the total payment stays
+              constant each month, the split between interest and principal shifts continuously.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              In the early months, most of the EMI pays interest because the outstanding balance
+              is large. On a $200,000 loan at 8% annual interest over 20 years, the EMI works out
+              to $1,672.88. In month one, interest alone is $1,333.33 — 79.7% of the payment —
+              leaving only $339.55 to reduce the principal. By the final payment (month 240), the
+              balance is nearly zero, so interest is just $11.08 and principal repayment is
+              $1,661.80. The EMI amount is identical in both months; only what it covers has shifted.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 — The Formula */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">The EMI Formula</h2>
+          <div className="space-y-3">
+            <div className="border border-border rounded-md bg-secondary p-4">
+              <p className="text-sm font-mono font-semibold text-foreground">
+                EMI = P × r × (1 + r)^n ÷ ((1 + r)^n − 1)
+              </p>
+            </div>
+            <div className="border border-border rounded-md bg-secondary p-4 space-y-1.5">
+              {[
+                ['P', 'Principal — the total loan amount'],
+                ['r', 'Monthly interest rate = annual rate ÷ 12 ÷ 100'],
+                ['n', 'Number of monthly payments (years × 12)'],
+              ].map(([v, d]) => (
+                <p key={v} className="text-sm text-muted-foreground leading-relaxed">
+                  <span className="font-mono font-semibold text-foreground">{v}</span> — {d}
+                </p>
+              ))}
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Worked example: $200,000 at 8% annual for 20 years.
+              r = 8 ÷ 12 ÷ 100 = 0.006667. n = 240.
+              EMI = 200,000 × 0.006667 × (1.006667)²⁴⁰ ÷ ((1.006667)²⁴⁰ − 1)
+              = <span className="font-semibold text-foreground">$1,672.88</span>.
+              Total paid over 20 years: $1,672.88 × 240 = $401,491.23.
+              Total interest: <span className="font-semibold text-foreground">$201,491.23</span> —
+              more than the original loan amount itself.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 — When to Use */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Calculator</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Use this calculator before committing to a loan to compare the true cost across
+              different tenures. A $200,000 loan at 8% over 10 years instead of 20 raises the
+              EMI from $1,672.88 to $2,426.55 — but cuts total interest from $201,491 to $91,186,
+              saving over $110,000. The amortisation schedule makes this tradeoff concrete by
+              showing exactly how the outstanding balance falls each year, which also helps you
+              see when additional payments would have the greatest impact.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 4 — FAQ */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: 'Why does more of my early payment go to interest?',
+                a: "Interest is calculated as a percentage of the outstanding balance. At the start of a loan, that balance is at its highest, so the interest charge is largest. As monthly payments chip away at the principal, the balance falls, the monthly interest charge falls with it, and a progressively larger share of each EMI goes toward principal. This is why paying extra in the early months — when the balance is highest — has the largest impact on total interest paid over the life of the loan.",
+              },
+              {
+                q: 'How does loan tenure affect total interest paid?',
+                a: "A longer tenure reduces your monthly EMI but dramatically increases the total interest you pay, because each month's charge compounds against a balance that shrinks more slowly. On a $200,000 loan at 8%, a 20-year tenure costs $201,491 in total interest; a 10-year tenure costs $91,186 — less than half the interest — while the EMI rises by only $754 per month. The longer the loan, the higher the total interest multiplier.",
+              },
+              {
+                q: 'What happens if I make an extra payment?',
+                a: "An extra payment goes entirely toward principal, reducing the outstanding balance immediately. Because interest is calculated on the remaining balance each month, a lower balance means less interest charged in every subsequent month, shortening the loan term and reducing the total interest paid. Most standard loans allow extra payments without penalty, but confirm this with your lender — some agreements include prepayment clauses that may limit early repayment.",
+              },
+              {
+                q: 'How is EMI different from a simple monthly instalment?',
+                a: "A simple instalment loan divides the principal equally across all months and adds interest only on the remaining balance each month — meaning the payment decreases over time as the balance falls. An EMI is a fixed, constant payment designed so that equal monthly amounts fully repay both principal and interest by the end of the term. EMI is easier to budget for because the payment never changes; simple instalments cost more in the early months but decrease as the loan progresses.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
     </div>
   );
 }

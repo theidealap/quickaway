@@ -568,6 +568,114 @@ export default function MortgageCalculator() {
         </Button>
       </div>
 
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 — PITI */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">What Makes Up a Mortgage Payment (PITI)</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              A full mortgage payment is commonly described by the acronym PITI: Principal,
+              Interest, Taxes, and Insurance. Principal reduces your loan balance; interest is the
+              cost of borrowing. Taxes and insurance are typically collected by the lender monthly,
+              held in an escrow account, and paid on your behalf to the tax authority and insurer
+              annually.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              If your down payment is less than 20% of the home price, lenders also require
+              Private Mortgage Insurance (PMI) — an additional monthly charge that protects the
+              lender if you default. On a $400,000 home with a 10% down payment, the loan is
+              $360,000 and PMI is estimated at 0.5% of the loan amount annually,
+              adding <span className="font-semibold text-foreground">$150.00</span> per month to
+              the payment. PMI is removed once the loan balance falls below 80% of the original
+              home value.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 — How the Payment Is Calculated */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">How the Monthly Payment Is Calculated</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The principal and interest (P&I) portion follows the standard amortisation formula:
+            </p>
+            <div className="border border-border rounded-md bg-secondary p-4">
+              <p className="text-sm font-mono font-semibold text-foreground">
+                Monthly P&I = L × r × (1 + r)^n ÷ ((1 + r)^n − 1)
+              </p>
+            </div>
+            <div className="border border-border rounded-md bg-secondary p-4 space-y-1.5">
+              {[
+                ['L', 'Loan amount (home price minus down payment)'],
+                ['r', 'Monthly interest rate = annual rate ÷ 12 ÷ 100'],
+                ['n', 'Total number of payments (years × 12)'],
+              ].map(([v, d]) => (
+                <p key={v} className="text-sm text-muted-foreground leading-relaxed">
+                  <span className="font-mono font-semibold text-foreground">{v}</span> — {d}
+                </p>
+              ))}
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Worked example: $400,000 home, 20% down ($80,000), loan $320,000, 6.5% rate,
+              30-year term. r = 6.5 ÷ 12 ÷ 100 = 0.005417. n = 360.
+              Monthly P&I = <span className="font-semibold text-foreground">$2,022.62</span>.
+              Total interest over 30 years:
+              <span className="font-semibold text-foreground"> $408,142</span> — more than the
+              loan amount itself paid in interest alone. Property tax and insurance are divided by
+              12 and added directly to this figure.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 — When to Use */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Calculator</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Use this calculator when comparing homes at different price points or deciding how
+              much down payment to put toward a purchase. The loan term toggle makes the 15-year
+              vs. 30-year tradeoff immediately visible: on a $320,000 loan at 6.5%, a 30-year term
+              costs $408,142 in total interest versus $181,758 on a 15-year term — a difference of
+              $226,384, in exchange for a higher monthly payment of roughly $765. Enter your own
+              numbers to find the crossover point that fits your cash flow.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 4 — FAQ */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: 'What does PITI stand for and why does it matter?',
+                a: "PITI stands for Principal, Interest, Taxes, and Insurance — the four components of a full monthly mortgage payment. Lenders use total PITI as the benchmark for affordability: most conventional lenders prefer that PITI not exceed 28–31% of gross monthly income. Quoting only the P&I portion significantly underestimates the true monthly cost, particularly in high-tax areas where property tax alone can add hundreds of dollars per month.",
+              },
+              {
+                q: 'When can I stop paying PMI?',
+                a: "PMI is typically required until your loan balance reaches 80% of the home's original purchase price — the point at which you have 20% equity. Under the US Homeowners Protection Act, you can request cancellation once the balance reaches 80% per the original amortisation schedule. Lenders must cancel PMI automatically when the balance reaches 78%. If the home has appreciated, an appraisal confirming at least 20% equity may allow earlier cancellation.",
+              },
+              {
+                q: 'How does a larger down payment reduce total cost?',
+                a: "A larger down payment reduces the loan amount directly, which lowers both the monthly payment and total interest paid. It also eliminates PMI once the down payment reaches 20%. Going from 10% to 20% down on a $400,000 home reduces the loan by $40,000, eliminates $150 per month in PMI, and reduces total interest paid over 30 years by approximately $51,018 at 6.5%.",
+              },
+              {
+                q: "What's the difference between a 15-year and 30-year mortgage?",
+                a: "A 30-year mortgage has a lower monthly payment but pays substantially more interest over the life of the loan. On a $320,000 loan at 6.5%, the 30-year monthly P&I is $2,022.62 and total interest is $408,142; the 15-year monthly P&I is $2,787.54 — about $765 more per month — but total interest is only $181,758, saving $226,384 over the life of the loan. The right choice depends on monthly cash flow, how long you plan to hold the home, and the opportunity cost of the extra monthly payment.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
     </div>
   );
 }

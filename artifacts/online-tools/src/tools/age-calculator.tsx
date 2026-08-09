@@ -147,6 +147,103 @@ export default function AgeCalculator() {
           Reset
         </Button>
       </div>
+
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 — How Age Is Calculated */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">How Age Is Calculated</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Age calculation sounds simple — subtract the birth year from the current year — but
+              that single figure ignores whether your birthday has occurred yet this calendar year.
+              Someone born December 15, 1990, calculated on January 10, 2025, is actually 34 years
+              old, not 35. A naive year subtraction gives 35 (2025 − 1990), but the December
+              birthday has not arrived yet in January. The correct year count is one lower.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The precise method works in three stages. First, subtract birth year from reference
+              year and check whether this year's birthday has passed — if not, reduce the year count
+              by one. Second, compute remaining months by the same logic, borrowing days from the
+              preceding month when needed. Third, count the leftover days. This produces a result
+              like 34 years, 0 months, 26 days and a total of 12,445 days lived — precise to the
+              calendar day, with no rounding of month lengths or leap years.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 — How It's Calculated */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">How the Calculation Works</h2>
+          <div className="space-y-3">
+            <div className="border border-border rounded-md bg-secondary p-4 space-y-2">
+              {[
+                ['Step 1', 'Subtract birth year from reference year → initial year count.'],
+                ['Step 2', 'If the birthday has not occurred yet this year (month or day is later), subtract 1.'],
+                ['Step 3', "Compute remaining months and days using the calendar's actual month lengths."],
+                ['Step 4', 'Total days = (reference date − birth date) in milliseconds ÷ 86,400,000.'],
+              ].map(([label, desc]) => (
+                <p key={label} className="text-sm text-muted-foreground leading-relaxed">
+                  <span className="font-semibold text-foreground">{label}: </span>{desc}
+                </p>
+              ))}
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Why this matters: calendar months have 28–31 days, and February has 29 in leap years.
+              A calculator that treats every month as 30 days accumulates errors of several days per
+              year. This tool uses the calendar's actual month lengths at each step, so the day
+              count is always exact.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 — When to Use */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Calculator</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The "calculate as of" field makes this more than a today-only tool. Use it to find
+              someone's age on a program enrolment date, a legal eligibility cutoff, or a past
+              or future milestone. The total days count matters for precise milestone tracking:
+              reaching 10,000 days alive happens at roughly age 27 years and 4–5 months, but the
+              exact date depends on birth date and which leap years fall within that span — so
+              the figure is different for every person.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 4 — FAQ */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: "Why can't I just subtract birth year from current year?",
+                a: "Year subtraction only counts how many birthdays could have occurred, not how many have. If you were born in November and you check in February, subtracting years gives a count one too high — this year's birthday hasn't arrived yet. The accurate method checks whether the current month and day have passed the birth month and day before settling on the year count.",
+              },
+              {
+                q: 'How does a leap year affect age calculation?',
+                a: "Leap years affect the total days count directly — anyone who has lived through a leap year has accumulated an extra calendar day compared to a non-leap year. For someone born on February 29, the birthday is treated as not-yet-passed until March 1 in non-leap years, so on February 28, 2025, a person born February 29, 1996 is 28 years, 11 months, and 30 days old — not yet 29.",
+              },
+              {
+                q: 'What is the difference between age in years and exact age in days?',
+                a: 'Age in years is a rounded, calendar-aware figure used for legal and social purposes. Age in total days is an unambiguous count of the exact number of 24-hour periods since birth. Two people who are both "34 years old" can differ by up to 364 days in their day count, depending on where their birthdays fall in the year. Total days is useful whenever a precise elapsed-time figure matters more than the rounded year.',
+              },
+              {
+                q: 'Do some cultures calculate age differently?',
+                a: 'Yes. East Asian age reckoning, traditional in Korea and historically in China and Japan, counts a newborn as age 1 at birth and adds 1 on each January 1st rather than each birthday. A baby born on December 31st becomes age 2 by January 2nd of the following year, even though only two days have passed. South Korea officially adopted the international birthday-based system in June 2023.',
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }

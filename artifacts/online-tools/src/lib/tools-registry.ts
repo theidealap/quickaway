@@ -104,7 +104,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Find out exactly how old you are down to the day. You can also calculate your age on a specific date in the past or future.',
     seoTitle: 'Free Age Calculator – Calculate Your Exact Age Online | QuickAway',
     seoDescription:
-      'Enter your date of birth to find your exact age in years, months and days — or calculate your age on any past or future date. Free, instant, no sign-up.',
+      'Calculate your exact age in years, months, and days from any birth date to any reference date — with correct handling of leap years, varying month lengths, and mid-year birthdays.',
     category: 'Calculators',
     component: lazy(() => import('@/tools/age-calculator')),
   },
@@ -164,7 +164,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Add your courses with their grades and credit hours to instantly calculate your GPA on a 4.0 or 5.0 scale.',
     seoTitle: 'Free GPA Calculator – 4.0 & 5.0 Scale Grade Point Average | QuickAway',
     seoDescription:
-      'Add your courses with their letter grades and credit hours to calculate your cumulative GPA on a 4.0 or 5.0 scale. Instant results, completely free.',
+      'Calculate your GPA on a 4.0 or 5.0 scale by entering letter grades and credit hours — see quality points per course and the weighted formula behind every result.',
     category: 'Calculators',
     component: lazy(() => import('@/tools/gpa-calculator')),
   },
@@ -320,7 +320,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Enter an original price and a discount percentage to see the sale price and total savings — or enter both prices to find the discount percentage.',
     seoTitle: 'Free Discount Calculator – Sale Price & Savings | QuickAway',
     seoDescription:
-      'Calculate the sale price and savings from a percentage off, or find the discount % from two prices. Fast, free online discount calculator.',
+      'Calculate the sale price and exact savings from any discount percentage, or work backwards from two prices to find the discount rate — with stacked-discount and reverse-price formulas explained.',
     category: 'Calculators',
     component: lazy(() => import('@/tools/discount-calculator')),
   },
@@ -344,7 +344,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Enter a loan amount, annual interest rate, and tenure (in years or months) to instantly see your monthly EMI, total interest payable, and a year-by-year amortisation breakdown.',
     seoTitle: 'Free Loan EMI Calculator – Monthly EMI & Amortisation Schedule | QuickAway',
     seoDescription:
-      'Calculate your monthly loan EMI, total interest payable and full amortisation schedule. Enter loan amount, rate and tenure in years or months. Free online EMI calculator.',
+      'Enter any loan amount, interest rate, and term to get your monthly EMI, total interest paid, and a full amortisation schedule showing exactly how much of each payment goes to principal versus interest.',
     category: 'Calculators',
     component: lazy(() => import('@/tools/loan-emi-calculator')),
   },
@@ -356,7 +356,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Enter your home price, down payment, interest rate, and loan term to see your total monthly payment broken down into principal & interest, property tax, home insurance, and PMI (if applicable). Includes a full year-by-year amortisation schedule.',
     seoTitle: 'Free Mortgage Calculator – Monthly Payment, PMI & Amortisation Schedule | QuickAway',
     seoDescription:
-      'Calculate your monthly mortgage payment including principal & interest, property tax, home insurance, and PMI. See a full year-by-year amortisation table. Free online mortgage calculator.',
+      'Calculate your full monthly mortgage payment — principal, interest, property tax, home insurance, and PMI — with a year-by-year amortisation schedule and automatic PMI detection below 20% down.',
     category: 'Calculators',
     component: lazy(() => import('@/tools/mortgage-calculator')),
   },
