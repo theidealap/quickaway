@@ -4,7 +4,7 @@ import { guidesRegistry } from '@/lib/guides-registry';
 import { Suspense } from 'react';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import { SEO } from '@/components/seo';
-import { JsonLd, buildSoftwareAppSchema, buildBreadcrumbSchema } from '@/components/json-ld';
+import { JsonLd, buildSoftwareAppSchema, buildBreadcrumbSchema, buildFAQSchema } from '@/components/json-ld';
 import { Skeleton } from '@/components/ui/skeleton';
 import NotFound from '@/pages/not-found';
 
@@ -49,6 +49,12 @@ export default function ToolDetail() {
           category: { name: tool.category, slug: categorySlug },
         })}
       />
+      {tool.faq && tool.faq.length > 0 && (
+        <JsonLd
+          id={`faq-${tool.slug}`}
+          schema={buildFAQSchema(tool.faq)}
+        />
+      )}
 
       {/* ── Breadcrumb ── */}
       <div className="border-b border-border bg-secondary">

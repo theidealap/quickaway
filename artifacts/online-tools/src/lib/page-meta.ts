@@ -87,7 +87,7 @@ export const PAGE_META: Record<string, StaticPageMeta> = {
   guidesIndex: {
     title: 'Free Guides & How-To Articles | QuickAway',
     description:
-      'Step-by-step guides explaining the maths and concepts behind our free online tools. Learn how to calculate age, percentages, BMI, Roman numerals, and more.',
+      'In-depth guides explaining the formulas, worked examples, and edge cases behind QuickAway\'s calculators and converters — covering compound interest, percentage change, GPA, BMI, and Roman numerals.',
     lastModified: '2026-07-25',
   },
 };

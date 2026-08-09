@@ -18,6 +18,7 @@ import { SITE_URL, SITE_OG_IMAGE } from '../../src/lib/site-config.js';
 import {
   buildSoftwareAppSchema,
   buildBreadcrumbSchema,
+  buildFAQSchema,
 } from '../../src/components/json-ld.js';
 import type { PageRoute } from '../types.js';
 
@@ -49,6 +50,7 @@ export function collectToolRoutes(): PageRoute[] {
           slug: CATEGORY_SLUGS[tool.category],
         },
       }),
+      ...(tool.faq && tool.faq.length > 0 ? [buildFAQSchema(tool.faq)] : []),
     ],
     lastModified: TOOLS_LAST_MODIFIED,
     priority: 0.8,

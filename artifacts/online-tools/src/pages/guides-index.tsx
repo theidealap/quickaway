@@ -43,6 +43,23 @@ export default function GuidesIndex() {
         </div>
       </div>
 
+      {/* ── Editorial introduction ── */}
+      <section className="container mx-auto px-4 pt-10 pb-2 max-w-2xl">
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Each guide goes further than the tool itself — explaining the underlying formula, the
+          reasoning behind the calculation method, and the edge cases that trip people up. The five
+          guides here cover areas where the concept benefits from more depth than a tool page can
+          comfortably hold: compound interest mechanics, percentage change and percentage points,
+          GPA weighting, BMI interpretation and its limits, and the Roman numeral numbering system.
+        </p>
+        <p className="text-sm text-muted-foreground leading-relaxed mt-3">
+          Every tool page on QuickAway now also carries its own in-depth explanation — a worked
+          example, the mechanics of the calculation, and a focused FAQ. These guides complement that
+          inline content by going deeper on the reasoning. If you arrived from a tool page, the
+          related guide link in the sidebar will bring you directly here.
+        </p>
+      </section>
+
       {/* ── Guide list ── */}
       <section className="container mx-auto px-4 py-10 md:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
