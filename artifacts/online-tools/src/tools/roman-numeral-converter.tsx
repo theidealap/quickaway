@@ -200,6 +200,100 @@ export default function RomanNumeralConverter() {
           Reset
         </Button>
       </div>
+
+      {/* ── Educational content ───────────────────────────────────────── */}
+      <div className="pt-8 mt-8 border-t border-border space-y-0">
+
+        {/* Section 1 — How Roman Numerals Work */}
+        <div>
+          <h2 className="text-base font-semibold text-foreground mb-3">How Roman Numerals Work</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Roman numerals use seven symbols, each representing a fixed value: I (1), V (5),
+              X (10), L (50), C (100), D (500), and M (1,000). Numbers are built by combining
+              these symbols, placing larger values to the left. MM = 2,000; MDCC = 1,700.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The system becomes interesting with subtractive notation. When a smaller symbol
+              appears immediately to the left of a larger one, the smaller is subtracted rather
+              than added. There are exactly six subtractive pairs: IV (4), IX (9), XL (40),
+              XC (90), CD (400), and CM (900). Everything else follows the additive rule. This is
+              why 1994 is <span className="font-mono font-semibold text-foreground">MCMXCIV</span> —
+              M (1,000) + CM (900) + XC (90) + IV (4) — and 2024
+              is <span className="font-mono font-semibold text-foreground">MMXXIV</span> —
+              MM (2,000) + XX (20) + IV (4).
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2 — How It's Calculated */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">How the Conversion Works</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              To convert an integer to Roman numerals, the algorithm repeatedly subtracts the
+              largest symbol value that fits, appending the symbol each time.
+              Converting <span className="font-mono font-semibold text-foreground">399</span>:
+              subtract C (100) three times → CCC, remainder 99; subtract XC (90) → CCCXC,
+              remainder 9; subtract IX (9) → result
+              is <span className="font-mono font-semibold text-foreground">CCCXCIX</span>.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              To convert in reverse, read left to right and add each symbol's value — except
+              when a smaller value immediately precedes a larger one, subtract the smaller
+              instead. <span className="font-mono font-semibold text-foreground">LVIII</span>:
+              L (50) + V (5) + I (1) + I (1) + I (1)
+              = <span className="font-semibold text-foreground">58</span>.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3 — When to Use */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Converter</h2>
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Roman numerals are still used in specific contexts: chapter numbers in books and
+              legal documents, clock faces, film and TV sequel numbering, year labels on historic
+              buildings, and major sporting events. Use this converter when formatting a publication
+              year (e.g., a film copyright notice), decoding a cornerstone date on a building, or
+              confirming the correct numeral for an event — for example, which Super Bowl is LIX?
+              (The answer is 59.)
+            </p>
+          </div>
+        </div>
+
+        {/* Section 4 — FAQ */}
+        <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: 'Why is 4 written as IV and not IIII?',
+                a: "Subtractive notation was adopted to avoid repeating the same symbol more than three times consecutively. The rule is that I, X, C, and M can each appear at most three times in a row in additive position — so 4 must be IV rather than IIII. Some clock faces still use IIII (a historical holdover for visual balance opposite the VIII on the right), but IIII is not standard modern Roman numeral notation.",
+              },
+              {
+                q: 'What is the largest number Roman numerals can represent?',
+                a: "Using the standard seven symbols, the maximum is 3,999 — written MMMCMXCIX. M can appear at most three times additively, and CM (900) is the largest subtractive pair available, giving no way to express 4,000 or above without extensions. Some historical systems used a bar over a numeral to multiply it by 1,000 (M̄ = 1,000,000), but those are not part of the modern standard this converter uses.",
+              },
+              {
+                q: 'Did Romans have a symbol for zero?',
+                a: 'No. Roman numerals have no symbol for zero, which is a fundamental structural difference from the Hindu-Arabic (0–9) positional system. The Latin word "nulla" (nothing) was used in writing, but there was no numeral for it. This absence made arithmetic operations — especially multiplication and division — significantly harder, which is one reason the Hindu-Arabic system eventually replaced Roman numerals for calculation throughout Europe.',
+              },
+              {
+                q: 'How do you write repeating numerals like 3 or 30?',
+                a: "Additive repetition: 3 is III (1+1+1), 30 is XXX (10+10+10), 300 is CCC (100+100+100). The limit is three consecutive identical symbols in additive position. When you need four of the same value, switch to subtractive notation using the next larger symbol: 4 is IV, 40 is XL, 400 is CD — never IIII, XXXX, or CCCC.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="border border-border rounded-md p-4">
+                <p className="text-sm font-semibold text-foreground mb-1.5">{item.q}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }

@@ -188,7 +188,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Real-time conversion between common measurement units across length, weight, temperature, area, and volume, with a one-click swap.',
     seoTitle: 'Free Unit Converter – Length, Weight, Temperature & Volume | QuickAway',
     seoDescription:
-      'Convert length, weight, temperature, area and volume units in real time. Covers metric and imperial with a one-click swap. Free online unit converter.',
+      'Convert between length, weight, temperature, area, and volume units using exact conversion factors — including the 1959-defined inch (2.54 cm) and exact pound (453.59237 g). Swap, compare, and verify both directions.',
     category: 'Converters',
     component: lazy(() => import('@/tools/unit-converter')),
   },
@@ -200,7 +200,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Paste or type your text to instantly see the number of words, characters (with and without spaces), sentences, and paragraphs.',
     seoTitle: 'Free Word Counter – Count Words, Characters & Paragraphs Instantly | QuickAway',
     seoDescription:
-      'Paste or type text to instantly count words, characters (with and without spaces), sentences and paragraphs. Perfect for essays and social posts. Free.',
+      'Count words, characters (with and without spaces), sentences, paragraphs, and estimated reading time as you type — with an explanation of how whitespace-based splitting works and why counters can disagree.',
     category: 'Text Tools',
     component: lazy(() => import('@/tools/word-counter')),
   },
@@ -248,7 +248,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Create a QR code from any text, website URL, email address, or phone number, then download it as a PNG in the size you need.',
     seoTitle: 'Free QR Code Generator – Text, URL, Email & Phone | QuickAway',
     seoDescription:
-      'Generate a QR code from any text, URL, email address or phone number in seconds. Download as PNG at any size. No watermarks, completely free.',
+      'Generate a QR code from any text, URL, email address, or phone number and download as PNG. Covers how Reed–Solomon error correction lets QR codes survive partial damage — and why static QR codes contain no tracking.',
     category: 'Generators',
     component: lazy(() => import('@/tools/qr-code-generator')),
   },
@@ -380,7 +380,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Paste any text and instantly see it converted into 11 case formats — including UPPER CASE, lower case, Title Case, Sentence case, camelCase, PascalCase, kebab-case, snake_case, CONSTANT_CASE, dot.case, and aLtErNaTiNg. Copy any result with one click.',
     seoTitle: 'Free Text Case Converter – camelCase, snake_case, Title Case & More | QuickAway',
     seoDescription:
-      'Convert text to any case format: UPPER, lower, Title, Sentence, camelCase, PascalCase, kebab-case, snake_case, CONSTANT_CASE and more. Free, instant, no sign-up.',
+      'Convert any text to 11 case formats simultaneously — camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, Title Case, Sentence case and more — with one-click copy and an explanation of where each convention is used.',
     category: 'Text Tools',
     component: lazy(() => import('@/tools/text-case-converter')),
   },
@@ -392,7 +392,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Enter any number from 1 to 3,999 to see its Roman numeral equivalent — or type a Roman numeral to convert it back to a standard number. Includes a one-click swap and a quick-reference table.',
     seoTitle: 'Free Roman Numeral Converter – Numbers to Roman Numerals | QuickAway',
     seoDescription:
-      'Convert any number (1–3999) to Roman numerals, or convert Roman numerals back to numbers. Instant, bidirectional converter with quick-reference table. Free.',
+      'Convert any number from 1 to 3,999 to Roman numerals or back — with a clear explanation of the six subtractive pairs (IV, IX, XL, XC, CD, CM), the three-repeat limit, and why the range stops at MMMCMXCIX.',
     category: 'Converters',
     component: lazy(() => import('@/tools/roman-numeral-converter')),
   },

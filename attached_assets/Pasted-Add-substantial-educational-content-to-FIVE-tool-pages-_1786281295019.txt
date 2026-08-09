@@ -1,0 +1,54 @@
+Add substantial educational content to FIVE tool pages, following the exact pattern established across all previously completed tools (Compound Interest, BMI, Color Palette, Hash Generator, Percentage, Age, GPA, Discount, Loan EMI, Mortgage Calculators) — same structure, same depth, same rigor. This continues fixing Google AdSense's "thin content" rejection.
+
+MANDATORY PROCESS RULE (non-negotiable):
+For EVERY numeric/factual example or claim in ANY of the five tools below, compute or verify it programmatically first (write and run a script, or verify against a known reference), THEN write the sentence around the verified result. After writing each tool's content, list every checkable claim in a verification table (claim → script output/source → match) before presenting it to me.
+
+ALSO MANDATORY: after updating each tool's seoDescription in tools-registry.ts, verify the change is actually saved to disk by reading the file back before reporting it as done.
+
+STRUCTURE TO REPLICATE FOR EACH TOOL (400-500 words per tool):
+1. "How [Tool Subject] Works" (150-200 words) — plain-language explanation, one worked example with verified output
+2. "The Method/Rules" or "How It's Calculated" (100-150 words) — the actual logic explained, one step-by-step worked example
+3. "When to Use This [Tool]" (75-100 words) — specific, genuine use cases
+4. FAQ (4-5 questions, specific to this exact tool) — each answer 40-80 words
+
+CONSTRAINTS:
+- No generic phrases that could apply to any tool
+- Each tool's content must be structurally and substantively distinct from the others and from all previously completed tools
+- Place content BELOW the tool and its results
+- seoDescription must be specific and non-templated
+
+THE FIVE TOOLS:
+
+1. Roman Numeral Converter (src/tools/roman-numeral-converter.tsx)
+   - Cover: the seven Roman numeral symbols and their values, the subtractive notation rule (IV vs IIII, why 4 isn't IIII), the additive/subtractive combination rules for building larger numbers
+   - Verify: at least 3 worked conversions both directions (e.g. 1994 → MCMXCIV, MMXXIV → 2024)
+   - FAQ ideas: "Why is 4 written as IV and not IIII?", "What is the largest number Roman numerals can represent?", "Did Romans have a symbol for zero?", "How do you write repeating numerals like 3 or 30?"
+
+2. Word Counter (src/tools/word-counter.tsx)
+   - Cover: how word count is actually determined (whitespace/punctuation splitting logic), the difference between words, characters, and characters-without-spaces, why word counters can disagree slightly between tools
+   - Verify: an exact word/character count on a real sample sentence, computed programmatically
+   - FAQ ideas: "Why do different word counters give different counts?", "Does a hyphenated word count as one word or two?", "What's a typical word count for an essay/blog post/tweet?", "How is reading time estimated from word count?"
+
+3. Unit Converter (src/tools/unit-converter.tsx)
+   - Cover: how unit conversion works (conversion factors/ratios), why some conversions are exact (km to m) and others are defined constants (inches to cm), brief coverage of the categories this tool supports
+   - Verify: at least 3 exact conversions across different unit categories
+   - FAQ ideas: "Why is 1 inch exactly 2.54 cm?", "What's the difference between mass and weight in unit conversion?", "How do temperature conversions differ from linear conversions?", "Are metric conversions always exact?"
+
+4. QR Code Generator (src/tools/qr-code-generator.tsx)
+   - Cover: what a QR code actually encodes and how the scanning/error-correction system works at a high level, why QR codes still work even partially damaged/obscured (error correction levels)
+   - Verify: factual claims about QR code capacity/error correction levels against a reliable reference (search if needed)
+   - FAQ ideas: "How much data can a QR code hold?", "Why do some QR codes still work when partially covered or damaged?", "What's the difference between static and dynamic QR codes?", "Can QR codes contain viruses or malware?" (answer factually — the code itself is just data, the risk is in what URL it points to)
+
+5. Text Case Converter (src/tools/text-case-converter.tsx)
+   - Cover: the different case conventions this tool supports (UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case, kebab-case) and where each is actually used (programming conventions vs. writing conventions)
+   - Verify: a worked example transforming one sample string through several of the case types
+   - FAQ ideas: "What's the difference between camelCase and PascalCase?", "When should I use Title Case vs Sentence case?", "Why do programming languages use snake_case or kebab-case instead of spaces?", "Does Title Case capitalize every word?" (cover the nuance: small words like 'a', 'the', 'of' are often lowercase in proper title case)
+
+After completing all five:
+1. Show me the full text of each tool's new content section (paste the actual prose, not a summary)
+2. Show the verification table for each tool
+3. Confirm each seoDescription was actually updated (paste the exact new line from the file)
+4. Confirm build is clean
+5. Do NOT push to GitHub yet — wait for my review
+
+Do NOT touch any tool beyond these five.
