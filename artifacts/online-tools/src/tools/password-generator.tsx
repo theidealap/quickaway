@@ -280,7 +280,7 @@ export default function PasswordGenerator() {
               },
               {
                 q: 'What is password entropy?',
-                a: "Entropy, measured in bits, describes how unpredictable a password is, assuming the attacker knows the generation method (length and character set) but not the specific password. Each additional bit of entropy doubles the number of guesses required. At 103.4 bits, the number of possible 16-character passwords from this tool's pool is 2^103.4 ≈ 1.29 × 10³¹ — beyond the reach of any foreseeable exhaustive search.",
+                a: "Entropy, measured in bits, describes how unpredictable a password is, assuming the attacker knows the generation method (length and character set) but not the specific password. Each additional bit of entropy doubles the number of guesses required. At 103.4 bits, the number of possible 16-character passwords from this tool's pool is 2^103.4 ≈ 1.34 × 10³¹ — beyond the reach of any foreseeable exhaustive search.",
               },
               {
                 q: 'Should I use a password manager instead of memorizing passwords?',
