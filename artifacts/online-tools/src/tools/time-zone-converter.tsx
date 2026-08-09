@@ -422,6 +422,68 @@ export default function TimeZoneConverter() {
         </div>
       </Card>
 
+      {/* ── Educational content ───────────────────────────────────────────── */}
+
+      <div className="pt-8 mt-8 border-t border-border">
+        <h2 className="text-base font-semibold text-foreground mb-3">How Timezone Conversion Works</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Every timezone is defined by its offset from <strong>UTC</strong> (Coordinated Universal Time) — the universal reference point. Converting between timezones is conceptually simple: express the source time as UTC, then add or subtract the destination offset. New York in January (EST) is UTC−5, and London in January (GMT) is UTC+0, so 07:00 in New York = 12:00 UTC = 12:00 in London — a 5-hour difference.
+        </p>
+        <div className="border border-border rounded-md bg-secondary p-4 mt-3 text-sm font-mono text-foreground leading-relaxed space-y-1">
+          <div>Jan 15, 07:00 New York (EST, UTC−5) = <strong>12:00 London (GMT, UTC+0)</strong></div>
+          <div>Jul 15, 08:00 New York (EDT, UTC−4) = <strong>13:00 London (BST, UTC+1)</strong></div>
+        </div>
+        <p className="text-sm text-muted-foreground leading-relaxed mt-3">
+          The gap between New York and London stays at 5 hours in both January and July because both cities observe daylight saving time and shift together. Both examples computed using the browser's Intl API, which applies actual DST rules for each date.
+        </p>
+      </div>
+
+      <div className="pt-8 mt-8 border-t border-border">
+        <h2 className="text-base font-semibold text-foreground mb-3">Why DST Makes Fixed-Offset Math Unreliable</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Daylight Saving Time (DST) changes a timezone's UTC offset mid-year — typically +1 hour in spring and −1 hour in autumn. A fixed offset table (e.g. "New York is always UTC−5") gives wrong answers during DST periods. The clearest illustration is New York vs. India (IST, UTC+5:30 year-round, no DST): in January the gap is <strong>10 hours 30 minutes</strong>; in July it narrows to <strong>9 hours 30 minutes</strong> — because New York shifts while India does not.
+        </p>
+        <p className="text-sm text-muted-foreground leading-relaxed mt-2">
+          This tool avoids fixed offset tables entirely. It uses the browser's native <code className="font-mono text-xs">Intl.DateTimeFormat</code> API with IANA timezone names (<code className="font-mono text-xs">America/New_York</code>, <code className="font-mono text-xs">Asia/Kolkata</code>), which applies each region's actual DST rules for the specific date entered — including past and future rule changes.
+        </p>
+      </div>
+
+      <div className="pt-8 mt-8 border-t border-border">
+        <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Converter</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Timezone conversion is needed any time a meeting, deadline, or event must be communicated across geographic locations. Common scenarios include scheduling calls between US and European or Asian offices; converting broadcast or livestream start times for an international audience; reading UTC timestamps in server logs and converting them to local time; and checking what time it is "right now" in a city you are coordinating with. The live current-time strip shows both selected zones ticking in real time for at-a-glance checks.
+        </p>
+      </div>
+
+      <div className="pt-8 mt-8 border-t border-border">
+        <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+        <div className="space-y-3">
+          {[
+            {
+              q: 'What is UTC and why is it the universal reference point?',
+              a: 'UTC (Coordinated Universal Time) is the primary time standard by which all world clocks are regulated. It replaced GMT as the international standard in 1972, though for most purposes the two are indistinguishable. UTC is defined by atomic clocks and is the same everywhere on Earth — all other timezones are expressed as UTC+ or UTC− offsets, making it the natural hub for any timezone conversion.',
+            },
+            {
+              q: 'Why might a timezone converter give different results for the same conversion at different times of year?',
+              a: 'Because of Daylight Saving Time. When a location observes DST, its UTC offset changes by one hour on a specific date each year. Converting 3:00 PM New York to London in January gives a different result than in July, because New York is at UTC−5 in January (EST) and UTC−4 in July (EDT). A converter that uses a static "New York = UTC−5" offset will be wrong for half the year.',
+            },
+            {
+              q: 'Does every country observe Daylight Saving Time?',
+              a: 'No. Many countries do not observe DST at all — India (UTC+5:30), China (UTC+8), Japan (UTC+9), and most equatorial nations have fixed year-round offsets. Some countries have abolished DST in recent decades. Within the same country, regions can differ: Arizona does not observe DST while most of the US does, keeping Phoenix at MST (UTC−7) year-round.',
+            },
+            {
+              q: 'Why do some timezone offsets include 30 or 45 minutes?',
+              a: 'Most timezones were originally defined to reflect local solar time, and some locations sit at longitudes that fall between whole-hour increments. India and Sri Lanka (UTC+5:30) are the largest examples. Nepal (UTC+5:45) and Chatham Islands, New Zealand (UTC+12:45) are further examples. These reflect deliberate decisions to align civil time with solar noon rather than rounding to the nearest hour.',
+            },
+          ].map(({ q, a }) => (
+            <div key={q} className="border border-border rounded-md p-4">
+              <p className="text-sm font-semibold text-foreground mb-1">{q}</p>
+              <p className="text-sm text-muted-foreground">{a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 }

@@ -1,0 +1,54 @@
+Add substantial educational content to FIVE tool pages, following the exact pattern established across all 25 previously completed tools — same structure, same depth, same rigor. This is the FINAL batch, completing content coverage across all 30 tool pages to fix Google AdSense's "thin content" rejection.
+
+MANDATORY PROCESS RULE (non-negotiable):
+For EVERY numeric/factual claim, compute or verify it programmatically first, THEN write the sentence around the verified result. For factual claims that aren't computable (e.g. technical standards, historical facts), verify against a reliable reference rather than asserting from memory. After writing each tool's content, list every checkable claim in a verification table.
+
+ALSO MANDATORY: after updating each tool's seoDescription in tools-registry.ts, verify the change is actually saved to disk by reading the file back before reporting it as done.
+
+STRUCTURE TO REPLICATE FOR EACH TOOL (400-500 words per tool):
+1. "How [Tool Subject] Works" (150-200 words) — plain-language explanation, one worked example with verified output
+2. "The Method/Mechanics" (100-150 words) — the actual logic explained, one step-by-step worked example
+3. "When to Use This [Tool]" (75-100 words) — specific, genuine use cases
+4. FAQ (4-5 questions, specific to this exact tool) — each answer 40-80 words
+
+CONSTRAINTS:
+- No generic phrases that could apply to any tool
+- Each tool's content must be structurally and substantively distinct from all 25 previously completed tools
+- Place content BELOW the tool and its results
+- seoDescription must be specific and non-templated
+
+THE FIVE TOOLS:
+
+1. Binary / Hex / Octal Converter (src/tools/binary-hex-octal-converter.tsx)
+   - Cover: what base/radix means (positional value systems), how conversion between bases works (division-remainder method for decimal-to-base, positional expansion for base-to-decimal)
+   - Verify: at least 3 worked conversions across binary/hex/octal/decimal
+   - FAQ ideas: "Why does computing use binary instead of decimal?", "What is hexadecimal used for in practice?", "How do I convert binary to hex quickly without going through decimal?" (cover the 4-bit grouping trick), "What is the largest number a given number of bits can represent?"
+
+2. Number to Words Converter (src/tools/number-to-words-converter.tsx)
+   - Cover: how numbers are broken into groups (thousands, millions, billions) and converted to word form, the naming convention for large number groups (short scale vs long scale, briefly and factually)
+   - Verify: at least 2 worked conversions of specific numbers to words
+   - FAQ ideas: "How are large numbers named (million, billion, trillion)?", "How do I write a number in words for a check/legal document?", "What's the difference between American and British number naming conventions?", "How are decimals or negative numbers converted to words?"
+
+3. UUID Generator (src/tools/uuid-generator.tsx)
+   - Cover: what a UUID is and why it's structured the way it is (128 bits, the standard 8-4-4-4-12 hex format), what UUID version this tool generates and what makes it unique (verify the tool's actual version — v4 random vs others)
+   - Verify: the actual collision probability math for UUID v4 (the birthday-paradox-based approximate collision odds) against a reliable source
+   - FAQ ideas: "What is a UUID used for?", "How likely is a UUID collision?", "What's the difference between UUID v4 and other versions?", "Are UUIDs the same as GUIDs?"
+
+4. Base64 Encoder/Decoder (src/tools/base64-encoder-decoder.tsx)
+   - Cover: what Base64 encoding actually does (binary-to-text encoding using a 64-character alphabet), why it's used (transmitting binary data through text-only channels), why encoded output is ~33% larger than the input
+   - Verify: at least 2 worked encode/decode examples, verify the exact size-increase ratio (4/3)
+   - FAQ ideas: "Is Base64 encoding the same as encryption?", "Why does Base64 output end with = padding sometimes?", "Why is Base64 output longer than the original text?", "What are common uses of Base64 encoding?"
+
+5. Time Zone Converter (src/tools/time-zone-converter.tsx)
+   - Cover: how timezone conversion works using UTC offsets, why DST (daylight saving time) complicates fixed-offset math, why this tool uses the native Intl API instead of a static offset table
+   - Verify: at least 2 worked timezone conversions, including one that crosses a DST boundary if relevant to current dates, computed programmatically
+   - FAQ ideas: "Why do timezone converters sometimes give different results for the same conversion?", "What is UTC and why is it the reference point?", "Does every country observe daylight saving time?", "Why might a timezone's UTC offset appear to change during the year?"
+
+After completing all five:
+1. Show me the full text of each tool's new content section (paste actual prose, not summaries)
+2. Show the verification table for each tool
+3. Confirm each seoDescription was actually updated (paste exact new line from file)
+4. Confirm build is clean
+5. Do NOT push to GitHub yet — wait for my review
+
+Do NOT touch any tool beyond these five.

@@ -163,6 +163,70 @@ export default function NumberToWords() {
       <div className="flex justify-end">
         <Button variant="outline" onClick={() => setInput('')} disabled={!input}>Reset</Button>
       </div>
+
+      {/* ── Educational content ───────────────────────────────────────────── */}
+
+      <div className="pt-8 mt-8 border-t border-border">
+        <h2 className="text-base font-semibold text-foreground mb-3">How Numbers Are Converted to Words</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          English number names are built from a repeating three-digit (thousands) group pattern. The converter breaks any integer into chunks of three digits from the right — each chunk corresponds to a scale word: thousands, millions, billions, trillions, and so on. Each chunk is independently converted to a sub-phrase, the appropriate scale word is appended, and the phrases are joined from largest to smallest.
+        </p>
+        <p className="text-sm text-muted-foreground leading-relaxed mt-2">
+          Two worked examples: <strong>1,452</strong> → chunk at thousands level = 1 → "one thousand", chunk at ones level = 452 → "four hundred fifty-two" → <strong>"one thousand, four hundred fifty-two"</strong>. <strong>3,000,007</strong> → chunk at millions = 3 → "three million", chunk at thousands = 0 (skipped), chunk at ones = 7 → "seven" → <strong>"three million, seven"</strong>.
+        </p>
+      </div>
+
+      <div className="pt-8 mt-8 border-t border-border">
+        <h2 className="text-base font-semibold text-foreground mb-3">The Short-Scale Grouping System</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          The three-digit group system is called the <strong>short scale</strong> naming convention, used in the United States, the United Kingdom (since 1974), and most English-speaking countries:
+        </p>
+        <div className="border border-border rounded-md bg-secondary p-4 mt-3 text-sm font-mono text-foreground leading-relaxed space-y-1">
+          <div>1,000 → <strong>thousand</strong> (10³)</div>
+          <div>1,000,000 → <strong>million</strong> (10⁶)</div>
+          <div>1,000,000,000 → <strong>billion</strong> (10⁹)</div>
+          <div>1,000,000,000,000 → <strong>trillion</strong> (10¹²)</div>
+        </div>
+        <p className="text-sm text-muted-foreground leading-relaxed mt-3">
+          Each scale name covers the range from 1 × 10ⁿ to 999 × 10ⁿ before the next scale begins. This tool handles integers up to 999 quadrillion (10¹⁵ − 1). Ordinal forms — "thousandth", "millionth" — are derived by replacing the final word using irregular mappings (first, second, third) and regular suffix rules (-th).
+        </p>
+      </div>
+
+      <div className="pt-8 mt-8 border-t border-border">
+        <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Converter</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Number-to-words conversion is required in legal documents and checks, where amounts must be written in full to prevent alteration. Financial contracts routinely require both numeric and written forms of sums. It also appears in natural language generation, accessibility contexts where numbers need to be spoken aloud by screen readers, and data entry validation for formal documents. The ordinal output is useful for ranking labels, competition results, and ranked lists.
+        </p>
+      </div>
+
+      <div className="pt-8 mt-8 border-t border-border">
+        <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+        <div className="space-y-3">
+          {[
+            {
+              q: 'How are large numbers named in the short-scale system?',
+              a: 'Each scale word covers a power of 1,000: thousand = 10³, million = 10⁶, billion = 10⁹, trillion = 10¹², quadrillion = 10¹⁵. A number gets its scale word from the highest non-zero group. 1,000,000 is "one million"; 1,001,000 is "one million, one thousand". Every integer maps to exactly one word form by following the grouping rules.',
+            },
+            {
+              q: 'What is the difference between the American and British number naming systems?',
+              a: 'Today both use the short scale identically. The historical difference was in the long scale (used in continental Europe and older British English), where "billion" meant 10¹² (a million millions) rather than 10⁹. The UK officially adopted the short scale in 1974. In contemporary American and British English, billion = 10⁹ is unambiguous.',
+            },
+            {
+              q: 'How do I write a number in words for a check or legal document?',
+              a: 'Use the capitalised cardinal output: "One thousand, four hundred fifty-two". For check writing, cents are conventionally written as a fraction: "One thousand, four hundred fifty-two and 00/100". The written form is the legally binding value on a check and overrides the numeric figure if there is a discrepancy.',
+            },
+            {
+              q: 'Does this tool handle negative numbers or decimals?',
+              a: 'It handles negative integers — the word "negative" is prepended to the written form. It does not convert decimals, because there is no universal convention for how decimal places are spoken in words. For check writing, the decimal portion is written as a fraction (xx/100) rather than as words.',
+            },
+          ].map(({ q, a }) => (
+            <div key={q} className="border border-border rounded-md p-4">
+              <p className="text-sm font-semibold text-foreground mb-1">{q}</p>
+              <p className="text-sm text-muted-foreground">{a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

@@ -193,6 +193,67 @@ export default function BaseConverter() {
       <div className="flex justify-end">
         <Button variant="outline" onClick={reset} disabled={!hasValue}>Reset</Button>
       </div>
+
+      {/* ── Educational content ───────────────────────────────────────────── */}
+
+      <div className="pt-8 mt-8 border-t border-border">
+        <h2 className="text-base font-semibold text-foreground mb-3">How Positional Number Systems Work</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Every positional number system is defined by its <strong>radix</strong> (base) — the count of distinct digit symbols used, and the multiplier that governs each column's place value. Decimal (base 10) uses digits 0–9, and each column is worth 10× the column to its right. Binary (base 2) uses only 0 and 1, with each column worth 2× the column to its right. Hexadecimal (base 16) uses 0–9 plus A–F, with each column worth 16× the column to its right. Octal (base 8) uses digits 0–7.
+        </p>
+        <p className="text-sm text-muted-foreground leading-relaxed mt-2">
+          To read a number in any base, multiply each digit by its place value and sum the results. Binary <strong>101010</strong> = (1×32) + (0×16) + (1×8) + (0×4) + (1×2) + (0×1) = 32 + 8 + 2 = <strong>42 decimal</strong>. In the other direction: 42 decimal = <strong>2A hexadecimal</strong> = <strong>52 octal</strong> = <strong>101010 binary</strong>.
+        </p>
+      </div>
+
+      <div className="pt-8 mt-8 border-t border-border">
+        <h2 className="text-base font-semibold text-foreground mb-3">The Conversion Method</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          <strong>Decimal → other base</strong> uses repeated division: divide by the target base, note the remainder, divide the quotient again, repeat until the quotient is zero, then read the remainders from bottom to top.
+        </p>
+        <div className="border border-border rounded-md bg-secondary p-4 mt-3 text-sm font-mono text-foreground leading-relaxed">
+          42 ÷ 2 = 21 r <strong>0</strong> → 21 ÷ 2 = 10 r <strong>1</strong> → 10 ÷ 2 = 5 r <strong>0</strong> → 5 ÷ 2 = 2 r <strong>1</strong> → 2 ÷ 2 = 1 r <strong>0</strong> → 1 ÷ 2 = 0 r <strong>1</strong> → read up: <strong>101010</strong> ✓
+        </div>
+        <p className="text-sm text-muted-foreground leading-relaxed mt-3">
+          <strong>Other base → decimal</strong> uses positional expansion: hex FF = (15×16) + (15×1) = 240 + 15 = <strong>255</strong>. Binary 11010110 = 128+64+16+4+2 = <strong>214</strong>, which is <strong>D6</strong> in hex. The tool converts all four bases simultaneously — type in any field and the rest update instantly.
+        </p>
+      </div>
+
+      <div className="pt-8 mt-8 border-t border-border">
+        <h2 className="text-base font-semibold text-foreground mb-3">When to Use This Converter</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Hexadecimal is the standard notation for memory addresses, RGB color codes (#D6A3F2), byte sequences in network packets, and CPU register contents. Binary appears in bitmasking operations, hardware register documentation, and logic circuit design. Octal is less common today but appears in Unix file permission notation (chmod 755). Converting between these bases is a daily task for developers, embedded engineers, and security researchers.
+        </p>
+      </div>
+
+      <div className="pt-8 mt-8 border-t border-border">
+        <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
+        <div className="space-y-3">
+          {[
+            {
+              q: 'Why does computing use binary instead of decimal?',
+              a: 'Digital electronics are built from circuits with two stable states — on and off, represented as 1 and 0. Binary maps directly onto these physical states. Using binary lets hardware be constructed from simple logic gates (AND, OR, NOT) that operate on single bits, making processor design and error detection far more tractable than a decimal equivalent would allow.',
+            },
+            {
+              q: 'What is hexadecimal used for in practice?',
+              a: 'Hex is a compact representation of binary: exactly 4 binary digits (a nibble) map to one hex digit, so a full byte (8 bits) is always two hex characters. This makes hex concise where binary would be long. Hex appears in RGB color codes (#FF6B6B), memory dumps, cryptographic hashes (SHA-256 produces 64 hex characters), IPv6 addresses, and Unicode code points (U+1F600).',
+            },
+            {
+              q: 'How do I convert binary to hex quickly without going through decimal?',
+              a: 'Split the binary number into groups of 4 bits from the right, then convert each group to its hex digit. Example: binary 1101 0110 → 1101 = 13 = D, 0110 = 6 = 6 → hex D6. This works because 2⁴ = 16, so one hex digit represents exactly one 4-bit nibble. No intermediate decimal step is needed.',
+            },
+            {
+              q: 'What is the largest number a given number of bits can represent?',
+              a: 'An n-bit unsigned integer covers 0 to 2ⁿ − 1. For 8 bits: 2⁸ − 1 = 255 (0xFF). For 16 bits: 2¹⁶ − 1 = 65,535 (0xFFFF). For 32 bits: 2³² − 1 = 4,294,967,295 (0xFFFFFFFF). Signed integers split the range: an 8-bit signed integer covers −128 to +127 using two\'s complement representation.',
+            },
+          ].map(({ q, a }) => (
+            <div key={q} className="border border-border rounded-md p-4">
+              <p className="text-sm font-semibold text-foreground mb-1">{q}</p>
+              <p className="text-sm text-muted-foreground">{a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

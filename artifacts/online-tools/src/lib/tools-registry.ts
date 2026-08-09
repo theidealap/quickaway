@@ -176,7 +176,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Pick any two IANA timezones using the searchable city dropdowns, enter a date and time in the "From" zone, and instantly see the converted date and time in the "To" zone — with automatic DST handling via the native Intl API. A live current-time strip shows both zones ticking in real time.',
     seoTitle: 'Free Time Zone Converter – Convert Time Between Cities | QuickAway',
     seoDescription:
-      'Convert any date and time between 60+ world timezones. Searchable city dropdowns, automatic DST handling, live current time display. Free online time zone converter.',
+      'Convert any date and time between 60+ world timezones using the Intl API — with automatic DST handling, IANA timezone names, and a live current-time strip. Covers why fixed UTC offsets give wrong answers during Daylight Saving Time transitions.',
     category: 'Converters',
     component: lazy(() => import('@/tools/time-zone-converter')),
   },
@@ -416,7 +416,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Type a number in any base — binary (base 2), octal (base 8), decimal (base 10), or hexadecimal (base 16) — and all four representations update instantly. Includes a common values reference table.',
     seoTitle: 'Free Binary / Hex / Octal Converter – Base 2, 8, 10, 16 | QuickAway',
     seoDescription:
-      'Convert numbers between binary, octal, decimal, and hexadecimal instantly. Type in any base and all others update in real time. Free online number base converter.',
+      'Convert numbers between binary, octal, decimal, and hexadecimal instantly — with worked examples of the division-remainder method, the 4-bit binary-to-hex grouping trick, and the maximum value for 8, 16, and 32-bit unsigned integers.',
     category: 'Converters',
     component: lazy(() => import('@/tools/base-converter')),
   },
@@ -428,7 +428,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Type any integer (positive or negative, up to 999 quadrillion) and instantly see it written out in English — in lowercase, capitalised, cardinal, and ordinal forms. Copy any variant with one click.',
     seoTitle: 'Free Number to Words Converter – Write Numbers in English | QuickAway',
     seoDescription:
-      'Convert any number to English words: cardinal (one thousand) and ordinal (one thousandth) forms, in lowercase and capitalised. Free, instant, no sign-up.',
+      'Convert any integer to English words in cardinal and ordinal forms — with the short-scale grouping system explained, worked examples up to quadrillions, and guidance on writing numbers in words for checks and legal documents.',
     category: 'Converters',
     component: lazy(() => import('@/tools/number-to-words')),
   },
@@ -440,7 +440,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Generate 1–20 UUID v4 identifiers in a single click using your browser\'s native crypto API. Toggle uppercase, copy individual UUIDs or all at once, and regenerate any time. Nothing is sent to a server.',
     seoTitle: 'Free UUID Generator – Random UUID v4 Online | QuickAway',
     seoDescription:
-      'Generate 1–20 cryptographically random UUID v4 identifiers instantly. Copy individual or all at once. Runs entirely in your browser with no server calls and no tracking. Free.',
+      'Generate UUID v4 identifiers using crypto.randomUUID() — with the 8-4-4-4-12 structure explained, 122-bit randomness quantified (2¹²² ≈ 5.32 × 10³⁶ possible values), and birthday-paradox collision probability computed.',
     category: 'Developer Tools',
     component: lazy(() => import('@/tools/uuid-generator')),
   },
@@ -452,7 +452,7 @@ export const toolsRegistry: ToolEntry[] = [
       'Switch between Encode and Decode modes. Encoding converts any Unicode text to a Base64 string; decoding converts a Base64 string back to readable text, with clear error messages for invalid input. Everything runs in your browser.',
     seoTitle: 'Free Base64 Encoder / Decoder – Online Base64 Tool | QuickAway',
     seoDescription:
-      'Encode plain text to Base64 or decode Base64 strings back to text. Handles Unicode correctly. Runs entirely in your browser with no uploads and no tracking. Free.',
+      'Encode text to Base64 or decode Base64 strings — with the 64-character alphabet explained, the 4/3 size-increase ratio derived, padding (= and ==) demystified, and common real-world uses including JWTs, MIME email, and data URIs covered.',
     category: 'Developer Tools',
     component: lazy(() => import('@/tools/base64-encoder-decoder')),
   },
