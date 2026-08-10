@@ -1,1 +1,2 @@
 - [Next.js not supported as artifact type](nextjs-not-supported.md) — only expo/openscad/react-vite/slides/video-js exist; build Next.js-style requests as react-vite instead.
+- [JSON-LD prerender architecture](jsonld-prerender-architecture.md) — schemas go into built HTML via scripts/routes/*.ts at build time, not via the JsonLd React component (useEffect only).
