@@ -1,0 +1,45 @@
+Complete two small, independent tasks on the QuickAway site. Do them as separate, clearly labeled changes — do not mix files between them.
+
+═══════════════════════════════════
+TASK 1 — Guides index page prose
+
+The /guides index page currently has no introductory prose, just a card grid listing the 5 guides. Add a short editorial introduction above the grid.
+
+Requirements:
+- 100-150 words of genuine, specific prose (no generic "welcome to our guides" filler)
+- Briefly frame what the guides collection covers and who it's for (practical, worked-example explanations behind the site's calculators and converters)
+- Reference that the site now also has in-depth explanations built into all 30 tool pages, so guides don't read as the only substantial content on the site
+- Match the site's existing editorial tone (check the 5 existing guides for consistency)
+- Update the page's seoDescription if it's templated or generic
+- Do NOT touch the guide cards, guide content, or any tool pages
+
+═══════════════════════════════════
+TASK 2 — FAQ structured data (schema.org) on all 30 tool pages
+
+Add FAQPage JSON-LD structured data to every tool page that has an FAQ section from the recent content project.
+
+Requirements:
+- Standard FAQPage schema per tool:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "[exact FAQ question]",
+      "acceptedAnswer": { "@type": "Answer", "text": "[exact FAQ answer]" }
+    }
+  ]
+}
+- Pull question/answer text directly from each tool's existing FAQ content — no rewriting or paraphrasing, since it must match the visible page content exactly
+- Generate this dynamically from each tool's content data, following the same pattern already used for the existing SoftwareApplication and BreadcrumbList JSON-LD blocks — do not hand-copy 30 times
+- Do NOT modify any visible content, FAQ text, or existing structured data
+- Confirm all 30 tool pages received the schema, not a subset
+
+═══════════════════════════════════
+AFTER BOTH TASKS:
+1. Show me the new guides index prose (exact text)
+2. Show me the generated JSON-LD for 3 example tool pages so I can verify it matches the visible FAQ content exactly
+3. Confirm build is clean
+4. Confirm all 30 tool pages have the new schema
+5. Do NOT push to GitHub yet — wait for my review
