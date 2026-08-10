@@ -1,0 +1,25 @@
+Add additional educational content to TWO tool pages that are below the target word count threshold, following the exact established pattern (verified numeric claims, tool-specific FAQ, no generic filler) used across all other 30 tool pages.
+
+MANDATORY PROCESS RULE: Any new numeric/factual claim must be computed or verified programmatically first, then written into prose — do not estimate.
+
+1. Number to Words Converter (src/tools/number-to-words.tsx) — currently 239 words, target 350-400+
+   Add additional depth to existing sections, or a new short section, covering:
+   - How ordinal numbers are formed from cardinals (1→first, 2→second, 3→third, then regular -th pattern from 4 onward, with irregular exceptions noted)
+   - How the tool handles numbers with trailing zeros in a group (e.g. why 1,000,000 doesn't say "one million, zero thousand, zero")
+   - One additional worked example not already covered in the current content
+   Keep it consistent in tone and specificity with the tool's existing content — do not rewrite what's already there, only extend it.
+
+2. Lorem Ipsum Generator (src/tools/lorem-ipsum-generator.tsx) — currently 290 words, target 350-400+
+   Add a short additional section or extend an existing one, covering:
+   - How this tool's paragraph/sentence/word generation actually works mechanically (does it always start with the canonical opening line when the toggle is on, how are subsequent sentences constructed — random word-bank recombination vs. fixed passage cycling — describe accurately based on the actual component logic, not a generic guess)
+   - One brief, factual note on Lorem Ipsum's use in web development specifically (e.g. as CMS/theme demo content), distinct from the print/design history already covered
+   Also extend the seoDescription for this tool — it is currently only 108 characters; extend it to 140-160 characters while keeping it specific and non-generic.
+
+After both edits:
+1. Show me the exact new/added text for both tools
+2. Confirm updated word counts for both
+3. Confirm the extended lorem-ipsum-generator seoDescription (exact new line, with character count)
+4. Confirm build is clean
+5. Do NOT push to GitHub yet — wait for my review
+
+Do not touch any other tool page.

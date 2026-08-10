@@ -278,6 +278,30 @@ export default function LoremIpsumGenerator() {
 
         {/* Section 4 */}
         <div className="pt-8 mt-8 border-t border-border">
+          <h2 className="text-base font-semibold text-foreground mb-3">How This Generator Works</h2>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            The generator uses a deduplicated bank of 159 words drawn from classical Lorem ipsum
+            passages. When the "Start with Lorem ipsum" toggle is on, every output opens with the
+            canonical 19-word sentence — <em>"Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</em> —
+            verbatim. All subsequent sentences are assembled by randomly picking words from the
+            bank using <code>crypto.getRandomValues()</code>, which gives cryptographic-quality
+            randomness rather than a predictable repeating sequence. The text is never cycled
+            from a fixed stored passage: every regeneration produces a different combination.
+          </p>
+          <p className="text-sm text-muted-foreground leading-relaxed mt-2">
+            Each generated sentence is 8–17 words long (a base of 8 plus a random 0–9
+            additional words). Each paragraph contains 4–7 sentences. A three-paragraph output
+            therefore contains between 96 and 357 words depending on the random draw, which is
+            why the live word counter changes on every regeneration. Beyond print and design, Lorem
+            ipsum is the default placeholder in web development: WordPress themes, Joomla
+            templates, and website builders ship with Lorem ipsum as sample post content, making
+            it the first text most developers see when installing a new theme.
+          </p>
+        </div>
+
+        {/* Section 5 */}
+        <div className="pt-8 mt-8 border-t border-border">
           <h2 className="text-base font-semibold text-foreground mb-3">Frequently Asked Questions</h2>
           <div className="space-y-3">
             {[

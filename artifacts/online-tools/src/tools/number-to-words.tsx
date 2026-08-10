@@ -174,6 +174,14 @@ export default function NumberToWords() {
         <p className="text-sm text-muted-foreground leading-relaxed mt-2">
           Two worked examples: <strong>1,452</strong> → chunk at thousands level = 1 → "one thousand", chunk at ones level = 452 → "four hundred fifty-two" → <strong>"one thousand, four hundred fifty-two"</strong>. <strong>3,000,007</strong> → chunk at millions = 3 → "three million", chunk at thousands = 0 (skipped), chunk at ones = 7 → "seven" → <strong>"three million, seven"</strong>.
         </p>
+        <p className="text-sm text-muted-foreground leading-relaxed mt-2">
+          Zero-valued groups are silently omitted at every scale. The thousands chunk of
+          3,000,007 equals zero and is skipped entirely — which is why the result is "three
+          million seven" rather than "three million zero thousand seven". The same rule applies
+          consistently: 1,000,000 converts to "one million" because both the thousands and ones
+          groups are zero; 42,000 converts to "forty-two thousand" because the ones group is zero.
+          No scale word is ever emitted for an empty group.
+        </p>
       </div>
 
       <div className="pt-8 mt-8 border-t border-border">
@@ -189,6 +197,30 @@ export default function NumberToWords() {
         </div>
         <p className="text-sm text-muted-foreground leading-relaxed mt-3">
           Each scale name covers the range from 1 × 10ⁿ to 999 × 10ⁿ before the next scale begins. This tool handles integers up to 999 quadrillion (10¹⁵ − 1). Ordinal forms — "thousandth", "millionth" — are derived by replacing the final word using irregular mappings (first, second, third) and regular suffix rules (-th).
+        </p>
+      </div>
+
+      <div className="pt-8 mt-8 border-t border-border">
+        <h2 className="text-base font-semibold text-foreground mb-3">How Ordinal Numbers Are Formed</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Ordinal conversion replaces only the last word of the cardinal form. The first three are
+          completely irregular — <strong>one → first</strong>, <strong>two → second</strong>,{' '}
+          <strong>three → third</strong> — with no structural resemblance to the cardinal word.
+          From four onward the base pattern is a <strong>-th</strong> suffix, but several numbers
+          require a spelling adjustment: <strong>five → fifth</strong> (not "fiveth"),{' '}
+          <strong>eight → eighth</strong> (one letter dropped), <strong>nine → ninth</strong>{' '}
+          (terminal e dropped), and <strong>twelve → twelfth</strong> (ve becomes fth). The tens
+          follow the same principle: twenty → <strong>twentieth</strong>, thirty →{' '}
+          <strong>thirtieth</strong>, forty → <strong>fortieth</strong>, and so on through
+          ninetieth.
+        </p>
+        <p className="text-sm text-muted-foreground leading-relaxed mt-2">
+          For hyphenated numbers, only the last component changes. <strong>21 → "twenty-one" →
+          "twenty-first"</strong>: the "twenty" prefix is unchanged and "one" is replaced by
+          "first". Similarly, <strong>42 → "forty-two" → "forty-second"</strong>. Scale words
+          follow the regular pattern: thousand → <strong>thousandth</strong>, million →{' '}
+          <strong>millionth</strong>, billion → <strong>billionth</strong>. Every cardinal has
+          exactly one ordinal form — there are no alternative ordinal spellings in standard English.
         </p>
       </div>
 
