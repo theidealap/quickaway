@@ -266,6 +266,19 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://www.quickaway.app/tools/currency-converter</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quickaway.app/tools/what-is-my-ip</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Guides index -->
   <url>
     <loc>https://www.quickaway.app/guides</loc>

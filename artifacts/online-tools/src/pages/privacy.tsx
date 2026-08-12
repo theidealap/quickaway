@@ -49,6 +49,9 @@ export default function Privacy() {
           <p>
             We also use <strong>Google AdSense</strong> to display advertisements on the site. Google AdSense uses cookies to serve ads. See the "Advertising and Google AdSense" section below for a full explanation.
           </p>
+          <p>
+            Two tools on this site — <strong>Currency Converter</strong> and <strong>What Is My IP</strong> — fetch live data from external APIs (Frankfurter for exchange rates and ipify.org for IP address detection); no personal data is transmitted to those APIs beyond what is inherent to any web request, though your IP address is necessarily visible to ipify.org's servers as it processes the What Is My IP request.
+          </p>
 
           <h2>Advertising and Google AdSense</h2>
           <p>

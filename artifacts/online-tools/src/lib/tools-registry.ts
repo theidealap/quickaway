@@ -638,4 +638,40 @@ export const toolsRegistry: ToolEntry[] = [
     ],
     component: lazy(() => import('@/tools/base64-encoder-decoder')),
   },
+  {
+    slug: 'currency-converter',
+    name: 'Currency Converter',
+    shortDescription: 'Convert between currencies using live European Central Bank reference rates.',
+    longDescription:
+      'Select a source and target currency from a searchable dropdown of ECB-covered currencies, enter an amount, and instantly see the converted value. Rates are fetched from the Frankfurter API (ECB reference data, updated once per business day). The raw exchange rate and the date the rate was published are shown alongside the result.',
+    seoTitle: 'Free Currency Converter – Live Exchange Rates | QuickAway',
+    seoDescription:
+      'Convert between currencies using European Central Bank reference rates via the Frankfurter API — with exchange-rate mechanics explained, ECB update schedule clarified, bank spread vs. mid-market rate difference covered, and honest guidance on when not to rely on reference rates.',
+    category: 'Converters',
+    faq: [
+      { q: 'How often are the rates updated?', a: 'Rates are updated once per business day, sourced from the European Central Bank\'s daily reference rate publication. The ECB typically publishes around 4:00 PM CET on business days. Rates are not updated on weekends or ECB public holidays. The "Rates as of" date shown on every result tells you exactly which day\'s rate is being applied.' },
+      { q: 'Are these rates the same as what my bank will give me?', a: 'No. The rates shown here are mid-market reference rates — the midpoint between the buy and sell prices on the interbank market. Banks, credit cards, and currency exchange services apply a margin (commonly called a spread) on top of the mid-market rate, which is how they make money on currency transactions. This margin typically ranges from 1% to 4% for retail customers, though some services advertise rates closer to the mid-market rate.' },
+      { q: 'Why do exchange rates change day to day?', a: 'Exchange rates are set by supply and demand in the global forex market. The main drivers of day-to-day changes include central bank interest rate decisions and forward guidance, economic data releases such as inflation figures and employment reports, geopolitical events that affect investor confidence, and shifts in global trade flows.' },
+      { q: 'Is this suitable for large financial transactions?', a: 'No. For any transaction where the exact rate matters — large wire transfers, business invoices, property purchases, or investment decisions — obtain a firm quote directly from your bank or a regulated currency broker at the time of the transaction. The reference rates shown here may differ from the rate you actually receive, and the difference on a large sum can be significant.' },
+    ],
+    component: lazy(() => import('@/tools/currency-converter')),
+  },
+  {
+    slug: 'what-is-my-ip',
+    name: 'What Is My IP',
+    shortDescription: 'Instantly see your public IP address, browser, OS, and screen resolution.',
+    longDescription:
+      'Your public IPv4 address is detected automatically on page load via ipify.org — no button press needed. IPv6 is shown if your network supports it. Browser name, operating system, and screen resolution are detected locally in your browser with no additional request. Copy your IP with one click.',
+    seoTitle: 'What Is My IP Address? – Find Your Public IP | QuickAway',
+    seoDescription:
+      'Find your public IPv4 (and IPv6 if supported) address instantly — with the difference between public and private IPs explained, how IP detection actually works disclosed, and honest facts about IP geolocation accuracy covered.',
+    category: 'Developer Tools',
+    faq: [
+      { q: "What's the difference between my public and private IP address?", a: "Your public IP is the address the internet sees — assigned by your ISP and shared by all devices on your network. Your private IP is an internal address assigned by your router, visible only within your local network. The router uses Network Address Translation (NAT) to route traffic between your private devices and the public internet." },
+      { q: 'Does this tool store or log my IP address?', a: "QuickAway does not store, log, or process your IP address. ipify.org's server can see your IP as a technical necessity of receiving your request — the same as any website you visit. ipify.org's own privacy policy governs how they handle request data on their end." },
+      { q: 'Why does my IP address change sometimes?', a: "Most residential ISPs assign dynamic IP addresses that can change when your router restarts, when your DHCP lease expires, or during ISP network maintenance. If you need a permanently fixed address for hosting a server, a static IP add-on from your ISP or a dynamic DNS service is the right solution." },
+      { q: 'Can someone find my exact location from my IP address?', a: "No. IP-based geolocation is approximate. It can typically identify your country reliably and often your city or region — but the city it infers is frequently where your ISP's data centre is located, not where you are. It cannot determine your street address or building. Accuracy degrades further in rural areas and on mobile networks." },
+    ],
+    component: lazy(() => import('@/tools/what-is-my-ip')),
+  },
 ];

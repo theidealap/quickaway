@@ -1,0 +1,55 @@
+Add TWO new tools to the QuickAway site: Currency Converter and What Is My IP. Both require calling an external API — this is a deliberate, disclosed exception to the site's "100% client-side, nothing sent to a server" positioning used by all 30 existing tools. Handle this transparently per the requirements below.
+
+STANDARD REQUIREMENTS (same as all previous tools):
+1. Follow the exact UI/UX pattern of existing tools (hero card + secondary stat cards, same Tailwind/Radix conventions)
+2. Explicit === '' checks for any empty-field validation, never truthiness checks
+3. Mobile responsive
+4. Add both to tools-registry.ts with specific, non-templated seoDescriptions
+5. Add sitemap.xml entries (lastmod 2026-08-11, changefreq monthly, priority 0.7)
+6. Follow the established educational content pattern used on all 30 existing tools: "How it works" section, mechanics explanation, "when to use" section, and a genuine tool-specific FAQ (400-500 words total, no generic filler, all numeric/factual claims verified programmatically or against the cited source before writing)
+7. Do NOT modify any existing tool
+
+NEW REQUIREMENT — API disclosure (applies to both tools):
+- Add a small, clearly visible note directly on each tool's page (near the result, not just buried in the FAQ) stating that this specific tool fetches live data from an external source, unlike the site's other fully client-side tools
+- Add ONE sentence to the Privacy Policy (in the existing "Third-Party Services" or equivalent section) disclosing that these two tools call external APIs to fetch data, and that no personal data is sent to those APIs beyond what's inherent to the request itself (the visitor's IP is inherently visible to any server they contact, including these ones)
+- Handle API failure gracefully: if the fetch fails (network error, API down, rate limit), show a clear, friendly error message — do not let the page crash or hang silently
+
+═══════════════════════════════════
+TOOL 1 — Currency Converter
+Slug: currency-converter | Category: Converters
+
+- Use the Frankfurter API (https://api.frankfurter.dev) — no API key required, CORS-enabled, ECB-backed reference rates covering 201 currencies, updated once daily on business days
+- Inputs: Amount, From currency (searchable dropdown), To currency (searchable dropdown), swap button
+- Fetch current rate on load and on currency change; cache the result in component state for the session (don't refetch on every keystroke of the amount field — only refetch when currencies change)
+- Display clearly: "Rates as of [date from API response]" — pull the actual date from Frankfurter's response, do not hardcode or guess it
+- Output: converted amount (hero card), plus the raw exchange rate shown as a reference (e.g. "1 USD = 0.92 EUR")
+
+Content sections:
+- "How Currency Conversion Works" — explain exchange rates as a ratio, why they fluctuate (supply/demand, central bank policy, trade balances — keep brief and factual)
+- "Where These Rates Come From" — explain Frankfurter sources rates from the European Central Bank, updated once per business day (not real-time), why that's appropriate for general use but not for active trading
+- "When to Use This Converter" — travel budgeting, understanding international prices, rough invoice/quote estimates
+- FAQ (4-5 questions): "How often are the rates updated?", "Are these rates the same as what my bank will give me?" (answer honestly: no, banks add a margin/spread — explain this clearly), "Why do exchange rates change day to day?", "Is this suitable for large financial transactions?" (answer honestly: no, recommend checking with a bank/broker for anything time-sensitive or high-value)
+
+═══════════════════════════════════
+TOOL 2 — What Is My IP
+Slug: what-is-my-ip | Category: Developer Tools (or IT Tools if that category exists/is created)
+
+- Use ipify.org (https://api.ipify.org?format=json) — no API key, CORS-enabled, returns the visitor's own public IPv4 address; note if IPv6 detection is feasible via api6.ipify.org as a secondary/optional check, otherwise IPv4 only is fine
+- Fetch automatically on page load — no button press required, this is a "just show me" tool
+- Output: the IP address itself (hero card, large and copyable with one click)
+- Also detect and show (client-side, no extra API call needed): browser name, operating system, screen resolution — via navigator/screen APIs, genuinely useful complementary info that IS fully client-side
+
+Content sections:
+- "What Your Public IP Address Is" — explain the difference between public IP (what this tool shows) and private/local IP (your device's address on your home network), why they're different
+- "How This Tool Gets Your IP" — explain honestly: your browser makes a request to ipify.org, which sees the IP your request came from (the same way any website you visit can see it) and returns it to you; this is not something QuickAway stores or logs
+- "When You'd Need to Know Your IP" — troubleshooting network/router issues, setting up remote access or port forwarding, providing it to IT support, checking if a VPN is working
+- FAQ (4-5 questions): "What's the difference between my public and private IP address?", "Does this tool store or log my IP address?" (answer honestly: no — clarify what QuickAway does vs. what any website inherently sees), "Why does my IP address change sometimes?", "Can someone find my exact location from my IP address?" (answer honestly and factually — IP-based geolocation is approximate, typically city-level at best, not precise)
+
+═══════════════════════════════════
+
+After building both:
+1. Run a self-check: test with the actual API calls (not mocked) to confirm real data returns correctly, and test the error-handling path (e.g. by simulating a failed fetch) to confirm it fails gracefully
+2. Show me the full content text for both tools
+3. Show me the exact Privacy Policy addition (diff format, same as previous Privacy Policy edits)
+4. Confirm build is clean
+5. Do NOT push to GitHub yet — wait for my review
