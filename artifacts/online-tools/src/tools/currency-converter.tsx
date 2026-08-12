@@ -7,13 +7,104 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { AlertCircle, ArrowLeftRight, Copy, Info, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
+// ── Static currency names (166 currencies from ExchangeRate-API) ──────────────
+
+const CURRENCY_NAMES: Record<string, string> = {
+  AED: 'UAE Dirham', AFN: 'Afghan Afghani', ALL: 'Albanian Lek',
+  AMD: 'Armenian Dram', ANG: 'Netherlands Antillean Guilder', AOA: 'Angolan Kwanza',
+  ARS: 'Argentine Peso', AUD: 'Australian Dollar', AWG: 'Aruban Florin',
+  AZN: 'Azerbaijani Manat', BAM: 'Bosnia-Herzegovina Convertible Mark',
+  BBD: 'Barbadian Dollar', BDT: 'Bangladeshi Taka', BGN: 'Bulgarian Lev',
+  BHD: 'Bahraini Dinar', BIF: 'Burundian Franc', BMD: 'Bermudan Dollar',
+  BND: 'Brunei Dollar', BOB: 'Bolivian Boliviano', BRL: 'Brazilian Real',
+  BSD: 'Bahamian Dollar', BTN: 'Bhutanese Ngultrum', BWP: 'Botswanan Pula',
+  BYN: 'Belarusian Ruble', BZD: 'Belize Dollar', CAD: 'Canadian Dollar',
+  CDF: 'Congolese Franc', CHF: 'Swiss Franc', CLF: 'Chilean Unit of Account (UF)',
+  CLP: 'Chilean Peso', CNH: 'Chinese Yuan (Offshore)', CNY: 'Chinese Yuan',
+  COP: 'Colombian Peso', CRC: 'Costa Rican Colón', CUP: 'Cuban Peso',
+  CVE: 'Cape Verdean Escudo', CZK: 'Czech Koruna', DJF: 'Djiboutian Franc',
+  DKK: 'Danish Krone', DOP: 'Dominican Peso', DZD: 'Algerian Dinar',
+  EGP: 'Egyptian Pound', ERN: 'Eritrean Nakfa', ETB: 'Ethiopian Birr',
+  EUR: 'Euro', FJD: 'Fijian Dollar', FKP: 'Falkland Islands Pound',
+  FOK: 'Faroese Króna', GBP: 'British Pound', GEL: 'Georgian Lari',
+  GGP: 'Guernsey Pound', GHS: 'Ghanaian Cedi', GIP: 'Gibraltar Pound',
+  GMD: 'Gambian Dalasi', GNF: 'Guinean Franc', GTQ: 'Guatemalan Quetzal',
+  GYD: 'Guyanaese Dollar', HKD: 'Hong Kong Dollar', HNL: 'Honduran Lempira',
+  HRK: 'Croatian Kuna', HTG: 'Haitian Gourde', HUF: 'Hungarian Forint',
+  IDR: 'Indonesian Rupiah', ILS: 'Israeli New Shekel', IMP: 'Isle of Man Pound',
+  INR: 'Indian Rupee', IQD: 'Iraqi Dinar', IRR: 'Iranian Rial',
+  ISK: 'Icelandic Króna', JEP: 'Jersey Pound', JMD: 'Jamaican Dollar',
+  JOD: 'Jordanian Dinar', JPY: 'Japanese Yen', KES: 'Kenyan Shilling',
+  KGS: 'Kyrgystani Som', KHR: 'Cambodian Riel', KID: 'Kiribati Dollar',
+  KMF: 'Comorian Franc', KRW: 'South Korean Won', KWD: 'Kuwaiti Dinar',
+  KYD: 'Cayman Islands Dollar', KZT: 'Kazakhstani Tenge', LAK: 'Laotian Kip',
+  LBP: 'Lebanese Pound', LKR: 'Sri Lankan Rupee', LRD: 'Liberian Dollar',
+  LSL: 'Lesotho Loti', LYD: 'Libyan Dinar', MAD: 'Moroccan Dirham',
+  MDL: 'Moldovan Leu', MGA: 'Malagasy Ariary', MKD: 'Macedonian Denar',
+  MMK: 'Myanmar Kyat', MNT: 'Mongolian Tugrik', MOP: 'Macanese Pataca',
+  MRU: 'Mauritanian Ouguiya', MUR: 'Mauritian Rupee', MVR: 'Maldivian Rufiyaa',
+  MWK: 'Malawian Kwacha', MXN: 'Mexican Peso', MYR: 'Malaysian Ringgit',
+  MZN: 'Mozambican Metical', NAD: 'Namibian Dollar', NGN: 'Nigerian Naira',
+  NIO: 'Nicaraguan Córdoba', NOK: 'Norwegian Krone', NPR: 'Nepalese Rupee',
+  NZD: 'New Zealand Dollar', OMR: 'Omani Rial', PAB: 'Panamanian Balboa',
+  PEN: 'Peruvian Sol', PGK: 'Papua New Guinean Kina', PHP: 'Philippine Peso',
+  PKR: 'Pakistani Rupee', PLN: 'Polish Zloty', PYG: 'Paraguayan Guarani',
+  QAR: 'Qatari Rial', RON: 'Romanian Leu', RSD: 'Serbian Dinar',
+  RUB: 'Russian Ruble', RWF: 'Rwandan Franc', SAR: 'Saudi Riyal',
+  SBD: 'Solomon Islands Dollar', SCR: 'Seychellois Rupee', SDG: 'Sudanese Pound',
+  SEK: 'Swedish Krona', SGD: 'Singapore Dollar', SHP: 'Saint Helena Pound',
+  SLE: 'Sierra Leonean Leone', SLL: 'Sierra Leonean Leone (old)',
+  SOS: 'Somali Shilling', SRD: 'Surinamese Dollar', SSP: 'South Sudanese Pound',
+  STN: 'São Tomé and Príncipe Dobra', SYP: 'Syrian Pound', SZL: 'Swazi Lilangeni',
+  THB: 'Thai Baht', TJS: 'Tajikistani Somoni', TMT: 'Turkmenistani Manat',
+  TND: 'Tunisian Dinar', TOP: "Tongan Pa'anga", TRY: 'Turkish Lira',
+  TTD: 'Trinidad and Tobago Dollar', TVD: 'Tuvaluan Dollar',
+  TWD: 'New Taiwan Dollar', TZS: 'Tanzanian Shilling', UAH: 'Ukrainian Hryvnia',
+  UGX: 'Ugandan Shilling', USD: 'US Dollar', UYU: 'Uruguayan Peso',
+  UZS: 'Uzbekistan Som', VES: 'Venezuelan Bolívar', VND: 'Vietnamese Dong',
+  VUV: 'Vanuatu Vatu', WST: 'Samoan Tala', XAF: 'Central African CFA Franc',
+  XCD: 'East Caribbean Dollar', XCG: 'Caribbean Guilder',
+  XDR: 'Special Drawing Rights', XOF: 'West African CFA Franc',
+  XPF: 'CFP Franc', YER: 'Yemeni Rial', ZAR: 'South African Rand',
+  ZMW: 'Zambian Kwacha', ZWG: 'Zimbabwe Gold', ZWL: 'Zimbabwean Dollar',
+};
+
 // ── Types ─────────────────────────────────────────────────────────────────────
 
-interface RateResponse {
-  amount: number;
-  base: string;
-  date: string;
+interface ErApiResponse {
+  result: string;
+  base_code: string;
+  time_last_update_utc: string;
   rates: Record<string, number>;
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+/** Fetches a URL and throws on non-OK responses. Retries once after 1 s on any failure. */
+async function fetchWithRetry(url: string): Promise<Response> {
+  const attempt = async () => {
+    const r = await fetch(url);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return r;
+  };
+  try {
+    return await attempt();
+  } catch {
+    await new Promise((res) => setTimeout(res, 1000));
+    return attempt(); // second and final attempt — let it throw if it fails again
+  }
+}
+
+/** Formats the RFC-2822 date string from ExchangeRate-API into a readable date. */
+function formatRateDate(utcString: string): string {
+  try {
+    const d = new Date(utcString);
+    return d.toLocaleDateString('en-US', {
+      year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC',
+    });
+  } catch {
+    return utcString;
+  }
 }
 
 // ── Searchable currency select ─────────────────────────────────────────────────
@@ -132,19 +223,41 @@ export default function CurrencyConverter() {
   const [rateLoading, setRateLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch available currencies once on mount
+  // Cache: avoid refetching when only toCurrency changes and base hasn't changed
+  const cachedBase = useRef<string>('');
+  const cachedRates = useRef<Record<string, number>>({});
+
+  // On mount: fetch USD rates — this gives us the full currency list AND the initial rate
   useEffect(() => {
-    fetch('https://api.frankfurter.dev/v1/currencies')
-      .then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json() as Promise<Record<string, string>>;
-      })
+    fetchWithRetry('https://open.er-api.com/v6/latest/USD')
+      .then((r) => r.json() as Promise<ErApiResponse>)
       .then((data) => {
-        setCurrencies(data);
+        if (data.result !== 'success') throw new Error('API returned non-success result');
+
+        // Build sorted currency map from response codes + static names
+        const map: Record<string, string> = {};
+        Object.keys(data.rates)
+          .sort()
+          .forEach((code) => {
+            map[code] = CURRENCY_NAMES[code] ?? code;
+          });
+        setCurrencies(map);
+
+        // Cache these rates so the initial EUR rate doesn't need a second fetch
+        cachedBase.current = 'USD';
+        cachedRates.current = data.rates;
+
+        // Set the initial USD→EUR rate
+        const initialRate = data.rates['EUR'];
+        if (initialRate !== undefined) {
+          setRate(initialRate);
+          setRateDate(formatRateDate(data.time_last_update_utc));
+        }
+
         setCurrenciesLoading(false);
       })
       .catch(() => {
-        setError('Could not load the currency list. Please check your connection and refresh the page.');
+        setError('Could not load currency data. Please check your connection and refresh the page.');
         setCurrenciesLoading(false);
       });
   }, []);
@@ -161,19 +274,28 @@ export default function CurrencyConverter() {
       return;
     }
 
+    // If we already have the rates for this base currency cached, use them directly
+    if (cachedBase.current === fromCurrency && cachedRates.current[toCurrency] !== undefined) {
+      setRate(cachedRates.current[toCurrency]);
+      return;
+    }
+
     setRateLoading(true);
     setError(null);
 
-    fetch(`https://api.frankfurter.dev/v1/latest?from=${fromCurrency}&to=${toCurrency}`)
-      .then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json() as Promise<RateResponse>;
-      })
+    fetchWithRetry(`https://open.er-api.com/v6/latest/${fromCurrency}`)
+      .then((r) => r.json() as Promise<ErApiResponse>)
       .then((data) => {
+        if (data.result !== 'success') throw new Error('API returned non-success result');
         const fetchedRate = data.rates[toCurrency];
         if (fetchedRate === undefined) throw new Error('Rate not found in response');
+
+        // Update cache
+        cachedBase.current = fromCurrency;
+        cachedRates.current = data.rates;
+
         setRate(fetchedRate);
-        setRateDate(data.date);
+        setRateDate(formatRateDate(data.time_last_update_utc));
         setRateLoading(false);
       })
       .catch(() => {
@@ -223,8 +345,8 @@ export default function CurrencyConverter() {
         <span>
           <strong>Live data:</strong> Unlike most QuickAway tools that run entirely in your browser,
           this tool fetches current exchange rates from the{' '}
-          <a href="https://www.frankfurter.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Frankfurter API</a>{' '}
-          (European Central Bank reference rates). No personal data is sent.
+          <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">ExchangeRate-API</a>{' '}
+          open access endpoint (166 currencies, updated daily). No personal data is sent.
         </span>
       </div>
 
@@ -351,10 +473,8 @@ export default function CurrencyConverter() {
         <h2 className="text-base font-semibold text-foreground mb-3">Where These Rates Come From</h2>
         <p className="text-sm text-muted-foreground leading-relaxed">
           This converter fetches rates from the{' '}
-          <a href="https://www.frankfurter.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Frankfurter API</a>,
-          an open-source project that sources its data from the{' '}
-          <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">European Central Bank's official reference rates</a>.
-          The ECB publishes these rates once per business day, typically around 4:00 PM Central European Time. Rates are not published on weekends or ECB public holidays. This means the rates shown here reflect the most recent ECB business-day reference rate — they are not live, real-time market quotes. For most everyday purposes — travel budgeting, understanding a foreign invoice, or comparing international prices — this level of accuracy is entirely sufficient. For active currency trading, you would use a live feed directly from a forex broker or exchange, which reflects the mid-market rate at that exact moment.
+          <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">ExchangeRate-API</a>{' '}
+          open access endpoint, which aggregates data from multiple financial data providers and covers 166 currencies — including the Saudi Riyal (SAR), UAE Dirham (AED), Qatari Rial (QAR), Kuwaiti Dinar (KWD), and many other currencies not included in the European Central Bank's narrower reference rate set. Rates are updated approximately once every 24 hours. The "Rates as of" date shown with each result is pulled directly from the API response, so you always know exactly how current the data is. These are mid-market reference rates — not live, real-time market quotes. For most everyday purposes — travel budgeting, understanding a foreign invoice, or comparing international prices — daily reference rates are entirely sufficient. For active currency trading or large financial transactions where the exact rate at a specific moment matters, obtain a firm quote directly from your bank, payment provider, or a regulated currency broker.
         </p>
       </div>
 
@@ -371,7 +491,7 @@ export default function CurrencyConverter() {
           {[
             {
               q: 'How often are the rates updated?',
-              a: 'Rates are updated once per business day, sourced from the European Central Bank\'s daily reference rate publication. The ECB typically publishes around 4:00 PM CET on business days. Rates are not updated on weekends or ECB public holidays. The "Rates as of" date shown on every result tells you exactly which day\'s rate is being applied.',
+              a: 'Rates are updated approximately once every 24 hours by ExchangeRate-API. The "Rates as of" date shown with every result is pulled directly from the API response and tells you exactly when the current rates were last published. These are daily reference rates, not real-time market quotes — the rate you see reflects the most recent daily snapshot, which is accurate enough for budgeting, planning, and general reference.',
             },
             {
               q: 'Are these rates the same as what my bank will give me?',
